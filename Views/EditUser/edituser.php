@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Add User</title>
+    <title>Update Info</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -60,44 +60,39 @@
                 <img src="../../Resources/Images/login.png" alt="logo">
             </div>
             <div class="text-center">
-                <h4 class="mt-1 mb-4 pb-1">Add New User</h4>
+                <h4 class="mt-1 mb-4 pb-1">Update Info</h4>
             </div>
 
             <form>
 
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="email">Employee ID</label>
-                    <input type="email" id="employee_id" class="form-control" placeholder="Employee ID" />
+                    <label class="form-label" for="email">First Name</label>
+                    <input type="text" id="firstname" class="form-control" placeholder="First Name" />
                 </div>
 
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="Email address" />
+                    <label class="form-label" for="email">Last Name</label>
+                    <input type="text" id="lastname" class="form-control" placeholder="Last Name" />
                 </div>
-                <div class="row">
-                <div class="col-md-4 mb-4">
-                    <label class="form-label" for="email">Role</label>
-                    <div class="dropdown">
-                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Select Role...
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">HR Manager</a></li>
-                            <li><a class="dropdown-item" href="#">Second Manager</a></li>
-                            <li><a class="dropdown-item" href="#">General Employee</a></li>
-                        </ul>
-                    </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="email">Address</label>
+                    <input type="text" id="address" class="form-control" placeholder="Address" />
                 </div>
 
                 <div class="form-outline col-md-6 mb-4">
                     <label class="form-label" for="email">Profile Picture</label>
                     <input class="up-input" id="fileToUpload" type="file" name="fileToUpload" accept="image/*">
                 </div>
-            </div>
 
-                <div class="form-outline mb-4"> <!--- to continue enter YOUR password --->
-                    <label class="form-label" for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Password" />
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="email">Birthday</label>
+                    <input type="text" id="birthday" class="form-control" placeholder="Birthday" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="email">Mobile Number</label>
+                    <input type="text" id="mobileno" class="form-control" placeholder="Mobile Number" />
                 </div>
 
                 <div class="text-center pt-1 mb-5 pb-1">
