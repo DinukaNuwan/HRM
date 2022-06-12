@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Add User</title>
+
+    <title>Leave Request</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -54,55 +55,75 @@
 </head>
 
 <body>
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../../Resources/Images/bg.jpg" alt="" width="30" height="24">
+                HRMS
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../Login/login.php" style="width: fit-content; background-color: white;border-radius: 20px;margin: 5px;">Logout</a>
+                    </li><li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../Login/login.php" style="width: fit-content; background-color: white;border-radius: 20px;margin: 5px;">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+
     <div class="container">
         <div class="wrapper">
             <div class="logo">
-                <img src="../../Resources/Images/login.png" alt="logo">
+                <img src="../../Resources/Images/leave_req.png" alt="logo">
             </div>
             <div class="text-center">
-                <h4 class="mt-1 mb-4 pb-1">Add New User</h4>
+                <h4 class="mt-1 mb-4 pb-1">Request Leave</h4>
             </div>
 
             <form>
 
-                <div class="form-outline mb-4">
+                <!-- <div class="form-outline mb-4">
                     <label class="form-label" for="email">Employee ID</label>
-                    <input type="email" id="employee_id" class="form-control" placeholder="Employee ID" />
-                </div>
+                    <input type="text" id="employee_id" class="form-control" placeholder="Employee ID" />
+                </div> -->
 
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="Email address" />
-                </div>
                 <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <label class="form-label" for="email">Role</label>
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label" for="leave_type">Leave Type</label>
                         <div class="dropdown">
                             <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Select Role...
+                                Select Leave Type...
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">HR Manager</a></li>
-                                <li><a class="dropdown-item" href="#">Second Manager</a></li>
-                                <li><a class="dropdown-item" href="#">General Employee</a></li>
+                                <li><a class="dropdown-item" href="#">Annal</a></li>
+                                <li><a class="dropdown-item" href="#">Casual</a></li>
+                                <li><a class="dropdown-item" href="#">Maternity</a></li>
+                                <li><a class="dropdown-item" href="#">No-Pay</a></li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="form-outline col-md-6 mb-4">
-                        <label class="form-label" for="email">Profile Picture</label>
-                        <input class="up-input" id="fileToUpload" type="file" name="fileToUpload" accept="image/*">
+                        <label class="form-label" for="email">No. of Days</label>
+                        <input type="text" id="no_of_days" class="form-control" placeholder="No. of Days" />
                     </div>
                 </div>
 
                 <div class="form-outline mb-4">
-                    <!--- to continue enter YOUR password --->
-                    <label class="form-label" for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Password" />
+                    <label class="form-label" for="email">Reason</label>
+                    <textarea class="form-control" placeholder="Enter a reason for the leave" id="reason"></textarea>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="email">Status</label>
+                    <input type="text" id="status" class="form-control" placeholder="Status" />
                 </div>
 
                 <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary" type="button" style="min-width: 100%;">Add User</button>
+                    <button class="btn btn-primary" type="button" style="min-width: 100%;">Request</button>
                 </div>
             </form>
         </div>
