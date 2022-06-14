@@ -93,17 +93,13 @@
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <label class="form-label" for="leave_type">Leave Type</label>
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Select Leave Type...
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Annal</a></li>
-                                <li><a class="dropdown-item" href="#">Casual</a></li>
-                                <li><a class="dropdown-item" href="#">Maternity</a></li>
-                                <li><a class="dropdown-item" href="#">No-Pay</a></li>
-                            </ul>
-                        </div>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Select leave type...</option>
+                            <option value="annual">Annual</option>
+                            <option value="casual">Casual</option>
+                            <option value="maternity">Maternity</option>
+                            <option value="no_pay">No-pay</option>
+                        </select>
                     </div>
 
                     <div class="form-outline col-md-6 mb-4">
@@ -117,10 +113,10 @@
                     <textarea class="form-control" placeholder="Enter a reason for the leave" id="reason"></textarea>
                 </div>
 
-                <div class="form-outline mb-4">
+                <!-- <div class="form-outline mb-4">
                     <label class="form-label" for="email">Status</label>
                     <input type="text" id="status" class="form-control" placeholder="Status" />
-                </div>
+                </div> -->
 
                 <div class="text-center pt-1 mb-5 pb-1">
                     <button class="btn btn-primary" type="button" style="min-width: 100%;">Request</button>
