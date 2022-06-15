@@ -17,13 +17,9 @@
             background-size: cover;
         }
 
-        .btn {
-            min-width: 100%;
-        }
-
         .wrapper {
             max-width: 600px;
-            min-height: 400px;
+            min-height: 380px;
             margin: 50px auto;
             padding: 40px 30px 30px 30px;
             background-color: #ffffff;
@@ -49,11 +45,85 @@
             height: 100px;
             object-fit: cover;
         }
+
+        .hr_logo img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .btn {
+            width: fit-content;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 1px solid gray;
+        }
+
+        .btn:hover {
+            color: white;
+            background-image: url(../../Resources/Images/bg.jpg);
+            background-size: cover;
+        }
+
+        /* Navbar styles */
+
+        .sidenav {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidenav a {
+            /* padding: 6px 8px 6px 16px; */
+            text-decoration: none;
+            /* color: #818181; */
+            display: block;
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+            border-bottom: 1px solid gray;
+        }
+
+        .sidenav a:hover {
+            color: white;
+            background-image: url(../../Resources/Images/bg.jpg);
+            background-size: cover;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .fas {
+            margin-right: 10px;
+        }
     </style>
 
 </head>
 
 <body>
+    <div class="sidenav">
+        <div class="logo hr_logo">
+            <img src="../../Resources/Images/hrms_logo.png" alt="logo">
+        </div>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+    </div>
     <div class="container">
         <div class="wrapper">
             <div class="logo">
@@ -75,18 +145,14 @@
                     <input type="email" id="email" class="form-control" placeholder="Email address" />
                 </div>
                 <div class="row">
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-6 mb-4" style="margin: 10px 0;">
                         <label class="form-label" for="email">Role</label>
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Select Role...
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">HR Manager</a></li>
-                                <li><a class="dropdown-item" href="#">Second Manager</a></li>
-                                <li><a class="dropdown-item" href="#">General Employee</a></li>
-                            </ul>
-                        </div>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Select leave type...</option>
+                            <option value="annual">HR Manager</option>
+                            <option value="casual">Second Manager</option>
+                            <option value="maternity">General Employee</option>
+                        </select>
                     </div>
 
                     <div class="form-outline col-md-6 mb-4">
@@ -102,7 +168,7 @@
                 </div>
 
                 <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary" type="button" style="min-width: 100%;">Add User</button>
+                    <button class="btn btn-primary" type="button">Add User</button>
                 </div>
             </form>
         </div>

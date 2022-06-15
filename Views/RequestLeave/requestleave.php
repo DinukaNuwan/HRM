@@ -64,15 +64,15 @@
             object-fit: cover;
         }
 
-        .button {
+        .btn {
             width: fit-content;
             border: none;
-            padding: 10px;
+            padding: 5px 10px;
             border-radius: 20px;
             border: 1px solid gray;
         }
 
-        .button:hover {
+        .btn:hover {
             color: white;
             background-image: url(../../Resources/Images/bg.jpg);
             background-size: cover;
@@ -187,7 +187,7 @@
                 </div> -->
 
                 <div class="text-center pt-1 mb-5 pb-1">
-                    <button class=" button" type="button">Request</button>
+                    <button class="btn" type="button">Request</button>
                 </div>
             </form>
         </div>
