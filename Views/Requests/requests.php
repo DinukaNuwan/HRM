@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Update Info</title>
+    <title>Requests</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,8 +18,8 @@
         }
 
         .wrapper {
-            max-width: 600px;
-            min-height: 400px;
+            max-width: 90%;
+            min-height: 100%;
             margin: 50px auto;
             padding: 40px 30px 30px 30px;
             background-color: #ffffff;
@@ -115,55 +115,38 @@
 </head>
 
 <body>
-    <div class="sidenav">
-        <div class="logo hr_logo">
-            <img src="../../Resources/Images/hrms_logo.png" alt="logo">
-        </div>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
-    </div>
     <div class="container">
         <div class="wrapper">
-            <div class="logo">
-                <img src="../../Resources/Images/login.png" alt="logo">
-            </div>
-            <div class="text-center">
-                <h4 class="mt-1 mb-4 pb-1">Update Info</h4>
-            </div>
+            <div row>
+                <form>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="email">First Name</label>
+                        <input type="text" id="firstname" class="form-control" placeholder="First Name" />
+                    </div>
+                    <hr>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="email">Last Name</label>
+                        <input type="text" id="lastname" class="form-control" placeholder="Last Name" />
+                    </div>
 
+
+                    <div class="text-center pt-1 mb-5 pb-1">
+                        <button class="btn btn-primary" type="button">Add User</button>
+                    </div>
+                </form>
+            </div>
             <form>
 
                 <div class="form-outline mb-4">
                     <label class="form-label" for="email">First Name</label>
                     <input type="text" id="firstname" class="form-control" placeholder="First Name" />
                 </div>
-
+                <hr>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="email">Last Name</label>
                     <input type="text" id="lastname" class="form-control" placeholder="Last Name" />
                 </div>
 
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="email">Address</label>
-                    <input type="text" id="address" class="form-control" placeholder="Address" />
-                </div>
-
-                <div class="form-outline col-md-6 mb-4">
-                    <label class="form-label" for="email">Profile Picture</label>
-                    <input class="up-input" id="fileToUpload" type="file" name="fileToUpload" accept="image/*">
-                </div>
-
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="email">Birthday</label>
-                    <input type="text" id="birthday" class="form-control" placeholder="Birthday" />
-                </div>
-
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="email">Mobile Number</label>
-                    <input type="text" id="mobileno" class="form-control" placeholder="Mobile Number" />
-                </div>
 
                 <div class="text-center pt-1 mb-5 pb-1">
                     <button class="btn btn-primary" type="button">Add User</button>

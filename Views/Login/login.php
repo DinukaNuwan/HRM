@@ -20,6 +20,20 @@
             min-width: 100%;
         }
 
+        .btn {
+            width: fit-content;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 1px solid gray;
+        }
+
+        .btn:hover {
+            color: white;
+            background-image: url(../../Resources/Images/bg.jpg);
+            background-size: cover;
+        }
+
         .wrapper {
             max-width: 400px;
             min-height: 400px;
