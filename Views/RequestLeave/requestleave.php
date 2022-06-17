@@ -80,10 +80,10 @@
 
         /* Navbar styles */
 
-        .sidenav {
+        .snav {
             height: 100%;
-            width: 250px;
-            position: fixed;
+            /* width: 250px; */
+            /* position: fixed; */
             z-index: 1;
             top: 0;
             left: 0;
@@ -92,10 +92,8 @@
             padding-top: 20px;
         }
 
-        .sidenav a {
-            /* padding: 6px 8px 6px 16px; */
+        .snav a {
             text-decoration: none;
-            /* color: #818181; */
             display: block;
             text-align: center;
             margin: 20px;
@@ -103,18 +101,18 @@
             border-bottom: 1px solid gray;
         }
 
-        .sidenav a:hover {
+        .snav a:hover {
             color: white;
             background-image: url(../../Resources/Images/bg.jpg);
             background-size: cover;
         }
 
         @media screen and (max-height: 450px) {
-            .sidenav {
+            .snav {
                 padding-top: 15px;
             }
 
-            .sidenav a {
+            .snav a {
                 font-size: 18px;
             }
         }
@@ -127,69 +125,113 @@
 </head>
 
 <body>
-
-    <div class="sidenav">
-        <div class="logo hr_logo">
-            <img src="../../Resources/Images/hrms_logo.png" alt="logo">
-        </div>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
+    <div class="toggle_btn">
+        <button id="toggle">-></button>
     </div>
-    <div class="container">
-        <div class="wrapper">
-            <div class="logo">
-                <img src="../../Resources/Images/leave_req.png" alt="logo">
+    <div class="row">
+        <div id="snav_div">
+            <div id="snav" class="snav" style="display: none;">
+                <div class="logo hr_logo">
+                    <img src="../../Resources/Images/hrms_logo.png" alt="logo">
+                </div>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#clients">Clients</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="text-center">
-                <h4 class="mt-1 mb-4 pb-1">Request Leave</h4>
+        </div>
+        <div id="page_cont_div">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="logo">
+                        <img src="../../Resources/Images/leave_req.png" alt="logo">
+                    </div>
+                    <div class="text-center">
+                        <h4 class="mt-1 mb-4 pb-1">Request Leave</h4>
+                    </div>
+
+                    <form>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label" for="leave_type">Leave Type</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Select leave type...</option>
+                                    <option value="annual">Annual</option>
+                                    <option value="casual">Casual</option>
+                                    <option value="maternity">Maternity</option>
+                                    <option value="no_pay">No-pay</option>
+                                </select>
+                            </div>
+
+                            <div class="form-outline col-md-6 mb-4">
+                                <label class="form-label" for="email">No. of Days</label>
+                                <input type="text" id="no_of_days" class="form-control" placeholder="No. of Days" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-outline col-md-6 mb-4">
+                                <label class="form-label" for="email">Leave Date</label>
+                                <input type="date" id="leave_date" class="form-control" placeholder="" />
+                            </div>
+                            <div class="form-outline col-md-6 mb-4">
+                                <label class="form-label" for="email">Return Date</label>
+                                <input type="date" id="return_date" class="form-control" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="email">Reason</label>
+                            <textarea class="form-control" placeholder="Enter a reason for the leave" id="reason"></textarea>
+                        </div>
+
+                        <!-- <div class="form-outline mb-4">
+                                <label class="form-label" for="email">Status</label>
+                                <input type="text" id="status" class="form-control" placeholder="Status" />
+                            </div> -->
+
+                        <div class="text-center pt-1 mb-5 pb-1">
+                            <button class="btn" type="button">Request</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <form>
-
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <label class="form-label" for="leave_type">Leave Type</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select leave type...</option>
-                            <option value="annual">Annual</option>
-                            <option value="casual">Casual</option>
-                            <option value="maternity">Maternity</option>
-                            <option value="no_pay">No-pay</option>
-                        </select>
-                    </div>
-
-                    <div class="form-outline col-md-6 mb-4">
-                        <label class="form-label" for="email">No. of Days</label>
-                        <input type="text" id="no_of_days" class="form-control" placeholder="No. of Days" />
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-outline col-md-6 mb-4">
-                        <label class="form-label" for="email">Leave Date</label>
-                        <input type="date" id="leave_date" class="form-control" placeholder="" />
-                    </div>
-                    <div class="form-outline col-md-6 mb-4">
-                        <label class="form-label" for="email">Return Date</label>
-                        <input type="date" id="return_date" class="form-control" placeholder="" />
-                    </div>
-                </div>
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="email">Reason</label>
-                    <textarea class="form-control" placeholder="Enter a reason for the leave" id="reason"></textarea>
-                </div>
-
-                <!-- <div class="form-outline mb-4">
-                    <label class="form-label" for="email">Status</label>
-                    <input type="text" id="status" class="form-control" placeholder="Status" />
-                </div> -->
-
-                <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn" type="button">Request</button>
-                </div>
-            </form>
         </div>
     </div>
+
+
+
+    <script>
+        const targetDiv = document.getElementById("snav");
+        const btn = document.getElementById("toggle");
+        btn.onclick = function() {
+            if (targetDiv.style.display !== "none") {
+                targetDiv.style.display = "none";
+                document.getElementById("snav_div").classList.remove('col-md-2');
+                document.getElementById("page_cont_div").classList.remove('col-md-10');
+            } else {
+                targetDiv.style.display = "block";
+                document.getElementById("snav_div").classList.add('col-md-2');
+                document.getElementById("page_cont_div").classList.add('col-md-10');
+            }
+        };
+    </script>
+    <!-- <script type="text/javascript" language="javascript">
+        $(document).ready(function() {
+            $("#toggle").click(function() {
+                $("#snav").toggle('slow', function() {
+                    if (targetDiv.style.display !== "none") {
+                        targetDiv.style.display = "none";
+                        document.getElementById("snav_div").classList.remove('col-md-2');
+                        document.getElementById("page_cont_div").classList.remove('col-md-10');
+                    } else {
+                        targetDiv.style.display = "block";
+                        document.getElementById("snav_div").classList.add('col-md-2');
+                        document.getElementById("page_cont_div").classList.add('col-md-10');
+                    }
+                });
+            });
+        });
+    </script> -->
+
 </body>
