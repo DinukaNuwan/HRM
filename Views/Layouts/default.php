@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"/>
 
     <!-- title logo -->
-    <link rel="shortcut icon" href="../../Resources/Images/head_logo.png">
+    <link rel="shortcut icon" href="<?= WEBROOT ?>/Resources/Images/new_logo.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="<?= WEBROOT ?>/CSS/default.css">
@@ -31,8 +31,8 @@
         <div class="container-fluid">
 
             <!-- navbar brand -->
-            <a class="navbar-brand" href="#">
-                <img src="<?= WEBROOT ?>/Resources/Images/leave_req.png" alt="Avatar Logo" class="rounded-pill"> &nbsp;HRMS
+            <a class="navbar-brand" href="<?= WEBROOT ?>login">
+                <img src="<?= WEBROOT ?>/Resources/Images/new_logo.png" alt="Avatar Logo" class="rounded-pill"> &nbsp;HRMS
             </a>
             <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarcontent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="toggler-icon top-bar"></span>
