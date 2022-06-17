@@ -20,11 +20,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="<?= WEBROOT ?>/CSS/default.css">
     <link rel="stylesheet" href="<?= WEBROOT ?>/CSS/<?= $filename ?>.css">
+
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
+
             <!-- navbar brand -->
             <a class="navbar-brand" href="#">
                 <img src="<?= WEBROOT ?>/Resources/Images/leave_req.png" alt="Avatar Logo" class="rounded-pill"> &nbsp;HRMS
@@ -33,6 +38,7 @@
                 <span class="toggler-icon top-bar"></span>
                 <span class="toggler-icon middle-bar"></span>
                 <span class="toggler-icon bottom-bar"></span>
+
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
