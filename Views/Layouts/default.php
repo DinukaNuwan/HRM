@@ -31,7 +31,7 @@
         <div class="container-fluid">
 
             <!-- navbar brand -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="<?= WEBROOT ?>login">
                 <img src="<?= WEBROOT ?>/Resources/Images/leave_req.png" alt="Avatar Logo" class="rounded-pill"> &nbsp;HRMS
             </a>
             <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarcontent" aria-expanded="false" aria-label="Toggle navigation">

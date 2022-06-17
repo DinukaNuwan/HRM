@@ -1,7 +1,7 @@
 <div class="container">
     <div class="wrapper">
         <div class="logo">
-            <img src="<?= WEBROOT ?>/Resources/Images/adduser.png" alt="logo">
+            <img src="<?= WEBROOT ?>/Resources/Images/report.png" alt="logo">
         </div>
         <div class="text-center">
             <h4 class="mt-1 mb-4 pb-1">Reporting Module</h4>
