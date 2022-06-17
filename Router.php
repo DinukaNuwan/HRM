@@ -7,7 +7,7 @@ class Router
     {
         $url = trim($url);
 
-        if ($url == "/edsa-HRM/")
+        if ($url == "/HRM/")
         {
             $request->controller = "home";
             $request->action = "home";
