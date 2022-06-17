@@ -20,6 +20,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="<?= WEBROOT ?>/CSS/<?= $filename ?>.css">
 
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
     <!-- <style>
         body {
             padding-top: 5rem;
@@ -50,7 +53,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent width-50%">
         <div class="container-fluid">
-            <a class="navbar-brand color-primary" href="#"><img src="<?= WEBROOT ?>/Resources/Images/leave_req.png" alt="logo" height="50px" width="50px" style="margin: 5px;">HRMS</a>
+            <a class="navbar-brand color-primary" href="<?= WEBROOT ?>login"><img src="<?= WEBROOT ?>/Resources/Images/leave_req.png" alt="logo" height="50px" width="50px" style="margin: 5px;">HRMS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

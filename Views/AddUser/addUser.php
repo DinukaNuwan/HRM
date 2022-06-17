@@ -10,7 +10,7 @@
 <div class="container">
     <div class="wrapper">
         <div class="logo">
-            <img src="../../Resources/Images/login.png" alt="logo">
+            <img src="<?= WEBROOT ?>/Resources/Images/adduser.png" alt="logo">
         </div>
         <div class="text-center">
             <h4 class="mt-1 mb-4 pb-1">Add New User</h4>
