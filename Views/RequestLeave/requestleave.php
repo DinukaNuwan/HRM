@@ -1,23 +1,12 @@
 <div class="container">
     <div class="wrapper">
         <div class="logo">
-            <img src="../../Resources/Images/leave_req.png" alt="logo">
+            <img src="<?= WEBROOT ?>/Resources/Images/request.png" alt="logo">
         </div>
         <div class="text-center">
             <h4 class="mt-1 mb-4 pb-1">Request Leave</h4>
         </div>
-
-    </div>
-    <div id="page_cont_div">
-        <div class="container">
-            <div class="wrapper">
-                <div class="logo">
-                    <img src="<?= WEBROOT ?>/Resources/Images/request.png" alt="logo">
-                </div>
-                <div class="text-center">
-                    <h4 class="mt-1 mb-4 pb-1">Request Leave</h4>
-                </div>
-
+        
         <form>
 
             <div class="row">
