@@ -66,19 +66,19 @@
                 <h4 class="mt-1 mb-4 pb-1">Login</h4>
             </div>
 
-            <form>
+            <form action=<?php echo WEBROOT . "login" ?> method="post">
                 <div class="form-outline form-input mb-4" style="border-radius: 20px;">
                     <label class="form-label" for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="Email address" />
+                    <input type="email" id="email" class="form-control" placeholder="Email address" name="email"/>
                 </div>
 
                 <div class="form-outline form-input mb-4">
                     <label class="form-label" for="password">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Password" />
+                    <input type="password" id="password" class="form-control" placeholder="Password" name="password"/>
                 </div>
 
                 <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary" type="button">Log in</button>
+                    <button class="btn btn-primary" type="submit" name="login">Log in</button>
                     <br><br>
                     <a class="text-muted" href="#">Forgot password?</a>
                 </div>
