@@ -2,13 +2,21 @@
 <head>
     <meta charset="utf-8">
 
-    <title>MVC Todo</title>
+    <title><?= $filename ?></title>>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="starter-template.css" rel="stylesheet">
 
-    <style>
+    <!-- fontawesome kit -->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+    <!-- title logo -->
+    <link rel="shortcut icon" href="../../Resources/Images/hrms_logo.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="<?= WEBROOT ?>/CSS/<?= $filename ?>.css">
+
+    <!-- <style>
         body {
             padding-top: 5rem;
         }
@@ -16,7 +24,7 @@
             padding: 3rem 1.5rem;
             text-align: center;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
