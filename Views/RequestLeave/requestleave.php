@@ -43,7 +43,7 @@
             </div>
 
             <div class="text-center pt-1 mb-5 pb-1">
-                <button class="btn" type="button">Request</button>
+                <button class="btn btn-primary" type="button">Request</button>
             </div>
         </form>
     </div>

@@ -1,12 +1,3 @@
-<!-- <div class="sidenav">
-    <div class="logo hr_logo">
-        <img src="../../Resources/Images/hrms_logo.png" alt="logo">
-    </div>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a>
-</div> -->
 <div class="container">
     <div class="wrapper">
         <div class="logo">
