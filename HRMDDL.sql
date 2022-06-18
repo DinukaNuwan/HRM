@@ -1,3 +1,16 @@
+-- TODO: 'check' constraints,
+--        refactor 'default's (DONE)
+--        add 'index's (CREATE INDEX idx_lastname ON Persons (LastName);) (DONE - for emp_id)
+
+--        create 'view's for reports (CREATE VIEW [Brazil Customers] AS
+                          -- SELECT CustomerName, ContactName
+                          -- FROM Customers
+                          -- WHERE Country = 'Brazil';)
+
+--        time bound events (SO FAR NONE)
+
+--        triggers for events
+            -- -> update leave count of employee when leave_application is approved
 
 -- --------------------------------------------------------
 
@@ -35,8 +48,8 @@ CREATE TABLE `LEAVE_COUNT` (
 --
 
 CREATE TABLE `emp_marital_status` (
-  `status_id` int(11) NOT NULL,
-  `status` varchar(10) DEFAULT NULL,
+  `status_id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(10) NOT NULL,
   PRIMARY KEY (`status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -64,6 +77,13 @@ CREATE TABLE `employee` (
   PRIMARY KEY(`emp_id`),
   CONSTRAINT FK_MaritalStatus FOREIGN KEY (`marital_status`) REFERENCES `emp_marital_status`(`status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+--  Create index for emp_id
+--
+
+CREATE INDEX idx_empID ON `employee` (`emp_id`);
+
 
 -- --------------------------------------------------------
 
@@ -112,7 +132,7 @@ CREATE TABLE `emg_mobile` (
 
 CREATE TABLE `job_title` (
   `job_title_id` int(11) NOT NULL AUTO_INCREMENT,
-  `job_title` varchar(45) DEFAULT NULL,
+  `job_title` varchar(45) NOT NULL,
   PRIMARY KEY (`job_title_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -134,8 +154,8 @@ INSERT INTO `job_title` (`job_title_id`, `job_title`) VALUES
 
 CREATE TABLE `pay_grade` (
   `pay_grade_id` int(11) NOT NULL AUTO_INCREMENT,
-  `pay_grade` varchar(45) DEFAULT NULL,
-  `basic_salary` int(11) DEFAULT NULL,
+  `pay_grade` varchar(45) NOT NULL,
+  `basic_salary` int(11) NOT NULL,
   PRIMARY KEY (`pay_grade_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -156,7 +176,7 @@ INSERT INTO `pay_grade` (`pay_grade_id`, `pay_grade`, `basic_salary`) VALUES
 
 CREATE TABLE `employment_status` (
   `status_id` int(11) NOT NULL AUTO_INCREMENT,
-  `status` varchar(45) DEFAULT NULL,
+  `status` varchar(45) NOT NULL,
   PRIMARY KEY (`status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -212,7 +232,7 @@ CREATE TABLE `supervise` (
 
 CREATE TABLE `leave_application_type` (
   `leave_type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `leave_type` varchar(10) DEFAULT NULL,
+  `leave_type` varchar(10) NOT NULL,
   PRIMARY KEY (`leave_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -234,7 +254,7 @@ INSERT INTO `leave_application_type` (`leave_type_id`, `leave_type`) VALUES
 
 CREATE TABLE `leave_application_status` (
   `status_id` int(11) NOT NULL AUTO_INCREMENT,
-  `status` varchar(10) DEFAULT NULL,
+  `status` varchar(10) NOT NULL,
   PRIMARY KEY (`status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -257,6 +277,8 @@ CREATE TABLE `leave_application` (
   `application_id` int(11) NOT NULL AUTO_INCREMENT,
   `emp_id` int(11) NOT NULL,
   `leave_type` int(11) NOT NULL,
+  `from` date NOT NULL,
+  `to` date NOT NULL,
   `num_of_days` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
   `status` int(11) NOT NULL,
@@ -306,7 +328,7 @@ CREATE TABLE `payroll` (
 
 CREATE TABLE `user_role` (
   `user_role_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_role` varchar(45) DEFAULT NULL,
+  `user_role` varchar(45) NOT NULL,
   PRIMARY KEY (`user_role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
