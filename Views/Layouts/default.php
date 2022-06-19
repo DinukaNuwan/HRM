@@ -18,8 +18,8 @@
     <link rel="shortcut icon" href="<?= WEBROOT ?>/Resources/Images/new_logo.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= WEBROOT ?>/CSS/default.css">
-    <link rel="stylesheet" href="<?= WEBROOT ?>/CSS/<?= $filename ?>.css">
+    <link rel="stylesheet" href="<?= WEBROOT ?>/Public/CSS/default.css">
+    <link rel="stylesheet" href="<?= WEBROOT ?>/Public/CSS/<?= $filename ?>.css">
 
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
