@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="content" id="content" style="display: none">
+            <div class="content" id="content" style="display: none">          
                 <div class="employee" id="employee" style="display: none;">
                     <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px;border-radius: 20px;">Employee by Department</p>
                     <div class="form-outline mb-4">
@@ -42,7 +42,7 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="email">Department</label>
                             <select class="form-select" aria-label="Default select example">
-                                <option selected>Department</option>
+                                <option value="departement" selected>Department 0</option>
                                 <option value="departement">Department 1</option>
                                 <option value="departement">Department 2</option>
                                 <option value="departement">Department 3</option>
