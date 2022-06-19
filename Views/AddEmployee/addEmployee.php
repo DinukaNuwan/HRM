@@ -53,8 +53,14 @@
 
             <div class="row">
                 <div class="form-outline col-md-6 mb-4">
-                    <label class="form-label" for="job_title">Job Title</label>
-                    <input type="text" id="job_title" name="job_title" class="form-control" placeholder="Ex: Supervisor" />
+                    <label class="form-label" for="firstname">Job Title</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Select job title...</option>
+                        <option value="HR Manager">HR Manager</option>
+                        <option value="Accountant">Accountant</option>
+                        <option value="Software Engineer">Software Engineer</option>
+                        <option value="QA Engineer">QA Engineer</option>
+                    </select>
                 </div>
                 <div class="form-outline col-md-6 mb-4">
                     <label class="form-label" for="pay_grade">Pay Grade</label>
