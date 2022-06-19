@@ -351,7 +351,7 @@ INSERT INTO `user_role` (`user_role_id`, `user_role`) VALUES
 CREATE TABLE `user` (
   `emp_id` int(11) NOT NULL,
   `role` int(11) NOT NULL,
-  `usernme` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
   `password` varchar(255) NOT NULL,
   `photo` blob DEFAULT NULL,
   PRIMARY KEY (`emp_id`),
