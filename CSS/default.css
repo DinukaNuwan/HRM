@@ -18,6 +18,11 @@
         -8px -8px 15px #fff;
 }
 
+.nav-link {
+    color: black;
+    font-weight: bold;
+}
+
 .navbar {
     box-shadow: 5px 5px 20px rgb(167, 223, 255);
 }
