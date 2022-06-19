@@ -12,6 +12,7 @@
 --        triggers for events
             -- -> update leave count of employee when leave_application is approved
 
+--ALTER employee table to add email field
 -- --------------------------------------------------------
 
 --
@@ -74,6 +75,7 @@ CREATE TABLE `employee` (
   `address` varchar(255) NOT NULL,
   `date_of_birth` date NOT NULL,
   `marital_status` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
   PRIMARY KEY(`emp_id`),
   CONSTRAINT FK_MaritalStatus FOREIGN KEY (`marital_status`) REFERENCES `emp_marital_status`(`status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
