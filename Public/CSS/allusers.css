@@ -52,7 +52,7 @@ table {
 
 th,
 td {
-	text-align: center;
+	/* text-align: center; */
 	padding: 8px;
 }
 

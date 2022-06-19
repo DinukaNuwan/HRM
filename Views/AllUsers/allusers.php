@@ -9,50 +9,61 @@
 
         <div class="table" style="overflow-x:auto;">
             <table>
-                <tr>
+                <!-- <tr>
+                    <th></th>
                     <th>Employee ID</th>
                     <th>Role</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Address</th>
-                    <th>Marital Status</th>
                     <th></th>
-                </tr>
+                </tr> -->
                 <tr>
+                    <td>
+                        <div class="image mr-3">
+                            <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
+                        </div>
+                    </td>
                     <td>12345</td>
                     <td><i class="fas fa-user-cog"></i>Admin</td>
                     <td>Deshan</td>
                     <td>Lakshitha</td>
-                    <td>Moratuwa</td>
-                    <td>Unmarried</td>
-                    <td><a href="<?= WEBROOT ?>editUser"><button class="btn btn-outline-primary" type="button">Edit</button></a></td>
+                    <td><a href="<?= WEBROOT ?>editUser"><button class="btn btn-outline-primary" type="button">View</button></a></td>
                 </tr>
                 <tr>
+                    <td>
+                        <div class="image mr-3">
+                            <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
+                        </div>
+                    </td>
                     <td>12345</td>
                     <td><i class="fas fa-user-tie"></i>Second Manager</td>
                     <td>Deshan</td>
                     <td>Lakshitha</td>
-                    <td>Moratuwa</td>
-                    <td>Unmarried</td>
-                    <td><a href="<?= WEBROOT ?>editUser"><button class="btn btn-outline-primary" type="button">Edit</button></a></td>
+                    <td><a href="<?= WEBROOT ?>editUser"><button class="btn btn-outline-primary" type="button">View</button></a></td>
                 </tr>
                 <tr>
+                    <td>
+                        <div class="image mr-3">
+                            <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
+                        </div>
+                    </td>
                     <td>12345</td>
                     <td><i class="fas fa-users"></i>HR Manager</td>
                     <td>Deshan</td>
                     <td>Lakshitha</td>
-                    <td>Moratuwa</td>
-                    <td>Unmarried</td>
-                    <td><a href="<?= WEBROOT ?>editUser"><button class="btn btn-outline-primary" type="button">Edit</button></a></td>
+                    <td><a href="<?= WEBROOT ?>editUser"><button class="btn btn-outline-primary" type="button">View</button></a></td>
                 </tr>
                 <tr>
+                    <td>
+                        <div class="image mr-3">
+                            <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
+                        </div>
+                    </td>
                     <td>12345</td>
                     <td><i class="fas fa-user"></i>General Employee</td>
                     <td>Deshan</td>
                     <td>Lakshitha</td>
-                    <td>Moratuwa</td>
-                    <td>Unmarried</td>
-                    <td><a href="<?= WEBROOT ?>editUser"><button class="btn btn-outline-primary" type="button">Edit</button></a></td>
+                    <td><a href="<?= WEBROOT ?>editUser"><button class="btn btn-outline-primary" type="button">View</button></a></td>
                 </tr>
             </table>
         </div>

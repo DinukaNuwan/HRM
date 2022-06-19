@@ -18,8 +18,8 @@
     <link rel="shortcut icon" href="<?= WEBROOT ?>/Resources/Images/new_logo.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= WEBROOT ?>/CSS/default.css">
-    <link rel="stylesheet" href="<?= WEBROOT ?>/CSS/<?= $filename ?>.css">
+    <link rel="stylesheet" href="<?= WEBROOT ?>/Public/CSS/default.css">
+    <link rel="stylesheet" href="<?= WEBROOT ?>/Public/CSS/<?= $filename ?>.css">
 
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
 
             <!-- navbar brand -->
             <a class="navbar-brand" href="<?= WEBROOT ?>login">
-                <img src="<?= WEBROOT ?>/Resources/Images/new_logo.png" alt="Avatar Logo" class="rounded-pill"> &nbsp;HRMS
+                <img src="<?= WEBROOT ?>/Resources/Images/new_logo.png" alt="Avatar Logo" class="rounded-pill">&nbsp;HRMS
             </a>
             <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarcontent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="toggler-icon top-bar"></span>

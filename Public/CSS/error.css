@@ -1,0 +1,28 @@
+body {
+    background-image: url(../../Resources/Images/bg.jpg);
+    background-size: cover;
+}
+
+.btn {
+    width: 25%;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+
+.btn:hover {
+    color: white;
+    background-image: url(../../Resources/Images/bg.jpg);
+    background-size: cover;
+}
+
+.notfound_header {
+    text-align: center;
+    margin: 10px;
+}
+
+img {
+    height: 100px;
+    object-fit: cover;
+}
