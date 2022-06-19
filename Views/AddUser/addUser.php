@@ -15,8 +15,8 @@
             </div>
 
             <div class="form-outline mb-4">
-                <label class="form-label" for="email">Email</label>
-                <input type="email" id="email" class="form-control" placeholder="Email address" />
+                <label class="form-label" for="username">Username</label>
+                <input type="username" id="username" class="form-control" placeholder="Username" />
             </div>
             <div class="row">
                 <div class="col-md-6 mb-4" style="margin: 10px 0;">
