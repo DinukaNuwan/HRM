@@ -25,6 +25,7 @@
 
 .navbar {
     box-shadow: 5px 5px 20px rgb(167, 223, 255);
+    padding-top: 4px;
 }
 
 .navbar-toggler {
@@ -53,7 +54,7 @@
     position: absolute;
     height: 4px;
     width: 100%;
-    background: #130050;
+    background: #ff161e;
     border-radius: 25px;
     opacity: 1;
     left: 0;
@@ -96,4 +97,8 @@
 .navbar-toggler.collapsed .bottom-bar {
     margin-top: 20px;
     transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .toggler-icon {
+    background: #cd32fa;
 }
