@@ -58,7 +58,12 @@
                 </div>
                 <div class="form-outline col-md-6 mb-4">
                     <label class="form-label" for="firstname">Pay Grade</label>
-                    <input type="text" id="pay_grade" class="form-control" placeholder="Pay  Grade" />
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Select pay grade...</option>
+                        <option value="married">Grade 1</option>
+                        <option value="unmarried">Geade 2</option>
+                        <option value="unmarried">Geade 3</option>
+                    </select>
                 </div>
             </div>
 
