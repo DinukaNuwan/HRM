@@ -87,7 +87,7 @@
                         <div class="aspect-content">
                             <div class="aspect-info">
                                 <span class="aspect-name">
-                                <div class="second d-flex flex-row mt-2">
+                                    <div class="second d-flex flex-row mt-2">
                                         <div class="image mr-3">
                                             <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
                                         </div>
@@ -152,7 +152,7 @@
                         <div class="aspect-content">
                             <div class="aspect-info">
                                 <span class="aspect-name">
-                                <div class="second d-flex flex-row mt-2">
+                                    <div class="second d-flex flex-row mt-2">
                                         <div class="image mr-3">
                                             <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
                                         </div>
@@ -226,7 +226,7 @@
                         <div class="aspect-content">
                             <div class="aspect-info">
                                 <span class="aspect-name">
-                                <div class="second d-flex flex-row mt-2">
+                                    <div class="second d-flex flex-row mt-2">
                                         <div class="image mr-3">
                                             <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
                                         </div>
@@ -290,7 +290,7 @@
                         <div class="aspect-content">
                             <div class="aspect-info">
                                 <span class="aspect-name">
-                                <div class="second d-flex flex-row mt-2">
+                                    <div class="second d-flex flex-row mt-2">
                                         <div class="image mr-3">
                                             <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
                                         </div>
@@ -361,7 +361,8 @@
                         <label for="item-6" class="aspect-label"></label>
                         <div class="aspect-content">
                             <div class="aspect-info">
-                                <span class="aspect-name"><div class="second d-flex flex-row mt-2">
+                                <span class="aspect-name">
+                                    <div class="second d-flex flex-row mt-2">
                                         <div class="image mr-3">
                                             <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
                                         </div>
@@ -373,7 +374,8 @@
                                                 <span class="info">&nbsp;&nbsp;&nbsp;User ID: 0001, Request ID: 0001</span>
                                             </div>
                                         </div>
-                                    </div></span>
+                                    </div>
+                                </span>
                             </div>
                         </div>
                         <div class="aspect-tab-content">
@@ -424,7 +426,7 @@
                         <div class="aspect-content">
                             <div class="aspect-info">
                                 <span class="aspect-name">
-                                <div class="second d-flex flex-row mt-2">
+                                    <div class="second d-flex flex-row mt-2">
                                         <div class="image mr-3">
                                             <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
                                         </div>
@@ -488,3 +490,67 @@
         </div>
     </div>
 </div>
+
+<!-- sample for the loop -->
+<!-- <div class="aspect-tab ">
+    <input id="item-1" type="checkbox" class="aspect-input" name="aspect">
+    <label for="item-1" class="aspect-label"></label>
+    <div class="aspect-content">
+        <div class="aspect-info">
+            <span class="aspect-name">
+                <div class="second d-flex flex-row mt-2">
+                    <div class="image mr-3">
+                        <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
+                    </div>
+                    <div class="name-block">
+                        <div class="d-flex flex-row">
+                            <span class="name">&nbsp;&nbsp;1 Name of the employee</span>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <span class="info">&nbsp;&nbsp;&nbsp;User ID: 0001, Request ID: 0001</span>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="aspect-tab-content">
+        <div class="sentiment-wrapper">
+            <div class="row">
+                <form action="#" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <p class="data-title">Leave Type :
+                                <span class="data">&nbsp;No-Pay</span>
+                            </p>
+                            <p class="data-title">No. of Days :
+                                <span class="data">&nbsp;2</span>
+                            </p>
+                            <p class="data-title">Leave Date :
+                                <span class="data">&nbsp;01/07/2022</span>
+                            </p>
+                            <p class="data-title">Return Date :
+                                <span class="data">&nbsp;03/07/2022</span>
+                            </p>
+                            <p class="data-title">Reason for the leave:
+                                <span class="data">&nbsp;reason</span>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="reason">Reason</label>
+                                <textarea class="form-control" id="reason" name="reason" placeholder="Tytpe something here"></textarea>
+                            </div>
+
+                            <div class="text-center pt-1 mb-5 pb-1">
+                                <button class="btn btn-success" type="button">Accept</button>
+                                <button class="btn btn-danger" type="button">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
