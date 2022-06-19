@@ -1,9 +1,9 @@
 <?php
 
-class loginController extends Controller {
-    function login() {
-        $this->render("Login");
-
+class loginController extends Controller
+{
+    function login()
+    {
         require(ROOT . "Models/Login.php");
 
         $model = new loginModel();
@@ -13,14 +13,11 @@ class loginController extends Controller {
             $password = $_POST['password'];
             $msg = $model->authenticateUser($username, $password);
             if ($msg == 1) {
-                echo "User successfully authenticated";
-                $this->set(array('success' => "Login Successful"));
-            } else{
-                echo $msg;
-                $this->set(array('error' => $msg));
+                header('Location: allUsers');
+            } else {
+                $this->set(array("error" => $msg));
             }
         }
+        $this->render("Login");
     }
 }
-
-?>

@@ -23,6 +23,12 @@
                 <br><br>
                 <a class="text-muted" href="#">Forgot password?</a>
             </div>
+
+            <?php
+                if (isset($error)){
+                    echo '<div id="snackbar">Some text some message..</div';
+                }
+            ?>
         </form>
 
     </div>
