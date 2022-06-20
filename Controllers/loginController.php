@@ -22,6 +22,14 @@ class loginController extends Controller
                 header('Location: dashboard');
             }
         }
-        $this->render("Login");
+
+        $this->render('login');
+    }
+    private function checkEmptyFields(){
+        return empty($this->username) or empty($this->password);
+    }
+    private function checkFieldLength(){
+        $field_lengths = array('username' => 45, 'password' => 255);
+        return (strlen($this->username) > 45 || strlen($this->password) > 255);
     }
 }
