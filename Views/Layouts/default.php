@@ -43,24 +43,21 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="<?= WEBROOT ?>home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <?php
+                        if (isset($username)) {
+                        ?>
+                            <a class="nav-link" href="logout">Logout</a>
+                        <?php
+                        } else {
+                        ?>
+                            <a class="nav-link" href="login">Login</a>
+                        <?php
+                        }
+                        ?>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= WEBROOT ?>profile">
-                            <?php
-                            if (isset($photo)) {
-                            ?>
-                                <img src="<?= $photo ?>" alt="Avatar Logo" class="rounded-pill">
-                            <?php
-                            } else {
-                            ?>
-                                <img src="<?= WEBROOT ?>/Resources/Images/bg.jpg" alt="Avatar Logo" class="rounded-pill">
-                            <?php
-                            }
-                            ?>
+                            <i class="fas fa-user-alt"></i>
                         </a>
                     </li>
                 </ul>
