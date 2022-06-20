@@ -46,7 +46,7 @@
                         <a class="nav-link" href="#">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= WEBROOT ?>profile">
+                        <a class=".navbar-brand nav-link" href="<?= WEBROOT ?>profile">
                             <?php
                             if (isset($photo)) {
                             ?>

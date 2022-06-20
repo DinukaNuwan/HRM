@@ -20,7 +20,7 @@
                 <input type="username" name="username" id="username" class="form-control" placeholder="johndoe" />
                 <small>Error message</small>
             </div>
-            
+
             <div class="form-control form-outline form-input">
                 <label class="form-label" for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
@@ -40,7 +40,7 @@
                         <option selected>Select role...</option>
                         <option value="HR Manager">HR Manager</option>
                         <option value="Second Manager">Second Manager</option>
-                        <option value="General Employee">General Employee</option</>
+                        <option value="General Employee">General Employee</option< />
                     </select>
                 </div>
 

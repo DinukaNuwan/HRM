@@ -81,13 +81,21 @@ i {
     margin: 5px;
 }
 
-
 .form-control {
 	padding-bottom: 20px;
 	padding-left: 0;
 	padding-right: 0;
 	position: relative;
 	border: none;
+    background-color: #eee4f4;
+}
+
+#emp {
+    background-color: #cdedf4;
+}
+
+#emg {
+    background-color: #eddddd;
 }
 
 .form-control label {
@@ -101,8 +109,24 @@ i {
 	display: block;
 	font-family: inherit;
 	font-size: 14px;
-	padding: 10px;
+	padding: 7px;
 	width: 100%;
+    background-color: #fff;
+}
+
+.form-select {
+    margin-top: 2px;
+    border: 0px;
+}
+
+.form-select select {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+}
+
+.form-select select:focus {
+    outline: 0;
+	border-color: #777;
 }
 
 .form-control input:focus {
