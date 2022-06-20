@@ -22,13 +22,13 @@
                 <button class="btn btn-primary" type="submit" name="submit">Log in</button>
                 <br><br>
                 <a class="text-muted" href="#">Forgot password?</a>
+                <?php
+                if (isset($error)) {
+                    echo "<p>" . $error . "</p>";
+                }
+                ?>
             </div>
 
-            <?php
-                if (isset($error)){
-                    echo '<div id="snackbar">Some text some message..</div';
-                }
-            ?>
         </form>
 
     </div>
