@@ -1,6 +1,4 @@
--- TODO: 'check' constraints,
---        refactor 'default's (DONE)
---        add 'index's (CREATE INDEX idx_lastname ON Persons (LastName);) (DONE - for emp_id)
+-- TODO: 'check' constraints,ex: CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
 
 --        create 'view's for reports (CREATE VIEW [Brazil Customers] AS
                           -- SELECT CustomerName, ContactName
@@ -12,7 +10,6 @@
 --        triggers for events
             -- -> update leave count of employee when leave_application is approved
 
---ALTER employee table to add email field
 -- --------------------------------------------------------
 
 --

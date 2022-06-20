@@ -23,7 +23,7 @@ INSERT INTO `LEAVE_COUNT` (`pay_grade`, `annual`, `casual`, `no_pay`, `maternity
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`emp_id`, `firstname`, `lastname`, `address`, `date_of_birth`, `marital_status`) VALUES
+INSERT INTO `employee` (`emp_id`, `firstname`, `lastname`, `address`, `date_of_birth`, `marital_status`, `email`) VALUES
 (1, 'Akila', 'Gamage', 'Katubedda, Moratuwa', '1999-07-04', 1, 'akila@db.com'),
 (2, 'Deshan', 'Lakshitha', 'Galle', '1999-02-08', 2, 'deshan@db.com'),
 (3, 'Dinuka', 'Nuwan', 'Galle', '1999-04-30', 1,'dinuka@db.com'),
