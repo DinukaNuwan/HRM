@@ -16,40 +16,42 @@
             <h4 class="mt-1 mb-4 pb-1">Update Info</h4>
         </div>
 
-        <form>
+        <form action="#" method="POST">
 
             <div class="form-outline mb-4">
-                <label class="form-label" for="email">First Name</label>
-                <input type="text" id="firstname" class="form-control" placeholder="First Name" />
+                <label class="form-label" for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name" />
             </div>
 
             <div class="form-outline mb-4">
-                <label class="form-label" for="email">Last Name</label>
-                <input type="text" id="lastname" class="form-control" placeholder="Last Name" />
+                <label class="form-label" for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name" />
             </div>
 
             <div class="form-outline mb-4">
-                <label class="form-label" for="email">Address</label>
-                <input type="text" id="address" class="form-control" placeholder="Address" />
+                <label class="form-label" for="address">Address</label>
+                <input type="text" id="address" name="address" class="form-control" placeholder="Address" />
             </div>
 
-            <div class="form-outline col-md-6 mb-4">
-                <label class="form-label" for="email">Profile Picture</label>
-                <input class="up-input" id="fileToUpload" type="file" name="fileToUpload" accept="image/*">
+            <div class="row">
+                <div class="form-outline col-md-6 mb-4" style="margin: 10px 0;">
+                    <label class="form-label" for="birthday">Date of Birth</label>
+                    <input type="date" id="birthday" name="birthday" class="form-control" placeholder="BIrthday" />
+                </div>
+
+                <div class="form-outline col-md-6 mb-4">
+                    <label class="form-label" for="">Profile Picture</label>
+                    <input class="up-input" type="file" id="fileToUpload" name="fileToUpload" accept="image/*">
+                </div>
             </div>
 
             <div class="form-outline mb-4">
-                <label class="form-label" for="email">Birthday</label>
-                <input type="text" id="birthday" class="form-control" placeholder="Birthday" />
-            </div>
-
-            <div class="form-outline mb-4">
-                <label class="form-label" for="email">Mobile Number</label>
-                <input type="text" id="mobileno" class="form-control" placeholder="Mobile Number" />
+                <label class="form-label" for="mobile_no">Mobile Number</label>
+                <input type="text" id="moble_no" name="mobile_no" class="form-control" placeholder="Mobile Number" />
             </div>
 
             <div class="text-center pt-1 mb-5 pb-1">
-                <button class="btn btn-primary" type="button">Add User</button>
+                <button class="btn btn-primary" name="submit" type="button">Add User</button>
             </div>
         </form>
     </div>

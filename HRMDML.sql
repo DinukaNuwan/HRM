@@ -23,12 +23,12 @@ INSERT INTO `LEAVE_COUNT` (`pay_grade`, `annual`, `casual`, `no_pay`, `maternity
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`emp_id`, `firstname`, `lastname`, `address`, `date_of_birth`, `marital_status`) VALUES
-(1, 'Akila', 'Gamage', 'Katubedda, Moratuwa', '1999-07-04', 1),
-(2, 'Deshan', 'Lakshitha', 'Galle', '1999-02-08', 2),
-(3, 'Dinuka', 'Nuwan', 'Galle', '1999-04-30', 1),
-(4, 'Jalitha', 'Kalsara', 'Galle', '1999-10-25', 2),
-(5, 'Kasun', 'Isuranga', 'Hikkaduwa', '1999-01-01', 1);
+INSERT INTO `employee` (`emp_id`, `firstname`, `lastname`, `address`, `date_of_birth`, `marital_status`, `email`) VALUES
+(1, 'Akila', 'Gamage', 'Katubedda, Moratuwa', '1999-07-04', 1, 'akila@db.com'),
+(2, 'Deshan', 'Lakshitha', 'Galle', '1999-02-08', 2, 'deshan@db.com'),
+(3, 'Dinuka', 'Nuwan', 'Galle', '1999-04-30', 1,'dinuka@db.com'),
+(4, 'Jalitha', 'Kalsara', 'Galle', '1999-10-25', 2, 'jalitha@db.com'),
+(5, 'Kasun', 'Isuranga', 'Hikkaduwa', '1999-01-01', 1, 'kasun@db.com');
 
 --
 -- Dumping data for table `emp_mobile`

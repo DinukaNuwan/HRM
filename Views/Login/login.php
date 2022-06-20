@@ -1,16 +1,16 @@
 <div class="container">
     <div class="wrapper">
         <div class="logo">
-        <img src="<?= WEBROOT ?>/Resources/Images/login.png" alt="logo" height="50px" width="50px">
+            <img src="<?= WEBROOT ?>/Resources/Images/login.png" alt="logo" height="50px" width="50px">
         </div>
         <div class="text-center">
             <h4 class="mt-1 mb-4 pb-1">Login</h4>
         </div>
 
-        <form method="POST" action="<?= WEBROOT . 'login' ?>" >
+        <form method="POST" action="<?= WEBROOT . 'login' ?>">
             <div class="form-outline form-input mb-4" style="border-radius: 20px;">
-                <label class="form-label" for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Email address" />
+                <label class="form-label" for="username">Username</label>
+                <input type="username" name="username" id="username" class="form-control" placeholder="abc@email.com" />
             </div>
 
             <div class="form-outline form-input mb-4">
@@ -22,7 +22,14 @@
                 <button class="btn btn-primary" type="submit" name="submit">Log in</button>
                 <br><br>
                 <a class="text-muted" href="#">Forgot password?</a>
+                <?php
+                if (isset($error)) {
+                    echo "<p>" . $error . "</p>";
+                }
+                ?>
             </div>
+
         </form>
+
     </div>
 </div>

@@ -1,6 +1,4 @@
--- TODO: 'check' constraints,
---        refactor 'default's (DONE)
---        add 'index's (CREATE INDEX idx_lastname ON Persons (LastName);) (DONE - for emp_id)
+-- TODO: 'check' constraints,ex: CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
 
 --        create 'view's for reports (CREATE VIEW [Brazil Customers] AS
                           -- SELECT CustomerName, ContactName
@@ -74,6 +72,7 @@ CREATE TABLE `employee` (
   `address` varchar(255) NOT NULL,
   `date_of_birth` date NOT NULL,
   `marital_status` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
   PRIMARY KEY(`emp_id`),
   CONSTRAINT FK_MaritalStatus FOREIGN KEY (`marital_status`) REFERENCES `emp_marital_status`(`status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
