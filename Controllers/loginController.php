@@ -19,8 +19,7 @@ class loginController extends Controller
                 $user = $msg;
                 session_start();
                 $_SESSION['user'] = serialize($user);
-                var_dump($_SESSION['user']);
-                header('Location: home');
+                header('Location: dashboard');
             }
         }
         $this->render("Login");
