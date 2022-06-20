@@ -43,15 +43,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <?php
-                        if (isset($username)) {
-                        ?>
-                            <a class="nav-link" style="color:blueviolet;" href="">Welcome <?= $username ?>!</a>
-                        <?php
-                        }
-                        ?>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="<?= WEBROOT ?>home">Home</a>
                     </li>
                     <li class="nav-item">
