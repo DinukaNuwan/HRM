@@ -2,6 +2,12 @@
 
 class addEmployeeController extends Controller {
     function addEmployee() {
+
+        // require(ROOT . "Classes/User.php");
+        // require_once(ROOT . "Helpers/checkLogin.php");
+        // session_start();
+        // $user = unserialize($_SESSION['user']);
+        
         $this->render("AddEmployee");
 
         require(ROOT . "Models/AddEmployee.php");

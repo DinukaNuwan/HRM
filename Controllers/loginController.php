@@ -8,14 +8,17 @@ class loginController extends Controller
     function login()
     {
         require(ROOT . "Models/Login.php");
+        require(ROOT . "Classes/User.php");
+
         $data = $_POST;
+      
         $model = new loginModel();
         $this->secure_form($data);
 
         if (isset($data['submit'])) {
             $this->username = $data['username'];
             $this->password = $data['password'];
-
+          
             if ($this->checkEmptyFields()){
                 $this->errors [] = "empty_fields";
             }
@@ -24,12 +27,13 @@ class loginController extends Controller
             }
 
             $msg = $model->authenticateUser($this->username, $this->password);
-            if ($msg == 1) {
-                header('Location: allUsers');
+            if ($msg == "Incorrect Username" || $msg == "Incorrect Password") {
+                $this->set(array("error" => $msg));
             } else {
-                $this->errors [] = $msg;
-                $this->set(array("error" => $this->errors));
-//                $this->set(array("error" => $msg));
+                $user = $msg;
+                session_start();
+                $_SESSION['user'] = serialize($user);
+                header('Location: dashboard');
             }
         }
     }

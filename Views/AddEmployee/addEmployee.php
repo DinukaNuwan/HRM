@@ -7,7 +7,7 @@
             <h4 class="mt-1 mb-4 pb-1">Add New Employee</h4>
         </div>
 
-        <form method="POST" action="<?= WEBROOT . 'addEmployee' ?>">
+        <form method="POST" action="<?= WEBROOT . 'addEmployee' ?>" id="form" class="form">
 
             <div class="personal">
                 <div class="row">
@@ -100,17 +100,17 @@
                     <p><i class="fas fa-exclamation-triangle"></i>Emergency Details:</p>
                 </div>
                 <div class="row">
-                    <div class="form-outline mb-4">
+                    <div class="form-control form-outline form-input">
                         <label class="form-label" for="name">Name of the Contact Person</label>
                         <input type="text" id="emergency_name" name="emergency_name" class="form-control" placeholder="John Doe" />
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-outline col-md-6 mb-4">
+                    <div class="form-control form-outline form-input col-md-6">
                         <label class="form-label" for="relationship">Relationship With Him/her</label>
                         <input type="text" id="relationship" name="relationship" class="form-control" placeholder="Ex: Mother" />
                     </div>
-                    <div class="form-outline col-md-6 mb-4">
+                    <div class="form-control form-outline form-input col-md-6">
                         <label class="form-label" for="mobile_no">Mobile Number</label>
                         <input type="text" id="emergency_moble_no" name="emergency_mobile_no" class="form-control" placeholder="+947XXXXXXXXX" />
                     </div>
@@ -121,5 +121,8 @@
                 <button class="btn btn-primary" name="submit" type="submit">Add Employee</button>
             </div>
         </form>
+
+        <!-- <script src="<?= WEBROOT ?>Public/JavaScript/addEmployeeValidate.js" /> -->
+
     </div>
 </div>

@@ -18,13 +18,15 @@ class addUserModel extends Model{
         VALUES (:id, :r, :uname, :pw, :photo)";
 
         $statement = $this->pdo->prepare($sql);
-        return( $statement->execute(array(
+        $msg = ( $statement->execute(array(
             ':id' => $emp_id,
             ':r' => $role_id,
             ':uname' => $username,
             ':pw' => $password,
             ':photo' => $photo
         )));
+
+        return $msg;
     }
 }
 

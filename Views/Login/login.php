@@ -7,17 +7,17 @@
             <h4 class="mt-1 mb-4 pb-1">Login</h4>
         </div>
 
-        <form method="POST" action="<?= WEBROOT . 'login' ?>">
-            <div class="form-outline form-input mb-4" style="border-radius: 20px;">
+        <form method="POST" action="<?= WEBROOT . 'login' ?>" id="form" class="form" onsubmit="return checkInputs()">
+            <div class="form-control form-outline form-input">
                 <label class="form-label" for="username">Username</label>
-                <input type="username" name="username" id="username" class="form-control" placeholder="abc@email.com" />
+                <input type="username" name="username" id="username" class="form-control" placeholder="johndoe" />
+                <small>Error message</small>
             </div>
-
-            <div class="form-outline form-input mb-4">
+            <div class="form-control form-outline form-input">
                 <label class="form-label" for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
+                <small>Error message</small>
             </div>
-
             <div class="text-center pt-1 mb-5 pb-1">
                 <button class="btn btn-primary" type="submit" name="submit">Log in</button>
                 <br><br>
@@ -29,8 +29,9 @@
                 }
                 ?>
             </div>
-
         </form>
+
+        <script src="<?= WEBROOT ?>Public/JavaScript/loginValidate.js" />
 
     </div>
 </div>
