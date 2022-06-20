@@ -108,10 +108,12 @@ class addEmployeeModel extends Model{
 
         $statement = $this->pdo->prepare($sql);
 
-        $statement->execute(array(
+        $msg = $statement->execute(array(
             ':id' => $emg_id,
             ':mob' => $emg_mobile
         ));
+
+        return $msg;
 
     }
 }
