@@ -50,25 +50,12 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div class="form-outline mb-4">
-                <!--- to continue enter YOUR password --->
-                <label class="form-label" for="password">Password</label><i class='far fa-eye' style='font-size:20px; color: #174966; margin-left: 10px;float: right;' onclick="togglePwView(this)"></i>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Password"></input>
-            </div>
-
-=======
->>>>>>> dnc
             <div class="text-center pt-1 mb-5 pb-1">
                 <button class="btn btn-primary" type="submit" name="submit">Add User</button>
             </div>
         </form>
 
-<<<<<<< HEAD
-        <script src="<?= WEBROOT ?>Public/JavaScript/showHidePassword.js" />
-=======
         <script src="<?= WEBROOT ?>Public/JavaScript/addUserValidate.js" />
->>>>>>> dnc
 
     </div>
 </div>
