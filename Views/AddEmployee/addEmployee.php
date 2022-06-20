@@ -75,9 +75,9 @@
                         <label class="form-label" for="pay_grade">Pay Grade</label>
                         <select class="form-select" id="pay_grade" name="pay_grade" aria-label="Default select example">
                             <option selected>Select pay grade...</option>
-                            <option value="level">Level 1</option>
-                            <option value="level">Level 2</option>
-                            <option value="level">Level 3</option>
+                            <option value="Level 1">Level 1</option>
+                            <option value="Level 2">Level 2</option>
+                            <option value="Level 3">Level 3</option>
                         </select>
                     </div>
                     <div class="form-outline col-md-6 mb-4">

@@ -62,7 +62,7 @@ class addEmployeeModel extends Model{
         $statement->execute();
         $emp_id = $statement->fetch(PDO::FETCH_ASSOC)['emp_id'];
 
-        $sql = "INSERT INTO emploment (emp_id, job_title, pay_grade, employment_status)
+        $sql = "INSERT INTO employment (emp_id, job_title, pay_grade, employment_status)
         VALUES (:id, :jt, :pg, :es)";
 
         $statement = $this->pdo->prepare($sql);
@@ -76,13 +76,13 @@ class addEmployeeModel extends Model{
 
         //add mobile number
         $sql = "INSERT INTO emp_mobile (emp_id, mobile)
-        VALUES (:id, mob)";
+        VALUES (:id, :mob)";
 
         $statement = $this->pdo->prepare($sql);
 
         $statement->execute(array(
-            'id' => $emp_id,
-            'mob' => $mobile
+            ':id' => $emp_id,
+            ':mob' => $mobile
         ));
 
         //add emergency contact details
