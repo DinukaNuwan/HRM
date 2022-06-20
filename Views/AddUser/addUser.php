@@ -31,19 +31,22 @@
 
                 <div class="form-outline col-md-6 mb-4">
                     <label class="form-label" for="email">Profile Picture</label>
-                    <input class="up-input" id="fileToUpload" type="file" name="photo" name="fileToUpload" accept="image/*">
+                    <input class="up-input" id="photo" type="file" name="photo" accept="image/*">
                 </div>
             </div>
 
             <div class="form-outline mb-4">
                 <!--- to continue enter YOUR password --->
-                <label class="form-label" for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
+                <label class="form-label" for="password">Password</label><i class='far fa-eye' style='font-size:20px; color: #174966; margin-left: 10px;float: right;' onclick="togglePwView(this)"></i>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password"></input>
             </div>
 
             <div class="text-center pt-1 mb-5 pb-1">
                 <button class="btn btn-primary" type="submit" name="submit">Add User</button>
             </div>
         </form>
+
+        <script src="<?= WEBROOT ?>Public/JavaScript/showHidePassword.js" />
+
     </div>
 </div>
