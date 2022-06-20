@@ -2,6 +2,7 @@
 
 class addEmployeeController extends Controller {
     function addEmployee() {
+        
         $this->render("AddEmployee");
 
         require(ROOT . "Models/AddEmployee.php");

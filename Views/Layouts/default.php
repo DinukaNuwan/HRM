@@ -12,7 +12,7 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 
     <!-- title logo -->
     <link rel="shortcut icon" href="<?= WEBROOT ?>/Resources/Images/new_logo.png">
@@ -43,13 +43,34 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <?php
+                        if (isset($username)) {
+                        ?>
+                            <a class="nav-link" style="color:blueviolet;" href="">Welcome <?= $username ?>!</a>
+                        <?php
+                        }
+                        ?>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="<?= WEBROOT ?>home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="<?= WEBROOT ?>profile">
+                            <?php
+                            if (isset($photo)) {
+                            ?>
+                                <img src="<?= $photo ?>" alt="Avatar Logo" class="rounded-pill">
+                            <?php
+                            } else {
+                            ?>
+                                <img src="<?= WEBROOT ?>/Resources/Images/bg.jpg" alt="Avatar Logo" class="rounded-pill">
+                            <?php
+                            }
+                            ?>
+                        </a>
                     </li>
                 </ul>
             </div>
