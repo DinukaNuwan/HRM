@@ -24,7 +24,8 @@
                 <a class="text-muted" href="#">Forgot password?</a>
                 <?php
                 if (isset($error)) {
-                    echo "<p>" . $error . "</p>";
+                    var_dump($error);
+//                     "<p>" . $error . "</p>";
                 }
                 ?>
             </div>
