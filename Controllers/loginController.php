@@ -2,8 +2,7 @@
 
 class loginController extends Controller
 {
-    function login()
-    {
+    function login() {
         require(ROOT . "Models/Login.php");
         require(ROOT . "Classes/User.php");
 
