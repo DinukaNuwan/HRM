@@ -28,6 +28,12 @@ function checkInputs() {
   const emergencyNameValue = emergencyName.value;
   const relationshipValue = relationship.value;
   const emergencyMobleNoValue = emergencyMobleNo.value;
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+
+  today = yyyy + '-' + mm + '-' + dd;
 
   let isValid = true;
 
@@ -80,6 +86,9 @@ function checkInputs() {
   } else if (!isMobileNo(mobileNoValue)) {
     setErrorFor(mobileNo, 'Not a valid mobile number');
     isValid = false;
+  } else if (!(mobileNoValue["0"] === '0')) {
+    setErrorFor(mobileNo, 'Mobile number must start with 0');
+    isValid = false;
   } else {
     setSuccessFor(mobileNo);
   }
@@ -96,8 +105,10 @@ function checkInputs() {
   if (birthdayValue === '' || birthdayValue == null) {
     setErrorFor(birthday, 'Birthday cannot be empty');
     isValid = false;
-  //check for future dates
-  } else { 
+  } else if (birthdayValue >= today) {
+    setErrorFor(birthday, 'Mast be a past date');
+    isValid = false;
+  } else {
     setSuccessFor(birthday);
   }
 
@@ -174,8 +185,11 @@ function checkInputs() {
   } else if (emergencyMobleNoValue == mobileNoValue) {
     setErrorFor(emergencyMobleNo, 'Cannot be same as personal number');
     isValid = false;
+  } else if (!(mobileNoValue["0"] === '0')) {
+    setErrorFor(mobileNo, 'Mobile number must start with 0');
+    isValid = false;
   } else {
-    setSuccessFor(emergencyMobleNo);
+    setSuccessFor(mobileNo);
   }
 
   console.log(isValid);
