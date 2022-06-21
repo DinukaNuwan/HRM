@@ -13,6 +13,36 @@ class addUserModel extends Model{
 
         $role_id = $statement->fetch(PDO::FETCH_ASSOC)['user_role_id'];
 
+        //check emp_id is valid
+
+        $sql = "SELECT emp_id FROM employee WHERE emp_id=:id";
+
+        $statement = $this->pdo->prepare($sql);
+
+        $statement->execute(array(':id' => $emp_id));
+
+        $fetched_id = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if ($fetched_id == NULL){
+            $msg = "Invalid emp_id";
+            return $msg;
+        }
+
+        //check user acc is already exist
+        $sql = "SELECT emp_id FROM user WHERE emp_id=:id";
+
+        $statement = $this->pdo->prepare($sql);
+
+        $statement->execute(array(':id' => $emp_id));
+
+        $fetched_id = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if ($fetched_id != NULL){
+            $msg = "User Account Already Exists";
+            return $msg;
+        }
+
+
         //add new user account
         $sql = "INSERT INTO user(emp_id, role, username, password, photo) 
         VALUES (:id, :r, :uname, :pw, :photo)";
