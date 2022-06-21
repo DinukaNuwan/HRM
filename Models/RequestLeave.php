@@ -4,7 +4,9 @@ class requestLeaveModel extends Model{
 
     function makeRequest($emp_id, $leaveType, $noOfDays, $from, $to, $reason){
 
-        $sql = "INSERT INTO leave_application (emp_id, leave_type, from, to, num_of_days, reason, status) 
+        // echo $emp_id, $leaveType, $noOfDays, $from, $to, $reason;
+
+        $sql = "INSERT INTO leave_application (`emp_id`, `leave_type`, `from`, `to`, `num_of_days`, `reason`, `status`) 
         VALUES (:id, :typ, :frm, :to, :num , :reasn, :stt)";
 
         $statement = $this->pdo->prepare($sql);

@@ -3,8 +3,14 @@
 class loginController extends Controller
 {
     function login() {
-        require(ROOT . "Models/Login.php");
+
         require(ROOT . "Classes/User.php");
+        session_start();
+        if (isset($_SESSION['user'])) {
+            header('Location: dashboard');
+        }
+
+        require(ROOT . "Models/Login.php");
 
         $model = new loginModel();
 

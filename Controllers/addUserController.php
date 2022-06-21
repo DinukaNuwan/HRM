@@ -26,7 +26,7 @@ class addUserController extends Controller
             $msg = $model->addNewUser($emp_id, $username, $password, $role, $photo);
             echo $msg;
             if ($msg == 1) {
-                echo "Added user successfully";
+                header('Location: dashboard');
             }
         }
     }

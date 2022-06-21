@@ -7,17 +7,17 @@
             <h4 class="mt-1 mb-4 pb-1">Request Leave</h4>
         </div>
         
-        <form action="#" method="POST">
+        <form method="POST" action="<?= WEBROOT . 'requestleave' ?>">
 
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <label class="form-label" for="leave_type">Leave Type</label>
                     <select class="form-select" id="leave_type" name="leave_type" aria-label="Default select example">
                         <option selected>Select leave type...</option>
-                        <option value="annual">Annual</option>
-                        <option value="casual">Casual</option>
-                        <option value="maternity">Maternity</option>
-                        <option value="no_pay">No-pay</option>
+                        <option value="1">Annual</option>
+                        <option value="2">Casual</option>
+                        <option value="3">Maternity</option>
+                        <option value="4">No-pay</option>
                     </select>
                 </div>
 
@@ -43,7 +43,7 @@
             </div>
 
             <div class="text-center pt-1 mb-5 pb-1">
-                <button class="btn btn-primary" name="submit" type="button">Request</button>
+                <button class="btn btn-primary" name="submit" type="submit">Request</button>
             </div>
         </form>
     </div>
