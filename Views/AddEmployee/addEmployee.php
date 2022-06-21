@@ -41,7 +41,7 @@
                     <div class="col-md-6">
                         <div class="form-control form-outline form-input">
                             <label class="form-label" for="mobile_no">Mobile Number</label>
-                            <input type="text" id="moble_no" name="mobile_no" class="form-control" placeholder="+947XXXXXXXXX" />
+                            <input type="text" id="moble_no" name="mobile_no" class="form-control" placeholder="07XXXXXXXX" />
                             <small>Error message</small>
                         </div>
                     </div>
@@ -65,10 +65,11 @@
                         <div class="form-control form-outline form-input">
                             <label class="form-label" for="marital_status">Marital Status</label>
                             <select class="form-select" id="marital_status" name="marital_status" aria-label="Default select example">
-                                <option selected>Select marital status...</option>
+                                <option value="">select marital status...</option>
                                 <option value="married">Married</option>
                                 <option value="unmarried">Unmarried</option>
                             </select>
+                            <small>Error message</small>
                         </div>
                     </div>
                 </div>
@@ -82,13 +83,14 @@
                     <div class="col-md-6">
                         <div class="form-control form-outline form-input" id="emp">
                             <label class="form-label" for="firstname">Job Title</label>
-                            <select class="form-select" name="job_title" aria-label="Default select example">
-                                <option selected>Select job title...</option>
+                            <select class="form-select" name="job_title" id="job_title" aria-label="Default select example">
+                                <option value="">select job title...</option>
                                 <option value="HR Manager">HR Manager</option>
                                 <option value="Accountant">Accountant</option>
                                 <option value="Software Engineer">Software Engineer</option>
                                 <option value="QA Engineer">QA Engineer</option>
                             </select>
+                            <small>Error message</small>
                         </div>
                     </div>
 
@@ -96,11 +98,12 @@
                         <div class="form-control form-outline form-input" id="emp">
                             <label class="form-label" for="pay_grade">Pay Grade</label>
                             <select class="form-select" id="pay_grade" name="pay_grade" aria-label="Default select example">
-                                <option selected>Select pay grade...</option>
+                                <option value="">select pay grade...</option>
                                 <option value="Level 1">Level 1</option>
                                 <option value="Level 2">Level 2</option>
                                 <option value="Level 3">Level 3</option>
                             </select>
+                            <small>Error message</small>
                         </div>
                     </div>
 
@@ -108,7 +111,7 @@
                         <div class="form-control form-outline form-input" id="emp">
                             <label class="form-label" for="pay_grade">Employment Status</label>
                             <select class="form-select" id="emp_status" name="emp_status" aria-label="Default select example">
-                                <option selected>Select employment status...</option>
+                                <option value="">select employment status...</option>
                                 <option value="Intern-Fulltime">Intern-Fulltime</option>
                                 <option value="Intern-Parttime">Intern-Parttime</option>
                                 <option value="Contract-Fulltime">Contract-Fulltime</option>
@@ -116,6 +119,7 @@
                                 <option value="Permanent">Permanent</option>
                                 <option value="Freelance">Freelance</option>
                             </select>
+                            <small>Error message</small>
                         </div>
                     </div>
                 </div>
@@ -141,7 +145,7 @@
                     <div class="col-md-6">
                         <div class="form-control form-outline form-input" id="emg">
                             <label class="form-label" for="mobile_no">Mobile Number</label>
-                            <input type="text" id="emergency_moble_no" name="emergency_mobile_no" class="form-control" placeholder="+947XXXXXXXXX" />
+                            <input type="text" id="emergency_moble_no" name="emergency_mobile_no" class="form-control" placeholder="07XXXXXXXX" />
                             <small>Error message</small>
                         </div>
                     </div>

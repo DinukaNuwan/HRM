@@ -114,24 +114,15 @@ i {
     background-color: #fff;
 }
 
-.form-select {
-    margin-top: 2px;
-    border: 0px;
-}
-
-.form-select select {
-    border: 2px solid #f0f0f0;
+.form-control select {
+	border: 2px solid #f0f0f0;
 	border-radius: 4px;
-}
-
-.form-select select:focus {
-    outline: 0;
-	border-color: #777;
-}
-
-.form-control input:focus {
-	outline: 0;
-	border-color: #777;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	padding: 7px;
+	width: 100%;
+    background-color: #fff;
 }
 
 .form-control.success input {
@@ -139,6 +130,14 @@ i {
 }
 
 .form-control.error input {
+	border-color: #e74c3c;
+}
+
+.form-control.success select {
+	border-color: #2ecc71;
+}
+
+.form-control.error select {
 	border-color: #e74c3c;
 }
 
