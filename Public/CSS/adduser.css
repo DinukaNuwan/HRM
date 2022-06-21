@@ -16,9 +16,16 @@ body {
     border: 1px dashed #aaa;
     width: 278px;
     max-width: 100%;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 5px;
+    margin: 2px 0;
     border-radius: 5px;
+}
+.up-lable {
+    margin-bottom: 1px;
+}
+
+.dropdown {
+    padding: .375rem .75rem;
 }
 
 .logo {
@@ -52,7 +59,6 @@ body {
     background-size: cover;
 }
 
-
 .form-control {
 	padding-bottom: 20px;
 	padding-left: 0;
@@ -76,9 +82,15 @@ body {
 	width: 100%;
 }
 
-.form-control input:focus {
-	outline: 0;
-	border-color: #777;
+.form-control select {
+	border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	padding: 7px;
+	width: 100%;
+    background-color: #fff;
 }
 
 .form-control.success input {
@@ -86,6 +98,14 @@ body {
 }
 
 .form-control.error input {
+	border-color: #e74c3c;
+}
+
+.form-control.success select {
+	border-color: #2ecc71;
+}
+
+.form-control.error select {
 	border-color: #e74c3c;
 }
 
