@@ -102,3 +102,9 @@
 .navbar-toggler.collapsed .toggler-icon {
     background: #cd32fa;
 }
+
+i {
+    color: purple;
+    margin: 5px;
+    /* font-size: x-large; */
+}

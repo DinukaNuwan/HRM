@@ -1,8 +1,9 @@
 <?php
 
-class errorController extends Controller {
-    function error() {
+class logoutController extends Controller{
 
+    function logout()
+    {
         require(ROOT . "Classes/User.php");
         session_start();
         require_once("../Helpers/checkLogin.php");
@@ -11,8 +12,6 @@ class errorController extends Controller {
         $this->set(array('username' => $user->getUsername()));
         $this->set(array('role' => $user->getRole()));
         
-        $this->render("Error");
+        $this->render("logout");
     }
 }
-
-?>
