@@ -48,7 +48,7 @@ class addUserController extends Controller
 //            $msg = $model->checkExists("user", "username", $this->username);
             var_dump($this->errors);
             if ($msg == 1) {
-                echo "Added user successfully";
+                header('Location: dashboard');
             }
         }
         $this->render("AddUser");
