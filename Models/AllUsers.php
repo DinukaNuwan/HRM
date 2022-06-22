@@ -26,8 +26,6 @@
 
             $userData = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-            var_dump($userData);
-
             return $userData;
 
         
