@@ -7,13 +7,6 @@
             $numOfUsersPerPage=4;
             $to = $from + $numOfUsersPerPage;
 
-            //get num of users
-            $sql = "SELECT COUNT(emp_id) as count FROM `user`";
-            $statement = $this->pdo->prepare($sql);
-            $statement->execute(array());
-
-            $numOfUsers = $statement->fetch(PDO::FETCH_ASSOC)['count'];
-
             //users personal data
             $sql = "SELECT  emp_id, firstname, lastname, user_role, photo
                     FROM    ( SELECT    ROW_NUMBER() OVER ( ORDER BY employee.emp_id ) AS RowNum, 
@@ -33,10 +26,23 @@
 
             $userData = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-            $userData['count'] = $numOfUsers; //get 'count' variable from the array to decide the nmr of pages 
             var_dump($userData);
 
             // return $userData;
+
+        
+        }
+
+        function getUserCount(){
+
+            //get num of users
+            $sql = "SELECT COUNT(emp_id) as count FROM `user`";
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute(array());
+
+            $numOfUsers = $statement->fetch(PDO::FETCH_ASSOC)['count'];
+
+            return $numOfUsers;
 
         }
 
