@@ -4,7 +4,7 @@ body {
 }
 
 .wrapper {
-    max-width: 600px;
+    max-width: 800px;
     min-height: 400px;
     margin: 50px auto;
     padding: 40px 30px 30px 30px;
@@ -127,4 +127,39 @@ body {
 
 .profile_info {
     margin-top: 20px;
+}
+
+.role_h {
+    color: purple;
+    float: right;
+}
+
+.personal {
+    /* border-bottom: 1px solid #e3caf0; */
+    margin-bottom: 10px;
+    background-color: #eee4f4;
+    padding: 5px 10px 5px 10px;
+}
+
+.employment {
+    /* border-bottom: 1px solid #e3caf0; */
+    margin-bottom: 10px;
+    background-color: #cdedf4;
+    padding: 5px 10px 5px 10px;
+
+}
+
+.emergency {
+    background-color: #eddddd;
+    /* margin: 10px; */
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 10px;
+}
+
+p { 
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-size: larger;
+    border-left: 3px solid purple;
+    color: purple;
 }

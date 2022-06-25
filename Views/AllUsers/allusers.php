@@ -19,7 +19,12 @@
                     <tr>
                         <td>
                             <div class="image mr-3">
-                                <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
+                                <?php
+                                if ($user['photo'])
+                                    echo '<img src="data:image;base64,' . base64_encode($user['photo']) . '" alt="User image" class="rounded-circle" width="50" >';
+                                else
+                                    echo '<img src="'. WEBROOT .'/Resources/images/nopic.jpg" class="rounded-circle" width="50" />';
+                                ?>
                             </div>
                         </td>
                         <td><?= $user['emp_id'] ?></td>
