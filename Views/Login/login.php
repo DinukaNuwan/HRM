@@ -24,8 +24,21 @@
                 <a class="text-muted" href="#">Forgot password?</a>
                 <?php
                 if (isset($error)) {
-                    var_dump($error);
-//                     "<p>" . $error . "</p>";
+                ?>  
+                    <!-- Toast message to display error -->
+                    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                        <div id="liveToast" class="toast show fade" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header" style="color: crimson;">
+                                <i class="fas fa-times-circle" style="color: crimson;"></i>
+                                <strong class="me-auto">Login Failed</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                <?= $error ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php
                 }
                 ?>
             </div>

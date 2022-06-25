@@ -11,11 +11,12 @@ class profileController extends Controller {
         $this->set(array('username' => $user->getUsername()));
         $this->set(array('role' => $user->getRole()));
 
-        // require(ROOT . "Models/Profile.php");
+        require(ROOT . "Models/Profile.php");
+        $model = new profileModel();
 
-        // $model = new profileModel();
-
-        // $model->getProfile(1); (returns array of details of emp_id 1)
+        $profile_details = $model->getProfile($user->getEmpId()); //(returns array of details of emp_id 1)
+        $this->set(array('profile_details' => $profile_details));
+        // var_dump($profile_details);
 
         $this->render("Profile");
     }

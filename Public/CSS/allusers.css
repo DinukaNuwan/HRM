@@ -77,15 +77,12 @@ tr:nth-child(even) {
 	color: black;
 	padding: 8px 16px;
 	text-decoration: none;
-	border: 1px solid rgb(78, 98, 229);
 	margin: 5px;
 	color: rgb(78, 98, 229);
 }
 
 .pagination a:hover {
-	color: white;
-	background-image: url(../../Resources/Images/bg.jpg);
-	background-size: cover;
+	background: #e3caf0;
 }
 
 /* Icons */
