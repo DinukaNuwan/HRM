@@ -71,8 +71,7 @@
                         </div>
 
                         <div class="row">
-                            <label class="form-label" for="address">Address: <?= $profile_details['address'] ?></label>
-
+                            <label class="form-label mt-10" for="address">Address: <?= $profile_details['address'] ?></label>
                         </div>
 
                         <div class="row">
@@ -80,7 +79,8 @@
                                 <label class="form-label" for="birthday">Date of Birth: <?= $profile_details['date_of_birth'] ?></label>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" for="marital_status">Marital Status: <?= $profile_details['marital_status'] ?></label>
+                                <label class="form-label" for="marital_status">Marital Status: <?php if ($profile_details['marital_status'] == '1') echo 'Married';
+                                                                                                else echo 'Unmarried'; ?></label>
                             </div>
                         </div>
                     </div>
@@ -92,16 +92,19 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="form-label" for="firstname">Job Title: <?= $profile_details['job_title'] ?></label>
-
                             </div>
 
                             <div class="col-md-6">
                                 <label class="form-label" for="pay_grade">Pay Grade: <?= $profile_details['pay_grade'] ?></label>
-
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label" for="pay_grade">Employment Status: <?= $profile_details['employment_status'] ?></label>
+                                <label class="form-label" for="pay_grade">Employment Status:
+                                    <?php
+                                    $status = ['1' => 'Intern-Fulltime', '2' => 'Intern-Parttime', '3' => 'Contract-Fulltime', '4' => 'Contract-Parttime', '5' => 'Permanent', '6' => 'Freelance'];
+                                    echo $status[$profile_details['employment_status']];
+                                    ?>
+                                </label>
 
                             </div>
                         </div>
@@ -125,9 +128,21 @@
                         </div>
                     </div>
 
-                    <div class="text-center pt-1 mb-5 pb-1">
-                        <button class="btn btn-primary" name="submit" type="submit">Edit Info</button>
-                    </div>
+                    <?php
+                    if ($role != '4') {
+                    ?>
+                        <div class="text-center pt-1 mb-5 pb-1">
+                            <button class="btn btn-primary" name="submit" type="submit">Edit Info</button>
+                        </div>
+                    <?php
+                    } else {
+                    ?>
+                        <div class="text-center pt-1 mb-5 pb-1 edit_disabled">
+                            <button class="btn btn-primary" name="submit" type="submit" disabled>Edit Info</button>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
 
