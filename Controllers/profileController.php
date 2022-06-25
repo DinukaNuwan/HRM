@@ -14,10 +14,9 @@ class profileController extends Controller {
         require(ROOT . "Models/Profile.php");
         $model = new profileModel();
 
-        echo $user->getEmpId() . '<br/>';
-
         $profile_details = $model->getProfile($user->getEmpId()); //(returns array of details of emp_id 1)
-        var_dump($profile_details);
+        $this->set(array('profile_details' => $profile_details));
+        // var_dump($profile_details);
 
         $this->render("Profile");
     }

@@ -21,7 +21,7 @@ class allUsersController extends Controller {
         $this->set(array('users' => $users));
         $this->set(array('count' => $count));
         $this->set(array('no_of_pages' => $no_of_pages));
-        // echo $count;
+        // var_dump($users);
         // echo '<br/>' . $no_of_pages;
         
         $this->render("AllUsers");
