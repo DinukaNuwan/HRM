@@ -1,3 +1,7 @@
+<?php
+    $yesterday = date('Y-m-d',strtotime("-1 days"));
+?>
+
 <div class="container">
     <div class="wrapper">
         <div class="logo">
@@ -57,7 +61,7 @@
                     <div class="col-md-6">
                         <div class="form-control form-outline form-input">
                             <label class="form-label" for="birthday">Date of Birth</label>
-                            <input type="date" id="birthday" name="birthday" class="form-control" placeholder="BIrthday" />
+                            <input type="date" id="birthday" name="birthday" class="form-control"  max=<?= strval($yesterday) ?> >
                             <small>Error message</small>
                         </div>
                     </div>

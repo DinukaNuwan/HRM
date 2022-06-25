@@ -15,10 +15,14 @@ class Dispatcher {
     {
         $name = $this->request->controller . "Controller";
         $file = ROOT . 'Controllers/' . $name . '.php';
-        require($file);
+       
+        if (file_exists($file)) {
+            require($file);
+        } else {
+            header("Location: error");
+        }
+
         $controller = new $name();
         return $controller;
     }
 }
-
-?>

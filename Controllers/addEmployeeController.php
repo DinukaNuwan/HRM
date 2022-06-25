@@ -14,13 +14,12 @@ class addEmployeeController extends Controller {
         $this->set(array('role' => $user->getRole()));
         
 
-
         require(ROOT . "Models/AddEmployee.php");
 
         $this->secure_form($_POST);
 
         $model = new addEmployeeModel();
-
+        
         if (isset($_POST['submit'])) {
             $msg = '';
             var_dump($_POST['submit']);
@@ -69,6 +68,7 @@ class addEmployeeController extends Controller {
              if ($msg == 1) {
                  echo "Added employee successfully";
              }
+
         }
         $this->render("AddEmployee");
     }

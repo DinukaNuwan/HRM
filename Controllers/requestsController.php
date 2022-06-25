@@ -10,8 +10,12 @@ class requestsController extends Controller {
 
         $this->set(array('username' => $user->getUsername()));
         $this->set(array('role' => $user->getRole()));
+
+        
         
         $this->render("Requests");
+
+
     }
 }
 

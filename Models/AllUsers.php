@@ -8,13 +8,15 @@
             $to = $from + $numOfUsersPerPage;
 
             //users personal data
-            $sql = "SELECT  emp_id, firstname, lastname
-                FROM    ( SELECT    ROW_NUMBER() OVER ( ORDER BY emp_id ) AS RowNum, emp_id, firstname, lastname
-                        FROM      employee
-                        ) AS RowConstrainedResult
-                WHERE   RowNum >= :frm
+            $sql = "SELECT  emp_id, firstname, lastname, user_role, photo
+                    FROM    ( SELECT    ROW_NUMBER() OVER ( ORDER BY employee.emp_id ) AS RowNum, 
+                            employee.emp_id, firstname, lastname, user_role.user_role, user.photo
+                            FROM employee JOIN user JOIN user_role 
+                            WHERE employee.emp_id = user.emp_id AND user.role = user_role.user_role_id
+                    ) AS RowConstrainedResult
+                    WHERE   RowNum >= :frm
                     AND RowNum < :to
-                ORDER BY RowNum";
+                    ORDER BY RowNum";
             
             $statement = $this->pdo->prepare($sql);
             $statement->execute(array(
@@ -24,9 +26,21 @@
 
             $userData = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-            var_dump($userData);
+            return $userData;
 
-            // return $userData;
+        
+        }
+
+        function getUserCount(){
+
+            //get num of users
+            $sql = "SELECT COUNT(emp_id) as count FROM `user`";
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute(array());
+
+            $numOfUsers = $statement->fetch(PDO::FETCH_ASSOC)['count'];
+
+            return $numOfUsers;
 
         }
 
