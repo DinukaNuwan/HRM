@@ -57,7 +57,7 @@
                 <a href="requestLeave"><button class="btn btn-primary" name="submit" type="button">Request a Leave</button></a>
             </div>
             <div class="text-center pt-1 mb-3 pb-1">
-                <a href=""><button class="btn btn-primary" name="submit" type="button">4</button></a>
+                <a href=""><button class="btn btn-primary" name="submit" type="button">My leave requests</button></a>
             </div>
 
         <?php
