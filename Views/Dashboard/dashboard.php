@@ -17,6 +17,9 @@
                 <a href="adduser"><button class="btn btn-primary" name="submit" type="button">Add a new user</button></a>
             </div>
             <div class="text-center pt-1 mb-3 pb-1">
+                <a href="addemployee"><button class="btn btn-primary" name="submit" type="button">Add a new employee</button></a>
+            </div>
+            <div class="text-center pt-1 mb-3 pb-1">
                 <a href="allusers"><button class="btn btn-primary" name="submit" type="button">View All Users</button></a>
             </div>
         <?php

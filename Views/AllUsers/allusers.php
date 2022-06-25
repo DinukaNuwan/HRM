@@ -26,7 +26,7 @@
                         <td><i class="fas fa-user"></i><?= $user['user_role'] ?></td>
                         <td><?= $user['firstname'] ?></td>
                         <td><?= $user['lastname'] ?></td>
-                        <td><a href="<?= WEBROOT ?>editUser"><button class="btn btn-outline-primary" type="button">View</button></a></td>
+                        <td><a href="profile"><button class="btn btn-outline-primary" type="button">View</button></a></td>
                     </tr>
                 <?php
                 }
@@ -35,8 +35,16 @@
         </div>
 
         <div class="pagination">
-            <a href="">&laquo;</a>          
-            <a href="">1</a>            
+            <a href="">&laquo;</a>
+            <?php
+                if (isset($count) && isset($no_of_pages)) {
+                    for ($i = 0; $i < $no_of_pages; $i++) {
+            ?>
+                    <a href="allusers"><?= $i + 1 ?></a>
+            <?php
+                    }
+                }
+            ?>
             <a href="">&raquo;</a>
         </div>
 
