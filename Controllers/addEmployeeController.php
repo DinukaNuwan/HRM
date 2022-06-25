@@ -11,12 +11,11 @@ class addEmployeeController extends Controller {
         $this->set(array('username' => $user->getUsername()));
         $this->set(array('role' => $user->getRole()));
         
-        $this->render("AddEmployee");
-
+        
         require(ROOT . "Models/AddEmployee.php");
 
         $model = new addEmployeeModel();
-
+        
         if (isset($_POST['submit'])) {
             var_dump($_POST['submit']);
             $fname = $_POST['first_name'];
@@ -35,10 +34,11 @@ class addEmployeeController extends Controller {
             $msg = $model->addNewEmployee(
                 $fname, $lname, $email, $mobile, $address, $dob, $maritalStatus, $jobTitle, $payGrade, $empStatus, $emg_name, $emg_mobile, $emg_relationship
             );
-            // echo $msg;
-            // if ($msg == 1) {
-            //     echo "Added employee successfully";
-            // }
+            echo $msg;
+            if ($msg == 1) {
+                header('Location: dashboard');
+            }
         }
+        $this->render("AddEmployee");
     }
 }

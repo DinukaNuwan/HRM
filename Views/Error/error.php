@@ -7,7 +7,7 @@
     </div>
 
     <div class="text-center pt-1 mb-5 pb-1">
-        <button class="btn btn-primary" type="button">Go Back</button>
+        <a href=""><button class="btn btn-primary" type="button">Go Back</button></a>
     </div>
 
 </div>
