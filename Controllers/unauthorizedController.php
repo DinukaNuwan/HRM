@@ -1,8 +1,8 @@
 <?php
 
-class editUserController extends Controller {
-    function editUser() {
-        
+class unauthorizedController extends Controller {
+    function unauthorized() {
+
         require(ROOT . "Classes/User.php");
         session_start();
         require_once("../Helpers/checkLogin.php");
@@ -10,14 +10,8 @@ class editUserController extends Controller {
 
         $this->set(array('username' => $user->getUsername()));
         $this->set(array('role' => $user->getRole()));
-
-        // Authorization based on user role
-        if ($user->getRole() == '4') {
-            header('Location: unauthorized');
-        } else {
-            $this->render("EditUser");
-        }
-
+        
+        $this->render("unauthorized");
     }
 }
 
