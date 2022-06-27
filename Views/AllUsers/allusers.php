@@ -45,7 +45,7 @@
                 if (isset($count) && isset($no_of_pages)) {
                     for ($i = 0; $i < $no_of_pages; $i++) {
             ?>
-                    <a href="allusers"><?= $i + 1 ?></a>
+                    <a href="allusers/<?= $i+1 ?>"><?= $i + 1 ?></a>
             <?php
                     }
                 }
