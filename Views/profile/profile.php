@@ -1,5 +1,5 @@
 <?php
-    $yesterday = date('Y-m-d', strtotime("-1 days"));
+$yesterday = date('Y-m-d', strtotime("-1 days"));
 ?>
 
 <div class="container">
@@ -59,40 +59,45 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="form-label" for="first_name">First Name</label>
-                                <input type="text" id="first_name" name="first_name" class="form-control" placeholder="John" value="<?= $profile_details['firstname'] ?>" />
+                                <input type="text" id="first_name" name="first_name" class="form-control" placeholder="John" value="<?= $profile_details['firstname'] ?>" disabled />
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="last_name">Last Name</label>
-                                <input type="text" id="last_name" name="last_name" class="form-control" placeholder="John" value="<?= $profile_details['lastname'] ?>" />
+                                <input type="text" id="last_name" name="last_name" class="form-control" placeholder="John" value="<?= $profile_details['lastname'] ?>" disabled />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="form-label" for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" placeholder="johndoe@email.com" value="<?= $profile_details['email'] ?>" />
+                                <input type="email" id="email" name="email" class="form-control" placeholder="johndoe@email.com" value="<?= $profile_details['email'] ?>" disabled />
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="mobile_no">Mobile Number</label>
-                                <input type="text" id="moble_no" name="mobile_no" class="form-control" placeholder="07XXXXXXXX" value="...." />
+                                <input type="text" id="moble_no" name="mobile_no" class="form-control" placeholder="07XXXXXXXX" value="...." disabled />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <label class="form-label mt-10" for="address">Address</label>
-                                <input type="text" id="address" name="address" class="form-control" placeholder="Address" value="<?= $profile_details['address'] ?>" />
+                                <input type="text" id="address" name="address" class="form-control" placeholder="Address" value="<?= $profile_details['address'] ?>" disabled />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="form-label" for="birthday">Date of Birth</label>
-                                <input type="date" id="birthday" name="birthday" class="form-control" max=<?= strval($yesterday) ?> value="<?= $profile_details['date_of_birth'] ?>" />
+                                <input type="date" id="birthday" name="birthday" class="form-control" max=<?= strval($yesterday) ?> value="<?= $profile_details['date_of_birth'] ?>" disabled />
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" for="marital_status">Marital Status: <?php if ($profile_details['marital_status'] == '1') echo 'Married';
-                                                                                                else echo 'Unmarried'; ?></label>
+                                <label class="form-label" for="marital_status">Marital Status</label>
+                                <select class="form-select" id="marital_status" name="marital_status" aria-label="Default select example" disabled>
+                                    <option value=""><?php if ($profile_details['marital_status'] == '1') echo 'Married';
+                                                        else echo 'Unmarried'; ?></option>
+                                    <option value="married">Married</option>
+                                    <option value="unmarried">Unmarried</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -103,20 +108,40 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label class="form-label" for="firstname">Job Title: <?= $profile_details['job_title'] ?></label>
+                                <label class="form-label" for="firstname">Job Title</label>
+                                <select class="form-select" name="job_title" id="job_title" aria-label="Default select example" disabled>
+                                    <option value=""><?= $profile_details['job_title'] ?></option>
+                                    <option value="HR Manager">HR Manager</option>
+                                    <option value="Accountant">Accountant</option>
+                                    <option value="Software Engineer">Software Engineer</option>
+                                    <option value="QA Engineer">QA Engineer</option>
+                                </select>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label" for="pay_grade">Pay Grade: <?= $profile_details['pay_grade'] ?></label>
+                                <label class="form-label" for="pay_grade">Pay Grade</label>
+                                <select class="form-select" id="pay_grade" name="pay_grade" aria-label="Default select example" disabled>
+                                    <option value="">Level <?= $profile_details['pay_grade'] ?></option>
+                                    <option value="Level 1">Level 1</option>
+                                    <option value="Level 2">Level 2</option>
+                                    <option value="Level 3">Level 3</option>
+                                </select>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label" for="pay_grade">Employment Status:
-                                    <?php
-                                    $status = ['1' => 'Intern-Fulltime', '2' => 'Intern-Parttime', '3' => 'Contract-Fulltime', '4' => 'Contract-Parttime', '5' => 'Permanent', '6' => 'Freelance'];
-                                    echo $status[$profile_details['employment_status']];
-                                    ?>
-                                </label>
+                                <label class="form-label" for="pay_grade">Employment Status</label>
+                                <select class="form-select" id="emp_status" name="emp_status" aria-label="Default select example" disabled>
+                                    <option value=""><?php
+                                                        $status = ['1' => 'Intern-Fulltime', '2' => 'Intern-Parttime', '3' => 'Contract-Fulltime', '4' => 'Contract-Parttime', '5' => 'Permanent', '6' => 'Freelance'];
+                                                        echo $status[$profile_details['employment_status']];
+                                                        ?></option>
+                                    <option value="Intern-Fulltime">Intern-Fulltime</option>
+                                    <option value="Intern-Parttime">Intern-Parttime</option>
+                                    <option value="Contract-Fulltime">Contract-Fulltime</option>
+                                    <option value="Contract-Parttime">Contract-Parttime</option>
+                                    <option value="Permanent">Permanent</option>
+                                    <option value="Freelance">Freelance</option>
+                                </select>
 
                             </div>
                         </div>
@@ -126,16 +151,17 @@
                         <div class="row">
                             <p><i class="fas fa-exclamation-triangle"></i>Emergency Details:</p>
                         </div>
-                        <label class="form-label" for="name">Name of the Contact Person: <?= $profile_details['name'] ?></label>
+                        <label class="form-label" for="name">Name of the Contact Person</label>
+                        <input type="text" id="emergency_name" name="emergency_name" class="form-control" placeholder="John Doe" value="<?= $profile_details['name'] ?>" disabled />
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label class="form-label" for="relationship">Relationship With Him/her: <?= $profile_details['relationship'] ?></label>
-
+                                <label class="form-label" for="relationship">Relationship With Him/her</label>
+                                <input type="text" id="relationship" name="relationship" class="form-control" placeholder="Ex: Mother" value="<?= $profile_details['relationship'] ?>" disabled />
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" for="mobile_no">Mobile Number: ..............</label>
-
+                                <label class="form-label" for="mobile_no">Mobile Number</label>
+                                <input type="text" id="emergency_moble_no" name="emergency_mobile_no" class="form-control" placeholder="07XXXXXXXX" value="..." disabled />
                             </div>
                         </div>
                     </div>
@@ -287,7 +313,7 @@
                     if ($role != '4') {
                     ?>
                         <div class="text-center pt-1 mb-5 pb-1">
-                            <a href="<?= WEBROOT ?>edituser/<?= $id ?>"><button class="btn btn-primary" name="submit" type="submit">Edit Info</button></a>
+                            <button class="btn btn-primary" name="submit" type="submit">Edit Info</button>
                         </div>
                     <?php
                     } else {
