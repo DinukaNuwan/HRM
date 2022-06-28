@@ -53,7 +53,7 @@
             </div>
 
             <div class="text-center pt-1 mb-5 pb-1">
-                <button class="btn btn-primary" name="submit" type="submit">Add User</button>
+                <button class="btn btn-primary" name="submit" type="submit">Update</button>
             </div>
         </form>
 

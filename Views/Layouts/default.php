@@ -44,16 +44,16 @@
                     if (isset($username)) {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard">Dashboard</a>
+                            <a class="nav-link" href="<?= WEBROOT ?>dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout">Logout</a>
+                            <a class="nav-link" href="<?= WEBROOT ?>logout">Logout</a>
                         </li>
                     <?php
                     } else {
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
+                            <a class="nav-link" href="<?= WEBROOT ?>login">Login</a>
                         </li>
                     <?php
                     }

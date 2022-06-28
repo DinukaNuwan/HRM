@@ -1,7 +1,7 @@
 <?php
 
 class editUserController extends Controller {
-    function editUser() {
+    function editUser($params) {
         
         require(ROOT . "Classes/User.php");
         session_start();

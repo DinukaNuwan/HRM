@@ -2,7 +2,7 @@
     <div class="wrapper">
 
         <div class="text-center">
-            <h4 class="mt-1 mb-4 pb-1">My Profile</h4>
+            <h4 class="mt-1 mb-4 pb-1">Profile</h4>
         </div>
 
         <?php
@@ -132,7 +132,7 @@
                     if ($role != '4') {
                     ?>
                         <div class="text-center pt-1 mb-5 pb-1">
-                            <button class="btn btn-primary" name="submit" type="submit">Edit Info</button>
+                            <a href="<?= WEBROOT ?>edituser/<?= $id ?>"><button class="btn btn-primary" name="submit" type="submit">Edit Info</button></a>
                         </div>
                     <?php
                     } else {

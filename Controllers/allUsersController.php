@@ -2,8 +2,6 @@
 
 class allUsersController extends Controller {
     function allUsers($params) {
-        if(isset($params[0][0]))
-            var_dump($params[0][0]);
         require(ROOT . "Classes/User.php");
         session_start();
         require_once("../Helpers/checkLogin.php");
