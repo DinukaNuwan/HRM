@@ -1,3 +1,7 @@
+<?php
+    $yesterday = date('Y-m-d', strtotime("-1 days"));
+?>
+
 <div class="container">
     <div class="wrapper">
 
@@ -47,36 +51,44 @@
                 </div>
 
                 <div class="row profile_info">
+
                     <div class="personal">
                         <div class="row">
                             <p><i class="fas fa-user-shield"></i>Personal Details:</p>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label class="form-label" for="first_name">First Name: <?= $profile_details['firstname'] ?></label>
-
+                                <label class="form-label" for="first_name">First Name</label>
+                                <input type="text" id="first_name" name="first_name" class="form-control" placeholder="John" value="<?= $profile_details['firstname'] ?>" />
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label" for="last_name">Last Name: <?= $profile_details['lastname'] ?></label>
+                                <label class="form-label" for="last_name">Last Name</label>
+                                <input type="text" id="last_name" name="last_name" class="form-control" placeholder="John" value="<?= $profile_details['lastname'] ?>" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label" for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="johndoe@email.com" value="<?= $profile_details['email'] ?>" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="mobile_no">Mobile Number</label>
+                                <input type="text" id="moble_no" name="mobile_no" class="form-control" placeholder="07XXXXXXXX" value="...." />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="form-label mt-10" for="address">Address</label>
+                                <input type="text" id="address" name="address" class="form-control" placeholder="Address" value="<?= $profile_details['address'] ?>" />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label class="form-label" for="email">Email: <?= $profile_details['email'] ?></label>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label" for="mobile_no">Mobile Number: .........</label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <label class="form-label mt-10" for="address">Address: <?= $profile_details['address'] ?></label>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="form-label" for="birthday">Date of Birth: <?= $profile_details['date_of_birth'] ?></label>
+                                <label class="form-label" for="birthday">Date of Birth</label>
+                                <input type="date" id="birthday" name="birthday" class="form-control" max=<?= strval($yesterday) ?> value="<?= $profile_details['date_of_birth'] ?>" />
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="marital_status">Marital Status: <?php if ($profile_details['marital_status'] == '1') echo 'Married';
@@ -127,6 +139,149 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- <div class="personal">
+                        <div class="row">
+                            <p><i class="fas fa-user-shield"></i>Personal Details:</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input">
+                                    <label class="form-label" for="first_name">First Name</label>
+                                    <input type="text" id="first_name" name="first_name" class="form-control" placeholder="John" />
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input">
+                                    <label class="form-label" for="last_name">Last Name</label>
+                                    <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Doe" />
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="johndoe@email.com" />
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input">
+                                    <label class="form-label" for="mobile_no">Mobile Number</label>
+                                    <input type="text" id="moble_no" name="mobile_no" class="form-control" placeholder="07XXXXXXXX" />
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-control form-outline form-input">
+                            <label class="form-label" for="address">Address</label>
+                            <input type="text" id="address" name="address" class="form-control" placeholder="Address" />
+                            <small>Error message</small>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input">
+                                    <label class="form-label" for="birthday">Date of Birth</label>
+                                    <input type="date" id="birthday" name="birthday" class="form-control" max=<?= strval($yesterday) ?>>
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input">
+                                    <label class="form-label" for="marital_status">Marital Status</label>
+                                    <select class="form-select" id="marital_status" name="marital_status" aria-label="Default select example">
+                                        <option value="">select marital status...</option>
+                                        <option value="married">Married</option>
+                                        <option value="unmarried">Unmarried</option>
+                                    </select>
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="employment">
+                        <div class="row">
+                            <p><i class="fas fa-briefcase"></i>Employment Deatis:</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input" id="emp">
+                                    <label class="form-label" for="firstname">Job Title</label>
+                                    <select class="form-select" name="job_title" id="job_title" aria-label="Default select example">
+                                        <option value="">select job title...</option>
+                                        <option value="HR Manager">HR Manager</option>
+                                        <option value="Accountant">Accountant</option>
+                                        <option value="Software Engineer">Software Engineer</option>
+                                        <option value="QA Engineer">QA Engineer</option>
+                                    </select>
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input" id="emp">
+                                    <label class="form-label" for="pay_grade">Pay Grade</label>
+                                    <select class="form-select" id="pay_grade" name="pay_grade" aria-label="Default select example">
+                                        <option value="">select pay grade...</option>
+                                        <option value="Level 1">Level 1</option>
+                                        <option value="Level 2">Level 2</option>
+                                        <option value="Level 3">Level 3</option>
+                                    </select>
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input" id="emp">
+                                    <label class="form-label" for="pay_grade">Employment Status</label>
+                                    <select class="form-select" id="emp_status" name="emp_status" aria-label="Default select example">
+                                        <option value="">select employment status...</option>
+                                        <option value="Intern-Fulltime">Intern-Fulltime</option>
+                                        <option value="Intern-Parttime">Intern-Parttime</option>
+                                        <option value="Contract-Fulltime">Contract-Fulltime</option>
+                                        <option value="Contract-Parttime">Contract-Parttime</option>
+                                        <option value="Permanent">Permanent</option>
+                                        <option value="Freelance">Freelance</option>
+                                    </select>
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="emergency">
+                        <div class="row">
+                            <p><i class="fas fa-exclamation-triangle"></i>Emergency Details:</p>
+                        </div>
+                        <div class="form-control form-outline form-input" id="emg">
+                            <label class="form-label" for="name">Name of the Contact Person</label>
+                            <input type="text" id="emergency_name" name="emergency_name" class="form-control" placeholder="John Doe" />
+                            <small>Error message</small>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input" id="emg">
+                                    <label class="form-label" for="relationship">Relationship With Him/her</label>
+                                    <input type="text" id="relationship" name="relationship" class="form-control" placeholder="Ex: Mother" />
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-control form-outline form-input" id="emg">
+                                    <label class="form-label" for="mobile_no">Mobile Number</label>
+                                    <input type="text" id="emergency_moble_no" name="emergency_mobile_no" class="form-control" placeholder="07XXXXXXXX" />
+                                    <small>Error message</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
 
                     <?php
                     if ($role != '4') {
