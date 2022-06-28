@@ -160,7 +160,12 @@
                 <button class="btn btn-primary" name="submit" type="submit">Add Employee</button>
             </div>
         </form>
-
+        <?php
+        if (isset($error)) {
+            echo "error in front ";
+            var_dump($error);
+        }
+        ?>
         <script src="<?= WEBROOT ?>Public/JavaScript/addEmployeeValidate.js" />
 
     </div>
