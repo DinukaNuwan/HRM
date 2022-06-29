@@ -74,7 +74,7 @@ $yesterday = date('Y-m-d', strtotime("-1 days"));
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="mobile_no">Mobile Number</label>
-                                <input type="text" id="moble_no" name="mobile_no" class="form-control" placeholder="07XXXXXXXX" value="...." disabled />
+                                <input type="text" id="moble_no" name="mobile_no" class="form-control" placeholder="07XXXXXXXX" value="<?= $profile_details['mobile'] ?>" disabled />
                             </div>
                         </div>
 
@@ -161,7 +161,7 @@ $yesterday = date('Y-m-d', strtotime("-1 days"));
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label" for="mobile_no">Mobile Number</label>
-                                <input type="text" id="emergency_moble_no" name="emergency_mobile_no" class="form-control" placeholder="07XXXXXXXX" value="..." disabled />
+                                <input type="text" id="emergency_moble_no" name="emergency_mobile_no" class="form-control" placeholder="07XXXXXXXX" value="<?= $profile_details['emgMobile'] ?>" disabled />
                             </div>
                         </div>
                     </div>

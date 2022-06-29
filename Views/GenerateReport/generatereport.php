@@ -20,6 +20,14 @@
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="leave_select" value="no" onchange="load('leave')">
                         <label class="form-check-label" for="inlineRadio2"><i class="fas fa-calendar-check"></i>Leaves</label>
                     </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="leave_select" value="no" onchange="load('customOne')">
+                        <label class="form-check-label" for="inlineRadio2"><i class="fas fa-calendar-check"></i>custom 1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="leave_select" value="no" onchange="load('customTwo')">
+                        <label class="form-check-label" for="inlineRadio2"><i class="fas fa-calendar-check"></i>custom 2</label>
+                    </div>
                 </div>
             </div>
 
