@@ -23,7 +23,7 @@
                                 if ($user['photo'])
                                     echo '<img src="data:image;base64,' . base64_encode($user['photo']) . '" alt="User image" class="rounded-circle" width="50" >';
                                 else
-                                    echo '<img src="'. WEBROOT .'/Resources/images/nopic.jpg" class="rounded-circle" width="50" />';
+                                    echo '<img src="' . WEBROOT . '/Resources/images/nopic.jpg" class="rounded-circle" width="50" />';
                                 ?>
                             </div>
                         </td>
@@ -31,7 +31,7 @@
                         <td><i class="fas fa-user"></i><?= $user['user_role'] ?></td>
                         <td><?= $user['firstname'] ?></td>
                         <td><?= $user['lastname'] ?></td>
-                        <td><a href="profile"><button class="btn btn-outline-primary" type="button">View</button></a></td>
+                        <td><a href="<?= WEBROOT . 'profile/' . $user['emp_id'] ?>"><button class="btn btn-outline-primary" type="button">View</button></a></td>
                     </tr>
                 <?php
                 }
@@ -45,7 +45,7 @@
                 if (isset($count) && isset($no_of_pages)) {
                     for ($i = 0; $i < $no_of_pages; $i++) {
             ?>
-                    <a href="allusers"><?= $i + 1 ?></a>
+                    <a href="<?= WEBROOT . 'allusers/' . $i+1 ?>"><?= $i + 1 ?></a>
             <?php
                     }
                 }

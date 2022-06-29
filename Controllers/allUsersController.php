@@ -1,7 +1,7 @@
 <?php
 
 class allUsersController extends Controller {
-    function allUsers() {
+    function allUsers($params) {
         require(ROOT . "Classes/User.php");
         session_start();
         require_once("../Helpers/checkLogin.php");
@@ -14,7 +14,11 @@ class allUsersController extends Controller {
         require(ROOT . "Models/AllUsers.php");
         $model = new allUsersModel();
 
-        $page_no = 1;   // Change to $_GET['page_no']
+        if(isset($params[0][0]) && $params[0][0] != '')
+            $page_no = $params[0][0];   // Change to get page_no
+        else
+            $page_no = '1';
+
         $users = $model->getUsers($page_no);   // Returns the user details of 4 users for the page 2 
         $count = $model->getUserCount();
         $no_of_pages = ceil($count/4);

@@ -1,5 +1,5 @@
 <?php
-    $yesterday = date('Y-m-d',strtotime("-1 days"));
+$yesterday = date('Y-m-d', strtotime("-1 days"));
 ?>
 
 <div class="container">
@@ -61,7 +61,7 @@
                     <div class="col-md-6">
                         <div class="form-control form-outline form-input">
                             <label class="form-label" for="birthday">Date of Birth</label>
-                            <input type="date" id="birthday" name="birthday" class="form-control"  max=<?= strval($yesterday) ?> >
+                            <input type="date" id="birthday" name="birthday" class="form-control" max=<?= strval($yesterday) ?>>
                             <small>Error message</small>
                         </div>
                     </div>
@@ -166,6 +166,27 @@
             var_dump($error);
         }
         ?>
+
+        <?php
+        if (isset($success)) {
+        ?>
+            <!-- Toast message to display error -->
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div id="liveToast" class="toast show fade" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header" style="color: green;">
+                        <i class="fas fa-check-circle" style="color: green;"></i>
+                        <strong class="me-auto">Success</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <?= $success ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+
         <script src="<?= WEBROOT ?>Public/JavaScript/addEmployeeValidate.js" />
 
     </div>

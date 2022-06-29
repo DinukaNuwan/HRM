@@ -1,7 +1,7 @@
 <?php
 
 class profileController extends Controller {
-    function profile() {
+    function profile($params) {
 
         require(ROOT . "Classes/User.php");
         session_start();
@@ -14,7 +14,13 @@ class profileController extends Controller {
         require(ROOT . "Models/Profile.php");
         $model = new profileModel();
 
-        $profile_details = $model->getProfile($user->getEmpId()); //(returns array of details of emp_id 1)
+        if(isset($params[0][0]) && $params[0][0] != '')
+            $id = $params[0][0];
+        else
+            $id = $user->getEmpId();
+        $this->set(array('id' => $id));
+
+        $profile_details = $model->getProfile($id); //(returns array of details of emp_id 1)
         $this->set(array('profile_details' => $profile_details));
         // var_dump($profile_details);
 
