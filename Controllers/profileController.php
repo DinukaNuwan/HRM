@@ -20,9 +20,13 @@ class profileController extends Controller {
             $id = $user->getEmpId();
         $this->set(array('id' => $id));
 
-        $profile_details = $model->getProfile($id); //(returns array of details of emp_id 1)
-        $this->set(array('profile_details' => $profile_details));
-        // var_dump($profile_details);
+        $profile_details = $model->getProfile($id); //(returns array of details of given emp_id)
+        // $profile_details = 0; //(returns array of details of given emp_id)
+
+        if ($profile_details){
+            $this->set(array('profile_details' => $profile_details));
+            // var_dump($profile_details);
+        }
 
         $this->render("Profile");
     }
