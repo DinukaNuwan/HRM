@@ -43,11 +43,11 @@ body {
 }
 
 .form-control {
-	padding-left: 10px;
+    padding-bottom: 20px;
+	padding-left: 0;
 	padding-right: 0;
 	position: relative;
 	border: none;
-	background-color: #eee4f4;
 }
 
 .form-control label {
@@ -123,6 +123,10 @@ p {
 i {
     color: purple;
     margin: 5px;
+}
+
+#hr {
+	background-color: #eee4f4;
 }
 
 #scnd {
