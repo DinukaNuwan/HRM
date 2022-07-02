@@ -39,7 +39,7 @@ class requestsModel extends Model{
             $msg = ( $statement->execute(array(
                 ':sup_id' => $emp_id)));
 
-            return $msg;
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
 
         }
         
@@ -57,15 +57,14 @@ class requestsModel extends Model{
         return $msg;
     }
 
-    function rejectLeave($req_id, $feedback){
+    function rejectLeave($req_id){
         
         $sql = "UPDATE leave_application SET 
-        status = 3, feedback = :fb 
+        status = 3
         WHERE application_id = :id";
 
         $statement = $this->pdo->prepare($sql);
         $msg = ( $statement->execute(array(
-            ':fb' => $feedback,
             ':id' => $req_id)));
 
         return $msg;

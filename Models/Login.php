@@ -34,7 +34,8 @@ class loginModel extends Model
             $res = $statement->fetch(PDO::FETCH_ASSOC);
             
             if ($res) {
-                return new User($res['emp_id'], $res['role'], $res['username'], $res['photo']);
+                $is_supervisor = $this->isSupervisor($res['emp_id']);
+                return new User($res['emp_id'], $res['role'], $res['username'], $res['photo'], $is_supervisor);
             }
         } else {
             return $msg;
