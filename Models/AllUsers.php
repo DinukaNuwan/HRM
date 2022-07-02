@@ -44,6 +44,24 @@
 
         }
 
+        function hasSupervisor($emp_id){
+
+            $sql = " SELECT employee.firstname FROM employee JOIN supervise JOIN employee as e 
+            WHERE employee.emp_id = supervise.supervisor_id and e.emp_id = :id AND e.emp_id = supervise.subordinate_id";
+
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute(array(':id' => $emp_id));
+
+            $supervisor_name = $statement->fetch(PDO::FETCH_ASSOC);
+
+            if($supervisor_name == null){
+                return false;
+            }
+
+            return $supervisor_name['firstname'];
+
+        }
+
 
     }
 
