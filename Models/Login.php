@@ -40,4 +40,23 @@ class loginModel extends Model
             return $msg;
         }
     }
+
+    function isSupervisor($emp_id){
+
+        $sql = "SELECT supervisor_id FROM `supervise` WHERE supervisor_id = :id";
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(array(
+            ':id' => $emp_id
+        ));
+
+        $id = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if ($id === false) {
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }
