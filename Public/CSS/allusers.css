@@ -91,3 +91,13 @@ i {
 	color: rgb(78, 98, 229);
 
 }
+
+.no_res {
+    width: fit-content;
+    background-color: #e3caf0;
+	text-align: center;
+	margin: auto;
+	color: crimson;
+	padding: 10px;
+	border-radius: 20px;
+}
