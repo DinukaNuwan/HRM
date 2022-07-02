@@ -1,8 +1,10 @@
 <?php
 
-class myRequestsModel extends Model{
+class myRequestsModel extends Model
+{
 
-    function getRequests($emp_id){
+    function getRequests($emp_id)
+    {
 
         //shows requests of himself
         $sql = "SELECT leave_application.emp_id, employee.firstname, employee.lastname,
@@ -16,11 +18,10 @@ class myRequestsModel extends Model{
         AND `employee`.`emp_id` = :id";
 
         $statement = $this->pdo->prepare($sql);
-        $msg = ( $statement->execute(array(
-            ':id' => $emp_id)));
+        $msg = ($statement->execute(array(
+            ':id' => $emp_id
+        )));
 
-        return $msg;
-        
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-
