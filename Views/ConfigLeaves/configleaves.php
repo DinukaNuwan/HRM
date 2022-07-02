@@ -1,3 +1,7 @@
+
+<?php
+if (isset($level_1) && isset($level_2) && isset($level_3)) {
+?>
 <div class="container">
     <div class="wrapper">
         <div class="logo">
@@ -8,53 +12,67 @@
         </div>
 
         <form method="POST" action="<?= WEBROOT . 'configleaves' ?>" id="form" class="form" onsubmit="return checkInputs()">
-
             <div class="hr">
                 <div class="row">
                     <p><i class="fas fa-user-shield"></i>HR Manager:</p>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id='hr'>
-                            <label class="form-label" for="hr_anual">Annual</label>
-                            <input disabled type="text" id="hr_anual" name="hr_anual" class="form-control td-value" value="10" />
-                            <small>Error message</small>
+
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id='hr'>
+                                <label class="form-label" for="anual">Annual</label>
+                                <input disabled type="text" id="anual" name="hr-annual" class="form-control td-value" value="<?= $level_1[0]['annual'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id='hr'>
-                            <label class="form-label" for="hr_casual">Casual</label>
-                            <input disabled type="text" id="hr_casual" name="hr_casual" class="form-control td-value" value="10" />
-                            <small>Error message</small>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id='hr'>
-                            <label class="form-label" for="hr_no_pay">No-pay</label>
-                            <input disabled type="text" id="hr_no_pay" name="hr_no_pay" class="form-control td-value" value="10" />
-                            <small>Error message</small>
-                        </div>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id='hr'>
+                                <label class="form-label" for="casual">Casual</label>
+                                <input disabled type="text" id="casual" name="hr-casual" class="form-control td-value" value="<?= $level_1[0]['casual'] ?>" />
+                                <small>Error message</small>
+                            </div>
 
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id='hr'>
-                            <label class="form-label" for="hr_maternity">Maternity</label>
-                            <input disabled type="text" id="hr_maternity" name="hr_maternity" class="form-control td-value" value="10" />
-                            <small>Error message</small>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id='hr'>
-                            <label class="form-label" for="hr_m_no_pay">Mandatory no pay</label>
-                            <input disabled type="text" id="hr_m_no_pay" name="hr_m_no_pay" class="form-control td-value" value="10" />
-                            <small>Error message</small>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id='hr'>
+                                <label class="form-label" for="no_pay">No-pay</label>
+                                <input disabled type="text" id="no_pay" name="hr-no_pay" class="form-control td-value" value="<?= $level_1[0]['no_pay'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id='hr'>
+                                <label class="form-label" for="maternity">Maternity</label>
+                                <input disabled type="text" id="maternity" name="hr-maternity" class="form-control td-value" value="<?= $level_1[0]['maternity'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id='hr'>
+                                <label class="form-label" for="m_no_pay">Mandatory no pay</label>
+                                <input disabled type="text" id="m_no_pay" name="hr-m_no_pay" class="form-control td-value" value="<?= $level_1[0]['mandatory_no_pay'] ?>" />
+                                <small>Error message</small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,48 +82,63 @@
                 <div class="row">
                     <p><i class="fas fa-user-shield"></i>Second Manager:</p>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="scnd">
-                            <label class="form-label" for="second_anual">Annual</label>
-                            <input disabled type="text" id="second_anual" name="second_anual" class="form-control td-value" value="10" />
-                            <small>Error message</small>
+
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="scnd">
+                                <label class="form-label" for="anual">Annual</label>
+                                <input disabled type="text" id="anual" name="sc-annual" class="form-control td-value" value="<?= $level_2[0]['annual'] ?>" />
+                                <small>Error message</small>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="scnd">
-                            <label class="form-label" for="second_casual">Casual</label>
-                            <input disabled type="text" id="second_casual" name="second_casual" class="form-control td-value" value="10" />
-                            <small>Error message</small>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="scnd">
-                            <label class="form-label" for="second_no_pay">No-pay</label>
-                            <input disabled type="text" id="second_no_pay" name="second_no_pay" class="form-control td-value" value="10" />
-                            <small>Error message</small>
-                        </div>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="scnd">
+                                <label class="form-label" for="casual">Casual</label>
+                                <input disabled type="text" id="casual" name="sc-casual" class="form-control td-value" value="<?= $level_2[0]['casual'] ?>" />
+                                <small>Error message</small>
+                            </div>
 
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="scnd">
-                            <label class="form-label" for="second_maternity">Maternity</label>
-                            <input disabled type="text" id="second_maternity" name="second_maternity" class="form-control td-value" value="10" />
-                            <small>Error message</small>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="scnd">
-                            <label class="form-label" for="second_m_no_pay">Mandatory no pay</label>
-                            <input disabled type="text" id="second_m_no_pay" name="second_m_no_pay" class="form-control td-value" value="10" />
-                            <small>Error message</small>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="scnd">
+                                <label class="form-label" for="no_pay">No-pay</label>
+                                <input disabled type="text" id="no_pay" name="sc-no_pay" class="form-control td-value" value="<?= $level_2[0]['no_pay'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="scnd">
+                                <label class="form-label" for="maternity">Maternity</label>
+                                <input disabled type="text" id="maternity" name="sc-maternity" class="form-control td-value" value="<?= $level_2[0]['maternity'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="scnd">
+                                <label class="form-label" for="m_no_pay">Mandatory no pay</label>
+                                <input disabled type="text" id="m_no_pay" name="sc-m_no_pay" class="form-control td-value" value="<?= $level_2[0]['mandatory_no_pay'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -115,48 +148,64 @@
                 <div class="row">
                     <p><i class="fas fa-user-shield"></i>General Employee:</p>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="gnrl">
-                            <label class="form-label" for="general_anual">Annual</label>
-                            <input disabled type="text" id="general_anual" name="general_anual" class="form-control td-value" value="10" />
-                            <small>Error message</small>
+
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="gnrl">
+                                <label class="form-label" for="anual">Annual</label>
+                                <input disabled type="text" id="anual" name="gm-annual" class="form-control td-value" value="<?= $level_3[0]['annual'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="gnrl">
-                            <label class="form-label" for="general_casual">Casual</label>
-                            <input disabled type="text" id="general_casual" name="general_casual" class="form-control td-value" value="10" />
-                            <small>Error message</small>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="gnrl">
-                            <label class="form-label" for="general_no_pay">No-pay</label>
-                            <input disabled type="text" id="general_no_pay" name="general_no_pay" class="form-control td-value" value="10" />
-                            <small>Error message</small>
-                        </div>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="gnrl">
+                                <label class="form-label" for="casual">Casual</label>
+                                <input disabled type="text" id="casual" name="gm-casual" class="form-control td-value" value="<?= $level_3[0]['casual'] ?>" />
+                                <small>Error message</small>
+                            </div>
 
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="gnrl">
-                            <label class="form-label" for="general_maternity">Maternity</label>
-                            <input disabled type="text" id="general_maternity" name="general_maternity" class="form-control td-value" value="10" />
-                            <small>Error message</small>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-control form-outline form-input" id="gnrl">
-                            <label class="form-label" for="general_m_no_pay">Mandatory no pay</label>
-                            <input disabled type="text" id="general_m_no_pay" name="general_m_no_pay" class="form-control td-value" value="10" />
-                            <small>Error message</small>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="gnrl">
+                                <label class="form-label" for="no_pay">No-pay</label>
+                                <input disabled type="text" id="no_pay" name="gm-no_pay" class="form-control td-value" value="<?= $level_3[0]['no_pay'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="gnrl">
+                                <label class="form-label" for="maternity">Maternity</label>
+                                <input disabled type="text" id="maternity" name="gm-maternity" class="form-control td-value" value="<?= $level_3[0]['maternity'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input" id="gnrl">
+                                <label class="form-label" for="m_no_pay">Mandatory no pay</label>
+                                <input disabled type="text" id="m_no_pay" name="gm-m_no_pay" class="form-control td-value" value="<?= $level_3[0]['mandatory_no_pay'] ?>" />
+                                <small>Error message</small>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -164,10 +213,40 @@
 
             <div class="text-center pt-1 mb-5 pb-1">
                 <button class="btn btn-outline-primary" style="margin: 10px auto;" type="button" id="edit_btn" onclick="showHide()">Edit</button>
-                <button class="btn btn-outline-primary" style="margin: 10px auto;" type="submit" id="save_btn" hidden>Submit</button>
+                <button class="btn btn-outline-primary" style="margin: 10px auto;" type="submit" name="submit" id="save_btn" hidden>Submit</button>
             </div>
         </form>
-
+        <?php
+        if (isset($error)) {
+            echo "error in front ";
+            var_dump($error);
+        }
+        ?>
+        <?php
+        }
+        ?>
+        <?php
+        if (isset($_GET['edit'])) {
+            if ($_GET['edit'] === "success"){
+                echo "hello";
+            ?>
+            <!-- Toast message to display error -->
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div id="liveToast" class="toast show fade" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header" style="color: green;">
+                        <i class="fas fa-check-circle" style="color: green;"></i>
+                        <strong class="me-auto">Success</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <?= $success ?>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+        }
+        ?>
         <script src="<?= WEBROOT ?>Public/JavaScript/configLeavesValidate.js" />
 
     </div>

@@ -25,7 +25,6 @@ class addEmployeeController extends Controller
 
             if (isset($_POST['submit'])) {
                 $msg = '';
-                // var_dump($_POST['submit']);
                 $this->first_name = $_POST['first_name'];
                 $this->last_name = $_POST['last_name'];
                 $this->email = $_POST['email'];
