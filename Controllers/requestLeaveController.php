@@ -17,16 +17,12 @@ class requestLeaveController extends Controller {
         $model = new requestLeaveModel();
         
         if (isset($_POST['submit'])) {
-            // var_dump($_POST);
             $emp_id = $user->getEmpId();
             $leaveType = $_POST['leave_type'];
-            // $noOfDays = $_POST['no_of_days'];
             $from = strval($_POST['leave_date']);
             $to = strval($_POST['return_date']);
             $reason = $_POST['reason'];
             $msg = $model->makeRequest($emp_id, $leaveType, $from, $to, $reason);
-            // $msg = $model->makeRequest(4, 1, 1, '2020-01-01', '2020-01-02', 'szcszvcsdfadzv');
-            // echo $emp_id, $leaveType, $noOfDays, $from, $to, $reason;
             if ($msg == 1) {
                 header('Location: dashboard');
             } else {

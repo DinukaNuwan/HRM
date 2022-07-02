@@ -39,7 +39,7 @@ class profileController extends Controller {
             $this->emg_mobile = $_POST['emergency_mobile_no'];
             $this->emg_relationship = $_POST['relationship'];
 
-            // var_dump($_POST);
+            var_dump($_POST);
 
             if ($this->checkFieldLengths()) {
                 $this->errors[] = "Entered details are too long. Please try again";

@@ -10,6 +10,7 @@ class dashboardController extends Controller {
 
         $this->set(array('username' => $user->getUsername()));
         $this->set(array('role' => $user->getRole()));
+        $this->set(array('is_supervisor' => $user->getIsSupervisor()));
 
         $this->render("dashboard");
     }
