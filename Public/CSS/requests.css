@@ -303,7 +303,7 @@ body {
   text-align: justify;
 }
 .sentiment-wrapper {
-  padding: 24px 30px 30px;
+  padding: 24px 30px 5px;
 }
 .sentiment-wrapper > div {
   display: inline-block;
