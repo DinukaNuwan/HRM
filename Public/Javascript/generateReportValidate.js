@@ -16,9 +16,6 @@ function checkInputs() {
     const employeeValue = employee.value;
     const leaveValue = leave.value;
 
-    console.log(employeeValue)
-    console.log(leaveValue)
-
     // var today = new Date();
     // var dd = String(today.getDate() + 1).padStart(2, '0');
     // var mm = String(today.getMonth() + 1).padStart(2, '0');
