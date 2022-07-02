@@ -47,6 +47,7 @@ body {
 	padding-right: 0;
 	position: relative;
 	border: none;
+	background-color: #eee4f4;
 }
 
 .form-control label {
@@ -62,7 +63,7 @@ body {
 	font-family: inherit;
 	font-size: 14px;
 	padding: 5px;
-	width: 80%;
+	width: 100%;
 }
 
 .form-control.success input {
@@ -85,24 +86,49 @@ body {
 	visibility: visible;
 }
 
-.form-control select {
-	border: 2px solid #f0f0f0;
-	border-radius: 4px;
-	display: block;
-	font-family: inherit;
-	font-size: 14px;
-	padding: 7px;
-    background-color: #fff;
-}
-
-.form-control.success select {
-	border-color: #2ecc71;
-}
-
-.form-control.error select {
-	border-color: #e74c3c;
-}
-
 .td-value {
-    width: 80%
+    width: 100%
+}
+
+.hr {
+    /* border-bottom: 1px solid #e3caf0; */
+    margin: 10px;
+    background-color: #eee4f4;
+    padding: 5px 10px 5px 10px;
+}
+
+.second {
+    /* border-bottom: 1px solid #e3caf0; */
+    margin: 10px;
+    background-color: #cdedf4;
+    padding: 5px 10px 5px 10px;
+
+}
+
+.general {
+    background-color: #eddddd;
+    margin: 10px;
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 10px;
+}
+
+p { 
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-size: larger;
+    border-left: 3px solid purple;
+    color: purple;
+}
+
+i {
+    color: purple;
+    margin: 5px;
+}
+
+#scnd {
+    background-color: #cdedf4;
+}
+
+#gnrl {
+    background-color: #eddddd;
 }

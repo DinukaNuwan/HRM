@@ -9,7 +9,7 @@
             WHERE employment.job_title = job_title.job_title_id AND employee.emp_id = employment.emp_id 
             AND employee.emp_id = user.emp_id AND employee.emp_id = emergency.emp_id AND employee.emp_id = emp_mobile.emp_id AND emergency.emg_id = emg_mobile.emg_id AND employee.emp_id = :id";
 
-            $statement = $this->pdo->prepare($sql);
+            $statement = $this->pdo->prepare($sql); 
             $statement->execute(array(
                 ':id' => $emp_id
             ));
