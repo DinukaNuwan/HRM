@@ -11,52 +11,64 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
             <h4 class="mt-1 mb-4 pb-1">Configure Leaves</h4>
         </div>
 
-        <form method="POST" action="<?= WEBROOT . 'configLeaves' ?>" id="form" class="form">
-
+        <form method="POST" action="<?= WEBROOT . 'configleaves' ?>" id="form" class="form" onsubmit="return checkInputs()">
             <div class="hr">
                 <div class="row">
                     <p><i class="fas fa-user-shield"></i>HR Manager:</p>
                 </div>
+
                 <div class="col">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-control form-outline form-input">
+                            <div class="form-control form-outline form-input" id='hr'>
                                 <label class="form-label" for="anual">Annual</label>
                                 <input disabled type="text" id="anual" name="hr-annual" class="form-control td-value" value="<?= $level_1[0]['annual'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
+                    </div>
+
 
                         <div class="col-md-6">
-                            <div class="form-control form-outline form-input">
+                            <div class="form-control form-outline form-input" id='hr'>
                                 <label class="form-label" for="casual">Casual</label>
                                 <input disabled type="text" id="casual" name="hr-casual" class="form-control td-value" value="<?= $level_1[0]['casual'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
                     </div>
+                </div>
+
 
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-control form-outline form-input">
+                            <div class="form-control form-outline form-input" id='hr'>
                                 <label class="form-label" for="no_pay">No-pay</label>
                                 <input disabled type="text" id="no_pay" name="hr-no_pay" class="form-control td-value" value="<?= $level_1[0]['no_pay'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
+                    </div>
+
 
                         <div class="col-md-6">
-                            <div class="form-control form-outline form-input">
+                            <div class="form-control form-outline form-input" id='hr'>
                                 <label class="form-label" for="maternity">Maternity</label>
                                 <input disabled type="text" id="maternity" name="hr-maternity" class="form-control td-value" value="<?= $level_1[0]['maternity'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
                     </div>
+                </div>
+
 
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-control form-outline form-input">
+                            <div class="form-control form-outline form-input" id='hr'>
                                 <label class="form-label" for="m_no_pay">Mandatory no pay</label>
                                 <input disabled type="text" id="m_no_pay" name="hr-m_no_pay" class="form-control td-value" value="<?= $level_1[0]['mandatory_no_pay'] ?>" />
                                 <small>Error message</small>
@@ -70,6 +82,7 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                 <div class="row">
                     <p><i class="fas fa-user-shield"></i>Second Manager:</p>
                 </div>
+
                 <div class="col">
                     <div class="row">
                         <div class="col-md-6">
@@ -79,6 +92,8 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <small>Error message</small>
                             </div>
                         </div>
+                    </div>
+
 
                         <div class="col-md-6">
                             <div class="form-control form-outline form-input" id="scnd">
@@ -86,8 +101,11 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <input disabled type="text" id="casual" name="sc-casual" class="form-control td-value" value="<?= $level_2[0]['casual'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
                     </div>
+                </div>
+
 
                     <div class="row">
                         <div class="col-md-6">
@@ -96,7 +114,10 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <input disabled type="text" id="no_pay" name="sc-no_pay" class="form-control td-value" value="<?= $level_2[0]['no_pay'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
+                    </div>
+
 
                         <div class="col-md-6">
                             <div class="form-control form-outline form-input" id="scnd">
@@ -104,8 +125,11 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <input disabled type="text" id="maternity" name="sc-maternity" class="form-control td-value" value="<?= $level_2[0]['maternity'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
                     </div>
+                </div>
+
 
                     <div class="row">
                         <div class="col-md-6">
@@ -114,9 +138,9 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <input disabled type="text" id="m_no_pay" name="sc-m_no_pay" class="form-control td-value" value="<?= $level_2[0]['mandatory_no_pay'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -124,6 +148,7 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                 <div class="row">
                     <p><i class="fas fa-user-shield"></i>General Employee:</p>
                 </div>
+
                 <div class="col">
                     <div class="row">
                         <div class="col-md-6">
@@ -132,7 +157,10 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <input disabled type="text" id="anual" name="gm-annual" class="form-control td-value" value="<?= $level_3[0]['annual'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
+                    </div>
+
 
                         <div class="col-md-6">
                             <div class="form-control form-outline form-input" id="gnrl">
@@ -140,8 +168,11 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <input disabled type="text" id="casual" name="gm-casual" class="form-control td-value" value="<?= $level_3[0]['casual'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
                     </div>
+                </div>
+
 
                     <div class="row">
                         <div class="col-md-6">
@@ -150,7 +181,10 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <input disabled type="text" id="no_pay" name="gm-no_pay" class="form-control td-value" value="<?= $level_3[0]['no_pay'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
+                    </div>
+
 
                         <div class="col-md-6">
                             <div class="form-control form-outline form-input" id="gnrl">
@@ -158,8 +192,11 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <input disabled type="text" id="maternity" name="gm-maternity" class="form-control td-value" value="<?= $level_3[0]['maternity'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
                     </div>
+                </div>
+
 
                     <div class="row">
                         <div class="col-md-6">
@@ -168,9 +205,9 @@ if (isset($level_1) && isset($level_2) && isset($level_3)) {
                                 <input disabled type="text" id="m_no_pay" name="gm-m_no_pay" class="form-control td-value" value="<?= $level_3[0]['mandatory_no_pay'] ?>" />
                                 <small>Error message</small>
                             </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
 

@@ -1,8 +1,9 @@
 <?php
 
-class dashboardController extends Controller {
-    function dashboard() {
-
+class addSupervisorController extends Controller{
+    
+    function addSupervisor()
+    {
         require(ROOT . "Classes/User.php");
         session_start();
         require_once("../Helpers/checkLogin.php");
@@ -10,10 +11,8 @@ class dashboardController extends Controller {
 
         $this->set(array('username' => $user->getUsername()));
         $this->set(array('role' => $user->getRole()));
-        $this->set(array('is_supervisor' => $user->getIsSupervisor()));
 
-        $this->render("dashboard");
+        $this->render('addsupervisor');
+
     }
 }
-
-?>

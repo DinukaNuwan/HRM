@@ -185,11 +185,11 @@ function checkInputs() {
   } else if (emergencyMobleNoValue == mobileNoValue) {
     setErrorFor(emergencyMobleNo, 'Cannot be same as personal number');
     isValid = false;
-  } else if (!(mobileNoValue["0"] === '0')) {
-    setErrorFor(mobileNo, 'Mobile number must start with 0');
+  } else if (!(emergencyMobleNoValue["0"] === '0')) {
+    setErrorFor(emergencyMobleNo, 'Mobile number must start with 0');
     isValid = false;
   } else {
-    setSuccessFor(mobileNo);
+    setSuccessFor(emergencyMobleNo);
   }
 
   console.log(isValid);

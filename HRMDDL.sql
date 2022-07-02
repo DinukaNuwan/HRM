@@ -194,6 +194,30 @@ INSERT INTO `employment_status` (`status_id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `dept_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dept_name` varchar(20) NOT NULL,
+  PRIMARY KEY (`dept_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`dept_id`, `dept_name`) VALUES
+(1, 'HR'),
+(2, 'IT'),
+(3, 'Production'),
+(4, 'Marketing'),
+(5, 'Finance');
+
+--
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `employment`
 --
 
@@ -202,11 +226,13 @@ CREATE TABLE `employment` (
   `job_title` int(11) NOT NULL,
   `pay_grade` int(11) NOT NULL,
   `employment_status` int(11) NOT NULL,
+  `department` int(11) NOT NULL,
   PRIMARY KEY (`emp_id`),
   CONSTRAINT FK_Employment FOREIGN KEY (`emp_id`) REFERENCES `employee`(`emp_id`),
   CONSTRAINT FK_EmploymentJobTitle FOREIGN KEY (`job_title`) REFERENCES `job_title`(`job_title_id`),
   CONSTRAINT FK_EmploymentPayGrade FOREIGN KEY (`pay_grade`) REFERENCES `pay_grade`(`pay_grade_id`),
-  CONSTRAINT FK_EmploymentStatus FOREIGN KEY (`employment_status`) REFERENCES `employment_status`(`status_id`)
+  CONSTRAINT FK_EmploymentStatus FOREIGN KEY (`employment_status`) REFERENCES `employment_status`(`status_id`),
+  CONSTRAINT FK_Department FOREIGN KEY (`department`) REFERENCES `department`(`dept_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -352,7 +378,7 @@ CREATE TABLE `user` (
   `role` int(11) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `photo` blob DEFAULT NULL,
+  `photo` mediumblob  DEFAULT NULL,
   PRIMARY KEY (`emp_id`),
   CONSTRAINT FK_EmpUser FOREIGN KEY (`emp_id`) REFERENCES `employee`(`emp_id`),
   CONSTRAINT FK_UserRole FOREIGN KEY (`role`) REFERENCES `user_role`(`user_role_id`)

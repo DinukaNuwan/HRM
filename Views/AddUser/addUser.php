@@ -1,3 +1,7 @@
+<?php
+    if (isset($error))
+        var_dump($error);
+?>
 <div class="container">
     <div class="wrapper">
         <div class="logo">
