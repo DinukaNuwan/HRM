@@ -38,6 +38,7 @@ class addUserController extends Controller
                 }
                 if ($this->checkValidUsername()) {
                     $this->errors[] = "enter a valid username";
+                    var_dump($this->errors);
                 }
                 if ($this->checkValidPassword()) {
                     $this->errors[] = "Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.";
@@ -57,7 +58,7 @@ class addUserController extends Controller
                     }
                 }
                 //            $msg = $model->checkExists("user", "username", $this->username);
-                var_dump($this->errors);
+                // var_dump($this->errors);
                 if ($msg == 1) {
                     header('Location: dashboard');
                 }
