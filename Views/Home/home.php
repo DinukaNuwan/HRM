@@ -16,7 +16,7 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facilis deleniti, voluptatum optio tenetur magni! Labore corrupti, voluptas, nostrum tenetur quae aperiam vitae eveniet, sequi praesentium corporis voluptatum repudiandae ducimus!
                 </p>
 
-                <a href="login"></a><button class="btn btn-primary" type="button">Login</button></a>
+                <a href="<?= WEBROOT ?>login"><button class="btn btn-primary" type="button">Login</button></a>
             </div>
         </div>
     </div>
