@@ -43,7 +43,7 @@ class requestsController extends Controller
             $this->set(array('rejected_requests' => $rejected_requests));
 
             if (isset($_POST['accept'])) {
-                $msg = $model->acceptLeave($_POST['application_id'], $_POST['emp_id']);
+                $msg = $model->acceptLeave($_POST['application_id'], $_POST['emp_id'], $_POST['type'], $_POST['from'], $_POST['to']);
                 header('Location: requests');
             }
             if (isset($_POST['reject'])) {
