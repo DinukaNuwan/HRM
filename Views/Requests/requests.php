@@ -69,6 +69,9 @@
                                                         <div class="text-center pt-1 pb-1">
                                                             <input type="text" name="application_id" value="<?= $request['application_id'] ?>" hidden>
                                                             <input type="text" name="emp_id" value="<?= $request['emp_id'] ?>" hidden>
+                                                            <input type="text" name="type" value="<?= $request['leave_type'] ?>" hidden>
+                                                            <input type="text" name="from" value="<?= $request['from'] ?>" hidden>
+                                                            <input type="text" name="to" value="<?= $request['to'] ?>" hidden>
                                                             <button class="btn btn-success" type="submit" name="accept">Accept</button>
                                                             <button class="btn btn-danger" type="submit" name="reject">Reject</button>
                                                         </div>
