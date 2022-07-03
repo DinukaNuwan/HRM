@@ -52,7 +52,6 @@ class requestsController extends Controller
             }
             
             $this->render("Requests");
-
         }
     }
 }

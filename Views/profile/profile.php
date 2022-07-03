@@ -211,7 +211,7 @@ $yesterday = date('Y-m-d', strtotime("-1 days"));
 
                         <?php
                         if ($role != '4') { ?>
-                            <div class="text-center pt-1 mb-5 pb-1">
+                            <div class="text-center pt-1 pb-1">
                                 <button class="btn btn-outline-primary" style="margin: 10px auto;" type="button" id="edit_btn" onclick="showHide()">Edit Info</button>
                                 <button class="btn btn-outline-primary" style="margin: 10px auto;" name="submit" type="submit" id="save_btn" hidden>Save</button>
                             </div>

@@ -43,12 +43,10 @@
                                 </div>
                                 <div class="aspect-tab-content">
                                     <div class="sentiment-wrapper">
-                                        <!-- content -->
-                                        <!-- req -->
                                         <div class="row">
                                             <form method="post" action="<?= WEBROOT ?>requests">
                                                 <div class="row">
-                                                    <div class="col-md-6 mb-4">
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Leave Type :
                                                             <span class="data">&nbsp;<?= $request['leave_type'] ?></span>
                                                         </p>
@@ -58,18 +56,17 @@
                                                         <p class="data-title">Return Date :
                                                             <span class="data">&nbsp;<?= $request['to'] ?></span>
                                                         </p>
+                                                    </div>
+
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Reason for the leave:
                                                             <span class="data">&nbsp;<?= $request['reason'] ?></span>
                                                         </p>
-                                                    </div>
-
-                                                    <div class="col-md-6 mb-4">
                                                         <!-- <div class="form-outline mb-4">
                                                             <label class="form-label" for="email">Reason</label>
                                                             <textarea class="form-control" placeholder="Tytpe something here" id="reason"></textarea>
                                                         </div> -->
-
-                                                        <div class="text-center pt-1 mb-5 pb-1">
+                                                        <div class="text-center pt-1 pb-1">
                                                             <input type="text" name="application_id" value="<?= $request['application_id'] ?>" hidden>
                                                             <input type="text" name="emp_id" value="<?= $request['emp_id'] ?>" hidden>
                                                             <button class="btn btn-success" type="submit" name="accept">Accept</button>
@@ -124,7 +121,7 @@
                                         <div class="row">
                                             <form method="post" action="<?= WEBROOT ?>requests">
                                                 <div class="row">
-                                                    <div class="col-md-6 mb-4">
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Leave Type :
                                                             <span class="data">&nbsp;<?= $request['leave_type'] ?></span>
                                                         </p>
@@ -134,6 +131,8 @@
                                                         <p class="data-title">Return Date :
                                                             <span class="data">&nbsp;<?= $request['to'] ?></span>
                                                         </p>
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Reason for the leave:
                                                             <span class="data">&nbsp;<?= $request['reason'] ?></span>
                                                         </p>
@@ -186,7 +185,7 @@
                                         <div class="row">
                                             <form method="post" action="<?= WEBROOT ?>requests">
                                                 <div class="row">
-                                                    <div class="col-md-6 mb-4">
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Leave Type :
                                                             <span class="data">&nbsp;<?= $request['leave_type'] ?></span>
                                                         </p>
@@ -196,6 +195,8 @@
                                                         <p class="data-title">Return Date :
                                                             <span class="data">&nbsp;<?= $request['to'] ?></span>
                                                         </p>
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Reason for the leave:
                                                             <span class="data">&nbsp;<?= $request['reason'] ?></span>
                                                         </p>

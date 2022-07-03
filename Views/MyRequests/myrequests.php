@@ -47,7 +47,7 @@
                                         <div class="row">
                                             <form method="post" action="<?= WEBROOT ?>requests">
                                                 <div class="row">
-                                                    <div class="col-md-6 mb-4">
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Leave Type :
                                                             <span class="data">&nbsp;<?= $request['leave_type'] ?></span>
                                                         </p>
@@ -57,6 +57,8 @@
                                                         <p class="data-title">Return Date :
                                                             <span class="data">&nbsp;<?= $request['to'] ?></span>
                                                         </p>
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Reason for the leave:
                                                             <span class="data">&nbsp;<?= $request['reason'] ?></span>
                                                         </p>
@@ -109,7 +111,7 @@
                                         <div class="row">
                                             <form method="post" action="<?= WEBROOT ?>requests">
                                                 <div class="row">
-                                                    <div class="col-md-6 mb-4">
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Leave Type :
                                                             <span class="data">&nbsp;<?= $request['leave_type'] ?></span>
                                                         </p>
@@ -119,6 +121,8 @@
                                                         <p class="data-title">Return Date :
                                                             <span class="data">&nbsp;<?= $request['to'] ?></span>
                                                         </p>
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Reason for the leave:
                                                             <span class="data">&nbsp;<?= $request['reason'] ?></span>
                                                         </p>
@@ -171,7 +175,7 @@
                                         <div class="row">
                                             <form method="post" action="<?= WEBROOT ?>requests">
                                                 <div class="row">
-                                                    <div class="col-md-6 mb-4">
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Leave Type :
                                                             <span class="data">&nbsp;<?= $request['leave_type'] ?></span>
                                                         </p>
@@ -181,6 +185,8 @@
                                                         <p class="data-title">Return Date :
                                                             <span class="data">&nbsp;<?= $request['to'] ?></span>
                                                         </p>
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <p class="data-title">Reason for the leave:
                                                             <span class="data">&nbsp;<?= $request['reason'] ?></span>
                                                         </p>
@@ -197,8 +203,6 @@
                     ?>
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>
