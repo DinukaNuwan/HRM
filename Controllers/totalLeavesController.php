@@ -23,11 +23,13 @@ class totalLeavesController extends Controller
             $to_date = ($_SESSION['to_date']);
 
             $res = $model->getDeptName($deparment);
-            // var_dump($res['dept_name']);
+            $comp = $model->getCompanyDetails(1);
 
             $this->set(array('deparment_name' => $res['dept_name']));
             $this->set(array('from_date' => $from_date));
             $this->set(array('to_date' => $to_date));
+            $this->set(array('comp_name' => $comp['name']));
+            $this->set(array('comp_address' => $comp['address']));
 
             $this->render("TotalLeaves");
         } 
