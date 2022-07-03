@@ -36,6 +36,7 @@
                             <td><?= $user['firstname'] ?></td>
                             <td><?= $user['lastname'] ?></td>
                             <td><a href="<?= WEBROOT . 'profile/' . $user['emp_id'] ?>"><button class="btn btn-outline-primary" type="button">View</button></a></td>
+                            <td><a href="<?= WEBROOT . 'addsupervisor/' . $user['emp_id'] ?>"><button class="btn btn-outline-primary" type="button" style="width: fit-content;">Assign a Supervisor</button></a></td>
                         </tr>
                     <?php
                     }
