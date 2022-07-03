@@ -47,7 +47,9 @@ class requestsModel extends Model{
         
     }
 
-    function acceptLeave($req_id, $emp_id, $type, $num_dates){
+    function acceptLeave($req_id, $emp_id, $type, $from, $to){
+
+        $num_dates = (new DateTime($to))->diff(new DateTime($from))->format("%a");
 
         //set application status
         $sql = "UPDATE leave_application SET 
