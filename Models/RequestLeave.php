@@ -31,31 +31,35 @@ class requestLeaveModel extends Model{
         $statement->execute(array(
             ':id' => $emp_id));
 
-        $taken = $statement->fetch(PDO::FETCH_ASSOC)[$leaveType];
-
-        $remainingLeaves = $all-$taken;
-
-        if($numOfDays > $remainingLeaves){
+        $taken = $statement->fetch(PDO::FETCH_ASSOC);
+        
+        if($taken == false && $all < $numOfDays){
+            //return
             $msg = "Number of remaining leaves exceed.";
             return $msg;
         }
+        elseif ($taken != false && ($all-$taken[$leaveType] < $numOfDays)){
+            //return
+            $msg = "Number of remaining leaves exceed.";
+            return $msg;
+        }
+        else{
+            //run sql
+            $sql = "INSERT INTO leave_application (`emp_id`, `leave_type`, `from`, `to`, `reason`, `status`) 
+            VALUES (:id, :typ, :frm, :to , :reasn, :stt)";
 
-        //record the application if leaves are left
-        $sql = "INSERT INTO leave_application (`emp_id`, `leave_type`, `from`, `to`, `reason`, `status`) 
-        VALUES (:id, :typ, :frm, :to , :reasn, :stt)";
+            $statement = $this->pdo->prepare($sql);
+            $msg = $statement->execute(array(
+                ':id' => $emp_id,
+                ':typ' => $type,
+                ':frm' => $from,
+                ':to' => $to,
+                ':reasn' => $reason,
+                ':stt' => 1
+            ));
 
-        $statement = $this->pdo->prepare($sql);
-        $msg = $statement->execute(array(
-            ':id' => $emp_id,
-            ':typ' => $type,
-            ':frm' => $from,
-            ':to' => $to,
-            ':reasn' => $reason,
-            ':stt' => 1
-        ));
-
-        return $msg;
-
+            return $msg;
+        }
     }
 
 }
