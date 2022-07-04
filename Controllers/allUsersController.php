@@ -33,6 +33,13 @@ class allUsersController extends Controller
             // var_dump($users);
             // echo '<br/>' . $no_of_pages;
 
+            $supervisor_data = [];
+            foreach ($users as $user) {
+                $supervisor_data[] = $model->hasSupervisor($user['emp_id']);
+            }
+            var_dump($supervisor_data);
+            $this->set(array('supervisor_data' => $supervisor_data));
+
             $this->render("AllUsers");
         }
     }
