@@ -3,6 +3,7 @@
 class addEmployeeController extends Controller
 {
     private $errors = [];
+    private $no_errors = true;
     private $first_name, $last_name, $email, $mobile, $address, $emg_name, $emg_mobile, $emg_relationship;
     function addEmployee()
     {
@@ -39,24 +40,111 @@ class addEmployeeController extends Controller
                 $this->emg_mobile = $_POST['emergency_mobile_no'];
                 $this->emg_relationship = $_POST['relationship'];
 
-                if ($this->checkFieldLengths()) {
-                    $this->errors[] = "Entered details are too long. Please try again";
+                $yesterday = date('Y-m-d', strtotime("-1 days"));
+
+                //first name validate
+                if (empty($this->first_name)) {
+                    $this->set(array("first_name_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                } else if ($this->checkFieldLengths($this->first_name, 45)) {
+                    $this->set(array("first_name_err" => "First name cannot exceed 45 characters"));
+                    $this->no_errors = false;
                 }
-                if ($this->checkValidUsername()) {
-                    $this->errors[] = "Enter valid names.";
+
+                //last name validate
+                if (empty($this->last_name)) {
+                    $this->set(array("last_name_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                } else if ($this->checkFieldLengths($this->last_name, 45)) {
+                    $this->set(array("last_name_err" => "Last name cannot exceed 45 characters"));
+                    $this->no_errors = false;
                 }
-                if ($this->checkValidEmail()) {
-                    $this->errors[] = "Check your email address and try again.";
+
+                //validate email
+                if (empty($this->email)) {
+                    $this->set(array("email_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                } else if ($this->checkValidEmail()) {
+                    $this->set(array("email_err" => "Not a valid email"));
+                    $this->no_errors = false;
                 }
-                if ($this->checkFieldLengths()) {
-                    $this->errors[] = "Entered details are too long";
+
+                //validate mobile no
+                if (empty($this->mobile)) {
+                    $this->set(array("mobile_no_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                } else if ($this->validateMobileNo($this->mobile)) {
+                    $this->set(array("mobile_no_err" => "Not a valid mobile number"));
+                    $this->no_errors = false;
                 }
-                if ($this->validateMobileNo()) {
-                    $this->errors[] = "Enter a valid mobile No.";
+
+                //validate address
+                if (empty($this->address)) {
+                    $this->set(array("address_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                } else if ($this->checkFieldLengths($this->address, 255)) {
+                    $this->set(array("address_err" => "Address cannot exceed 255 characters"));
+                    $this->no_errors = false;
                 }
-                if ($this->errors) {
-                    $this->set(array("error" => $this->errors));
-                } else {
+
+                //validate birthday
+                if (empty($dob)) {
+                    $this->set(array("birthday_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                } else if ($dob > $yesterday) {
+                    $this->set(array("birthday_err" => "Mast be a past date"));
+                    $this->no_errors = false;
+                }
+
+                //validate validate marital status
+                if (empty($maritalStatus)) {
+                    $this->set(array("marital_status_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                }
+
+                //validate validate job_title
+                if (empty($jobTitle)) {
+                    $this->set(array("job_title_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                }
+
+                //validate pay_grade
+                if (empty($payGrade)) {
+                    $this->set(array("pay_grade_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                }
+
+                //validate emp_status
+                if (empty($empStatus)) {
+                    $this->set(array("emp_status_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                }
+
+                //validate emergency_name
+                if (empty($this->emg_name)) {
+                    $this->set(array("emergency_name_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                } else if ($this->checkFieldLengths($this->emg_name, 100)) {
+                    $this->set(array("emergency_name_err" => "Contact person's name cannot exceed 100 characters"));
+                    $this->no_errors = false;
+                }
+
+                //validate emergency_mobile_no
+                if (empty($this->emg_mobile)) {
+                    $this->set(array("emergency_mobile_no_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                } else if ($this->validateMobileNo($this->emg_mobile)) {
+                    $this->set(array("emergency_mobile_no_err" => "Not a valid mobile number"));
+                    $this->no_errors = false;
+                }
+
+                //validate relationship
+                if (empty($this->emg_relationship)) {
+                    $this->set(array("relationship_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                }
+                
+                if ($this->no_errors) {
                     $msg = $model->addNewEmployee(
                         $this->first_name,
                         $this->last_name,
@@ -91,31 +179,24 @@ class addEmployeeController extends Controller
         }
     }
 
-    private function checkFieldLengths()
+    private function checkFieldLengths($field, $length)
     {
-        $field_lengths = array('first_name' => 45, 'last_name' => 45, 'address' => 255, 'mobile' => 10, 'emg_name' => 100, 'emg_mobile' => 10, 'emg_relationship' => 45);
-        return (strlen($this->first_name) > 45 || strlen($this->last_name) > 45 || strlen($this->address) > 255 ||
-            strlen($this->mobile) > 10 || strlen($this->emg_name) > 100 || strlen($this->emg_mobile) > 10 || strlen($this->emg_relationship) > 45);
+        // $field_lengths = array('first_name' => 45, 'last_name' => 45, 'address' => 255, 'mobile' => 10, 'emg_name' => 100, 'emg_mobile' => 10, 'emg_relationship' => 45);
+        return (strlen($field) > $length);
     }
-    // Valid username check
-    private function checkValidUsername()
-    {
-        return !(preg_match("/^[a-zA-Z ]*$/", $this->first_name) && preg_match("/^[a-zA-Z ]*$/", $this->last_name) && preg_match("/^[a-zA-Z ]*$/", $this->emg_name));
-    }
-    // Valid email check
+
     public function checkValidEmail()
     {
         return !filter_var($this->email, FILTER_VALIDATE_EMAIL);
     }
+
     // Validate mobile number
-    public function validateMobileNo()
+    public function validateMobileNo($mobile_no)
     {
-        $MobileNo = $this->mobile;
-        $emgMobileNo = $this->emg_mobile;
         $not_numbers = true;
-        if (preg_match("/^[0-9]*$/", $MobileNo) && preg_match("/^[0-9]*$/", $emgMobileNo))
+        if (preg_match("/^[0-9]*$/", $mobile_no))
             $not_numbers = false;
 
-        return (strlen($MobileNo) != 10 || strlen($emgMobileNo) != 10 || substr($MobileNo, 0, 1) != '0' || substr($emgMobileNo, 0, 1) != '0' || $not_numbers);
+        return (strlen($mobile_no) != 10 || substr($mobile_no, 0, 1) != '0' || $not_numbers);
     }
 }

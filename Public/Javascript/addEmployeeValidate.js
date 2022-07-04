@@ -149,7 +149,7 @@ function checkInputs() {
     setErrorFor(emergencyName, "Contact person's cannot be empty");
     isValid = false;
   } else if (emergencyNameValue.length > 100) {
-    setErrorFor(emergencyName, "Contact person's cannot exceed 100 characters");
+    setErrorFor(emergencyName, "Contact person's name cannot exceed 100 characters");
     isValid = false;
   } else {
     setSuccessFor(emergencyName);

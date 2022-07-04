@@ -5,24 +5,29 @@
         </div>
         <div class="text-center">
             <h4 class="mt-1 mb-4 pb-1">Login</h4>
-        </div>
+        </div>        
 
         <form method="POST" action="<?= WEBROOT . 'login' ?>" id="form" class="form" onsubmit="return checkInputs()">
-            <div class="form-control form-outline form-input">
+            <div class="form-control form-outline form-input <?php if (isset($username_err)) { echo "error"; } ?>">
                 <label class="form-label" for="username">Username</label>
-                <input type="username" name="username" id="username" class="form-control" placeholder="johndoe" />
-                <small>Error message</small>
+                <input type="username" name="username" id="username" class="form-control" placeholder="johndoe" value="<?php
+                            if (isset($_GET['username']) && $_GET['username']) { echo $_GET['username']; } ?>"/>
+                <small><?php if (isset($username_err)) { echo $username_err; } else { echo "Error message"; } ?></small>
             </div>
-            <div class="form-control form-outline form-input">
+            <div class="form-control form-outline form-input <?php if (isset($password_err)) { echo "error"; } ?>">
                 <label class="form-label" for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
-                <small>Error message</small>
+                <small><?php if (isset($password_err)) { echo $password_err; } else { echo "Error message"; } ?></small>
             </div>
             <div class="text-center pt-1 mb-5 pb-1">
                 <button class="btn btn-primary" type="submit" name="submit">Log in</button>
                 <br><br>
                 <a class="text-muted" href="#">Forgot password?</a>
-                <?php
+                
+            </div>
+        </form>
+
+        <?php
                 if (isset($error)) {
                 ?>  
                     <!-- Toast message to display error -->
@@ -41,8 +46,6 @@
                 <?php
                 }
                 ?>
-            </div>
-        </form>
 
         <script src="<?= WEBROOT ?>Public/JavaScript/loginValidate.js" />
 
