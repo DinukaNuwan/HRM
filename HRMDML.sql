@@ -13,9 +13,9 @@ INSERT INTO `ORGANIZATION` (`reg_number`, `name`, `address`) VALUES
 --
 
 INSERT INTO `LEAVE_COUNT` (`pay_grade`, `annual`, `casual`, `no_pay`, `maternity`, `mandatory_no_pay`) VALUES
-('Level 1', 10, 10, 15, 90, 30),
-('Level 2', 20, 20, 25, 90, 30),
-('Level 3', 30, 30, 40, 120, 40);
+(1, 10, 10, 15, 90, 30),
+(1, 20, 20, 25, 90, 30),
+(1, 30, 30, 40, 120, 40);
 
 -- ====================================================
 

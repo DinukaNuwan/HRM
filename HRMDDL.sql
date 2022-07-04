@@ -8,8 +8,9 @@
 --        time bound events (SO FAR NONE)
 
 --        triggers for events
-            -- -> update leave count of employee when leave_application is approved
+            -- -> update leave count of employee when leave_application is approved (done)
 
+-- TODO: merge tables (pay_grade and leave_count), edit models accordingly
 -- --------------------------------------------------------
 
 --
@@ -25,17 +26,40 @@ CREATE TABLE `ORGANIZATION` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pay_grade`
+--
+
+CREATE TABLE `pay_grade` (
+  `pay_grade_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pay_grade` varchar(45) NOT NULL,
+  `basic_salary` int(11) NOT NULL,
+  PRIMARY KEY (`pay_grade_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pay_grade`
+--
+
+INSERT INTO `pay_grade` (`pay_grade_id`, `pay_grade`, `basic_salary`) VALUES
+(1, 'Level 1', 0),
+(2, 'Level 2', 0),
+(3, 'Level3', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `LEAVE_COUNT`
 --
 
 CREATE TABLE `LEAVE_COUNT` (
-  `pay_grade` varchar(45) NOT NULL,
+  `pay_grade` int(11) NOT NULL,
   `annual` int(11) NOT NULL,
   `casual` int(11) NOT NULL,
   `no_pay` int(11) NOT NULL,
   `maternity` int(11) NOT NULL,
   `mandatory_no_pay` int(11) NOT NULL,
-  PRIMARY KEY (`pay_grade`)
+  PRIMARY KEY (`pay_grade`),
+  CONSTRAINT FK_PayGrade FOREIGN KEY (`pay_grade`) REFERENCES `pay_grade`(`pay_grade_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -148,28 +172,6 @@ INSERT INTO `job_title` (`job_title_id`, `job_title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pay_grade`
---
-
-CREATE TABLE `pay_grade` (
-  `pay_grade_id` int(11) NOT NULL AUTO_INCREMENT,
-  `pay_grade` varchar(45) NOT NULL,
-  `basic_salary` int(11) NOT NULL,
-  PRIMARY KEY (`pay_grade_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pay_grade`
---
-
-INSERT INTO `pay_grade` (`pay_grade_id`, `pay_grade`, `basic_salary`) VALUES
-(1, 'Level 1', NULL),
-(2, 'Level 2', NULL),
-(3, 'Level3', NULL);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `employment_status`
 --
 
@@ -232,7 +234,7 @@ CREATE TABLE `employment` (
   CONSTRAINT FK_EmploymentJobTitle FOREIGN KEY (`job_title`) REFERENCES `job_title`(`job_title_id`),
   CONSTRAINT FK_EmploymentPayGrade FOREIGN KEY (`pay_grade`) REFERENCES `pay_grade`(`pay_grade_id`),
   CONSTRAINT FK_EmploymentStatus FOREIGN KEY (`employment_status`) REFERENCES `employment_status`(`status_id`),
-  CONSTRAINT FK_Department FOREIGN KEY (`department`) REFERENCES `department`(`dept_id`),
+  CONSTRAINT FK_Department FOREIGN KEY (`department`) REFERENCES `department`(`dept_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -383,3 +385,29 @@ CREATE TABLE `user` (
   CONSTRAINT FK_EmpUser FOREIGN KEY (`emp_id`) REFERENCES `employee`(`emp_id`),
   CONSTRAINT FK_UserRole FOREIGN KEY (`role`) REFERENCES `user_role`(`user_role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- --------------------------------------------------------
+
+--
+-- Triggers
+--
+
+CREATE TRIGGER `updateEmpLeaveCount` AFTER UPDATE ON `leave_application`
+ FOR EACH ROW IF (OLD.status = 1 AND NEW.status = 2) THEN 
+	SET @numDays = DATEDIFF(NEW.to, NEW.from);
+	IF (SELECT COUNT(*) FROM emp_leave_count WHERE emp_id = NEW.emp_id) = 0 THEN
+    	INSERT INTO emp_leave_count (emp_id) VALUES (NEW.emp_id);
+    END IF;
+	IF NEW.leave_type = 1 THEN 
+			UPDATE emp_leave_count SET annual = annual + @numDays WHERE emp_id = NEW.emp_id; 
+		ELSEIF NEW.leave_type = 2 THEN 
+			UPDATE emp_leave_count SET casual = casual + @numDays WHERE emp_id = NEW.emp_id; 
+        ELSEIF NEW.leave_type = 3 THEN 
+			UPDATE emp_leave_count SET maternity = maternity + @numDays WHERE emp_id = NEW.emp_id;
+        ELSEIF NEW.leave_type = 4 THEN 
+			UPDATE emp_leave_count SET no_pay = no_pay + @numDays WHERE emp_id = NEW.emp_id;
+    END IF; 
+END IF
+
+--
