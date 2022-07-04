@@ -37,7 +37,7 @@ class allUsersController extends Controller
             foreach ($users as $user) {
                 $supervisor_data[] = $model->hasSupervisor($user['emp_id']);
             }
-            var_dump($supervisor_data);
+            // var_dump($supervisor_data);
             $this->set(array('supervisor_data' => $supervisor_data));
 
             $this->render("AllUsers");

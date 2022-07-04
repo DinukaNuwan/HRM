@@ -36,7 +36,6 @@
                             <td><i class="fas fa-user"></i><?= $user['user_role'] ?></td>
                             <td><?= $user['firstname'] ?></td>
                             <td><?= $user['lastname'] ?></td>
-                            <td><a href="<?= WEBROOT . 'profile/' . $user['emp_id'] ?>"><button class="btn btn-outline-primary" type="button">View</button></a></td>
                             <td>
                                 <?php
                                 if ($supervisor_data[$count] != false) {
@@ -50,6 +49,7 @@
                                 }
                                 ?>
                             </td>
+                            <td><a href="<?= WEBROOT . 'profile/' . $user['emp_id'] ?>"><button class="btn btn-outline-primary" type="button">View</button></a></td>
                         </tr>
                     <?php
                         $count += 1;
