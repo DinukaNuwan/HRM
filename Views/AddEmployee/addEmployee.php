@@ -126,6 +126,21 @@ $yesterday = date('Y-m-d', strtotime("-1 days"));
                             <small><?php if (isset($emp_status_err)) { echo $emp_status_err; } else { echo "Error message"; } ?></small>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-control form-outline form-input <?php if (isset($department_err)) { echo "error"; } ?>" id="emp">
+                            <label class="form-label" for="department">Department</label>
+                            <select class="form-select td-value" id="department" name="department" aria-label="Default select example">
+                                <option value="">select department...</option>
+                                <option value="HR">HR</option>
+                                <option value="IT">IT</option>
+                                <option value="Production">Production</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Finance">Finance</option>
+                            </select>
+                            <small><?php if (isset($department_err)) { echo $department_err; } else { echo "Error message"; } ?></small>
+                        </div>
+                    </div>
                 </div>
             </div>
 

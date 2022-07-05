@@ -36,6 +36,7 @@ class addEmployeeController extends Controller
                 $jobTitle = $_POST['job_title'];
                 $payGrade = $_POST['pay_grade'];
                 $empStatus = $_POST['emp_status'];
+                $department = $_POST['department'];
                 $this->emg_name = $_POST['emergency_name'];
                 $this->emg_mobile = $_POST['emergency_mobile_no'];
                 $this->emg_relationship = $_POST['relationship'];
@@ -120,6 +121,12 @@ class addEmployeeController extends Controller
                     $this->no_errors = false;
                 }
 
+                //validate department
+                if (empty($department)) {
+                    $this->set(array("department_err" => "Cannot be empty"));
+                    $this->no_errors = false;
+                }
+
                 //validate emergency_name
                 if (empty($this->emg_name)) {
                     $this->set(array("emergency_name_err" => "Cannot be empty"));
@@ -200,3 +207,5 @@ class addEmployeeController extends Controller
         return (strlen($mobile_no) != 10 || substr($mobile_no, 0, 1) != '0' || $not_numbers);
     }
 }
+
+?>

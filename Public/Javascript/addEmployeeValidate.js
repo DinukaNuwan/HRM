@@ -9,6 +9,7 @@ const maritalStatus = document.getElementById('marital_status');
 const jobTitle = document.getElementById('job_title');
 const payGrade = document.getElementById('pay_grade');
 const empStatus = document.getElementById('emp_status');
+const department = document.getElementById('department');
 const emergencyName = document.getElementById('emergency_name');
 const relationship = document.getElementById('relationship');
 const emergencyMobleNo = document.getElementById('emergency_moble_no');
@@ -25,6 +26,7 @@ function checkInputs() {
   const jobTitleValue = jobTitle.value;
   const payGradeValue = payGrade.value;
   const empStatusValue = empStatus.value;
+  const departmentValue = department.value;
   const emergencyNameValue = emergencyName.value;
   const relationshipValue = relationship.value;
   const emergencyMobleNoValue = emergencyMobleNo.value;
@@ -142,6 +144,14 @@ function checkInputs() {
     isValid = false;
   } else {
     setSuccessFor(empStatus);
+  }
+
+  //validate department
+  if (departmentValue === '' || departmentValue == null) {
+    setErrorFor(department, 'Department cannot be empty');
+    isValid = false;
+  } else {
+    setSuccessFor(department);
   }
 
   //validate contact person's name
