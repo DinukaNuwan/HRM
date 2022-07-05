@@ -7,26 +7,18 @@
             <h4 class="mt-1 mb-4 pb-1">Reporting Module</h4>
         </div>
 
-        <form method="POST" action="" id="form" class="form" onsubmit="return checkInputs()">
+        <form method="POST" action="<?= WEBROOT ?>generatereport" id="form" class="form" onsubmit="return checkInputs()">
 
             <div class="form-outline">
                 <div class="report_type">
                     <lable class="form-label mb-3">Select Report Type:&nbsp;&nbsp;</lable>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="employee_select" value="no" onchange="load('employee')">
+                        <input class="form-check-input" type="radio" name="employee" id="employee_select" value="employee" onchange="load('employee')">
                         <label class="form-check-label" for="inlineRadio1"><i class="fas fa-user-tie"></i>Employees</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="leave_select" value="no" onchange="load('leave')">
+                        <input class="form-check-input" type="radio" name="leave" id="leave_select" value="leave" onchange="load('leave')">
                         <label class="form-check-label" for="inlineRadio2"><i class="fas fa-calendar-check"></i>Leaves</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="leave_select" value="no" onchange="load('customOne')">
-                        <label class="form-check-label" for="inlineRadio2"><i class="fas fa-calendar-check"></i>custom 1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="leave_select" value="no" onchange="load('customTwo')">
-                        <label class="form-check-label" for="inlineRadio2"><i class="fas fa-calendar-check"></i>custom 2</label>
                     </div>
                 </div>
             </div>
@@ -52,9 +44,11 @@
                             <label class="form-label" for="department">By Department</label>
                             <select class="form-select" id="department" name="department" aria-label="Default select example">
                                 <option value="">select department...</option>
-                                <option value="departement">Department 1</option>
-                                <option value="departement">Department 2</option>
-                                <option value="departement">Department 3</option>
+                                <option value="1">HR</option>
+                                <option value="2">IT</option>
+                                <option value="3">Production</option>
+                                <option value="4">Marketing</option>
+                                <option value="5">Finance</option>
                             </select>
                             <small>Error message</small>
                         </div>

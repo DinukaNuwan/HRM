@@ -18,6 +18,7 @@
             <div class="table" style="overflow-x:auto;">
                 <table>
                     <?php
+                    $count = 0;
                     foreach ($users as $user) {
                     ?>
                         <tr>
@@ -35,9 +36,23 @@
                             <td><i class="fas fa-user"></i><?= $user['user_role'] ?></td>
                             <td><?= $user['firstname'] ?></td>
                             <td><?= $user['lastname'] ?></td>
+                            <td>
+                                <?php
+                                if ($supervisor_data[$count] != false) {
+                                ?>
+                                    <p class="text-center">Supervisor - <?= $supervisor_data[$count] ?></p>
+                                <?php
+                                } else {
+                                ?>
+                                    <a href="<?= WEBROOT . 'addsupervisor/' . $user['emp_id'] ?>"><button class="btn addsupervisor btn-outline-primary" type="button" style="width: fit-content;">Assign a Supervisor</button></a>
+                                <?php
+                                }
+                                ?>
+                            </td>
                             <td><a href="<?= WEBROOT . 'profile/' . $user['emp_id'] ?>"><button class="btn btn-outline-primary" type="button">View</button></a></td>
                         </tr>
                     <?php
+                        $count += 1;
                     }
                     ?>
                 </table>
@@ -60,7 +75,7 @@
         <?php
                 } else {
         ?>
-        <p class="text-center mt-40 no_res">No  users to display</p>
+            <p class="text-center mt-40 no_res">No users to display</p>
         <?php
                 }
         ?>
