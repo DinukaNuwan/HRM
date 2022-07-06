@@ -91,8 +91,8 @@ function load(report_type) {
             document.getElementById("leave").style.display = "none";
             document.getElementById("employee_select").value = 'yes';
             document.getElementById("leave_select").value = 'no';
-            document.getElementById("employee").value = 'yes';
-            document.getElementById("leave").value = 'no';
+            document.getElementById("employee_hidden").value = 'yes';
+            document.getElementById("leave_hidden").value = 'no';
             clean(department);
             clean(fromdate);
             clean(todate);
@@ -102,8 +102,8 @@ function load(report_type) {
             document.getElementById("employee").style.display = "none";
             document.getElementById("employee_select").value = 'no';
             document.getElementById("leave_select").value = 'yes';
-            document.getElementById("employee").value = 'no';
-            document.getElementById("leave").value = 'yes';
+            document.getElementById("employee_hidden").value = 'no';
+            document.getElementById("leave_hidden").value = 'yes';
             clean(group);
             break;
         default:
