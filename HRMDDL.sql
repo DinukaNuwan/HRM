@@ -43,7 +43,7 @@ CREATE TABLE `pay_grade` (
 INSERT INTO `pay_grade` (`pay_grade_id`, `pay_grade`, `basic_salary`) VALUES
 (1, 'Level 1', 30000),
 (2, 'Level 2', 40000),
-(3, 'Level3', 60000);
+(3, 'Level 3', 60000);
 
 -- --------------------------------------------------------
 
@@ -271,7 +271,7 @@ INSERT INTO `leave_application_type` (`leave_type_id`, `leave_type`) VALUES
 (1, 'Annual'),
 (2, 'Casual'),
 (3, 'Maternity'),
-(4, 'No Pay');
+(4, 'No_Pay');
 
 -- --------------------------------------------------------
 

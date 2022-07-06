@@ -34,7 +34,7 @@ for i in range(5,200):
 
     print()
     #emp_mobile table
-    print("INSERT INTO `emp_mobile`(`emp_id`, `mobile`) VALUES ('{e_id}','{mob}');".format(e_id=i+1, mob= ('+94' + rukp.random_mobile(international=True)[4:])))
+    print("INSERT INTO `emp_mobile`(`emp_id`, `mobile`) VALUES ('{e_id}','{mob}');".format(e_id=i+1, mob= ('0' + rukp.random_mobile(international=True)[4:])))
 
     print()
     #emergency table
@@ -42,7 +42,7 @@ for i in range(5,200):
 
     print()
     #emg_mobile table
-    print("INSERT INTO `emg_mobile`(`emg_id`, `mobile`) VALUES ('{e_id}','{mob}');".format(e_id=i+1, mob= ('+94' + rukp.random_mobile(international=True)[4:])))
+    print("INSERT INTO `emg_mobile`(`emg_id`, `mobile`) VALUES ('{e_id}','{mob}');".format(e_id=i+1, mob= ('0' + rukp.random_mobile(international=True)[4:])))
 
     print()
 
