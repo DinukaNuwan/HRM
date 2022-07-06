@@ -163,6 +163,7 @@ class addEmployeeController extends Controller
                         $jobTitle,
                         $payGrade,
                         $empStatus,
+                        $department,
                         $this->emg_name,
                         $this->emg_mobile,
                         $this->emg_relationship
