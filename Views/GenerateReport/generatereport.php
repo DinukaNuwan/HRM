@@ -14,12 +14,12 @@
                     <lable class="form-label mb-3">Select Report Type:&nbsp;&nbsp;</lable>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOption" id="employee_select" value="no" onchange="load('employee')">
-                        <input type="hidden" id="employee" name="employee" value="no">
+                        <input type="hidden" id="employee_hidden" name="employee" value="no">
                         <label class="form-check-label" for="employee_select"><i class="fas fa-user-tie"></i>Employees</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOption" id="leave_select" value="no" onchange="load('leave')">
-                        <input type="hidden" id="leave" name="leave" value="no">
+                        <input type="hidden" id="leave_hidden" name="leave" value="no">
                         <label class="form-check-label" for="leave_select"><i class="fas fa-calendar-check"></i>Leaves</label>
                     </div>
                 </div>
