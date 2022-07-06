@@ -10,7 +10,7 @@
 --        triggers for events
             -- -> update leave count of employee when leave_application is approved (done)
 
--- TODO: merge tables (pay_grade and leave_count), edit models accordingly
+-- TODO: merge tables (pay_grade and leave_count), edit models accordingly (decided not to)
 -- --------------------------------------------------------
 
 --
@@ -41,9 +41,9 @@ CREATE TABLE `pay_grade` (
 --
 
 INSERT INTO `pay_grade` (`pay_grade_id`, `pay_grade`, `basic_salary`) VALUES
-(1, 'Level 1', 0),
-(2, 'Level 2', 0),
-(3, 'Level3', 0);
+(1, 'Level 1', 30000),
+(2, 'Level 2', 40000),
+(3, 'Level3', 60000);
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,7 @@ CREATE TABLE `employee` (
   `address` varchar(255) NOT NULL,
   `date_of_birth` date NOT NULL,
   `marital_status` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
   PRIMARY KEY(`emp_id`),
   CONSTRAINT FK_MaritalStatus FOREIGN KEY (`marital_status`) REFERENCES `emp_marital_status`(`status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -201,7 +201,7 @@ INSERT INTO `employment_status` (`status_id`, `status`) VALUES
 
 CREATE TABLE `department` (
   `dept_id` int(11) NOT NULL AUTO_INCREMENT,
-  `dept_name` varchar(20) NOT NULL,
+  `dept_name` varchar(30) NOT NULL,
   PRIMARY KEY (`dept_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -259,7 +259,7 @@ CREATE TABLE `supervise` (
 
 CREATE TABLE `leave_application_type` (
   `leave_type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `leave_type` varchar(10) NOT NULL,
+  `leave_type` varchar(20) NOT NULL,
   PRIMARY KEY (`leave_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -306,7 +306,6 @@ CREATE TABLE `leave_application` (
   `leave_type` int(11) NOT NULL,
   `from` date NOT NULL,
   `to` date NOT NULL,
-  `num_of_days` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`application_id`),
@@ -323,10 +322,10 @@ CREATE TABLE `leave_application` (
 
 CREATE TABLE `emp_leave_count` (
   `emp_id` int(11) NOT NULL,
-  `annual` int(11) NOT NULL,
-  `casual` int(11) NOT NULL,
-  `maternity` int(11) NOT NULL,
-  `no_pay` int(11) NOT NULL,
+  `annual` int(11) NOT NULL DEFAULT 0,
+  `casual` int(11) NOT NULL DEFAULT 0,
+  `maternity` int(11) NOT NULL DEFAULT 0,
+  `no_pay` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`emp_id`),
   CONSTRAINT FK_EmpLeaveCount FOREIGN KEY (`emp_id`) REFERENCES `employee`(`emp_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -334,7 +333,7 @@ CREATE TABLE `emp_leave_count` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payroll`
+-- Table structure for table `payroll` (not currently part of the system)
 --
 
 CREATE TABLE `payroll` (
@@ -392,9 +391,11 @@ CREATE TABLE `user` (
 --
 -- Triggers
 --
+-- IF ADDING TRIGGER FROM SQL QUERY FAILS, THEN ADD THE TRIGGER USING CREATE TRIGGER OPTION IN PHPMYADMIN
 
 CREATE TRIGGER `updateEmpLeaveCount` AFTER UPDATE ON `leave_application`
- FOR EACH ROW IF (OLD.status = 1 AND NEW.status = 2) THEN 
+ FOR EACH ROW 
+ IF (OLD.status = 1 AND NEW.status = 2) THEN 
 	SET @numDays = DATEDIFF(NEW.to, NEW.from);
 	IF (SELECT COUNT(*) FROM emp_leave_count WHERE emp_id = NEW.emp_id) = 0 THEN
     	INSERT INTO emp_leave_count (emp_id) VALUES (NEW.emp_id);
@@ -408,6 +409,6 @@ CREATE TRIGGER `updateEmpLeaveCount` AFTER UPDATE ON `leave_application`
         ELSEIF NEW.leave_type = 4 THEN 
 			UPDATE emp_leave_count SET no_pay = no_pay + @numDays WHERE emp_id = NEW.emp_id;
     END IF; 
-END IF
+END IF;
 
 --
