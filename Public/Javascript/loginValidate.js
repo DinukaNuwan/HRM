@@ -17,9 +17,14 @@ function checkInputs() {
 	if(usernameValue === '' || usernameValue == null) {
 		setErrorFor(username, 'Username cannot be empty');
 		isValid = false;
+	} else if (usernameValue.length > 45) {
+        setErrorFor(username, 'Usernamme cannot exceed 45 characters');
+		isValid = false;
+	} else if (usernameValue.length < 3) {
+        setErrorFor(username, 'Usernamme should include atleast 3 characters');
+		isValid = false;
 	} else {
-		setSuccessFor(username);
-		
+		setSuccessFor(username);	
 	}
 	
 	//validate password

@@ -2,23 +2,23 @@ const editBtn = document.getElementById('edit_btn');
 const saveBtn = document.getElementById('save_btn');
 const form_cntrl = document.getElementsByClassName('form-control');
 // hr details
-const hr_anual = document.getElementById('hr_anual');
-const hr_casual = document.getElementById('hr_casual');
-const hr_no_pay = document.getElementById('hr_no_pay');
-const hr_maternity = document.getElementById('hr_maternity');
-const hr_m_no_pay = document.getElementById('hr_m_no_pay');
+const hr_anual = document.getElementById('hr-anual');
+const hr_casual = document.getElementById('hr-casual');
+const hr_no_pay = document.getElementById('hr-no_pay');
+const hr_maternity = document.getElementById('hr-maternity');
+const hr_m_no_pay = document.getElementById('hr-m_no_pay');
 // second details
-const second_anual = document.getElementById('second_anual');
-const second_casual = document.getElementById('second_casual');
-const second_no_pay = document.getElementById('second_no_pay');
-const second_maternity = document.getElementById('second_maternity');
-const second_m_no_pay = document.getElementById('second_m_no_pay');
+const second_anual = document.getElementById('scgm-anual');
+const second_casual = document.getElementById('scgm-casual');
+const second_no_pay = document.getElementById('scgm-no_pay');
+const second_maternity = document.getElementById('scgm-maternity');
+const second_m_no_pay = document.getElementById('scgm-m_no_pay');
 // general details
-const general_anual = document.getElementById('general_anual');
-const general_casual = document.getElementById('general_casual');
-const general_no_pay = document.getElementById('general_no_pay');
-const general_maternity = document.getElementById('general_maternity');
-const general_m_no_pay = document.getElementById('general_m_no_pay');
+const general_anual = document.getElementById('gm-anual');
+const general_casual = document.getElementById('gm-casual');
+const general_no_pay = document.getElementById('gm-no_pay');
+const general_maternity = document.getElementById('gm-maternity');
+const general_m_no_pay = document.getElementById('gm-m_no_pay');
 
 function showHide() {
     editBtn.hidden = true;

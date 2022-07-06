@@ -14,7 +14,6 @@ class configLeavesController extends Controller
         $this->set(array('username' => $user->getUsername()));
         $this->set(array('role' => $user->getRole()));
 
-
         // Authorization based on user role
         if ($user->getRole() == '1' || $user->getRole() == '2') {
             require(ROOT . "Models/ConfigLeaves.php");
