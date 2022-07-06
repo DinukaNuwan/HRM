@@ -38,7 +38,7 @@ body {
 
 .btn:hover {
     color: white;
-    background-image: url(../../Resources/Images/bg.jpg);
+    background-color: #800080;
     background-size: cover;
 }
 
