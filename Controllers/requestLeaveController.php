@@ -26,8 +26,8 @@ class requestLeaveController extends Controller {
             if ($msg == 1) {
                 header('Location: dashboard');
             } else {
-                var_dump($msg);
-                echo 'Leave application failed';
+                // echo 'Leave application failed';
+                $this->set(array('error' => $msg));
             }
         }
         $this->render("RequestLeave");

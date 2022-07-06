@@ -1,6 +1,6 @@
 <?php
-    $tomorrow = date('Y-m-d',strtotime("+1 days"));
-    $dayAfterTomorrow = date('Y-m-d',strtotime("+2 days"));
+$tomorrow = date('Y-m-d', strtotime("+1 days"));
+$dayAfterTomorrow = date('Y-m-d', strtotime("+2 days"));
 ?>
 
 <div class="container">
@@ -12,7 +12,7 @@
             <h4 class="mt-1 mb-4 pb-1">Request Leave</h4>
         </div>
 
-        <form action="#" method="POST" id="form" class="form" onsubmit="return checkInputs()">
+        <form action="<?= WEBROOT ?>requestleave" method="POST" id="form" class="form" onsubmit="return checkInputs()">
 
             <div class="row">
                 <div class="col-md-6">
@@ -34,14 +34,14 @@
                 <div class="col-md-6">
                     <div class="form-control form-outline form-input">
                         <label class="form-label" for="leave_date">Leave Date</label>
-                        <input type="date" id="leave_date" name="leave_date" class="form-control" min=<?= strval($tomorrow) ?> >
+                        <input type="date" id="leave_date" name="leave_date" class="form-control" min=<?= strval($tomorrow) ?>>
                         <small>Error message</small>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-control form-outline form-input">
                         <label class="form-label" for="return_date">Return Date</label>
-                        <input type="date" id="return_date" name="return_date" class="form-control" min=<?= strval($dayAfterTomorrow) ?> >
+                        <input type="date" id="return_date" name="return_date" class="form-control" min=<?= strval($dayAfterTomorrow) ?>>
                         <small>Error message</small>
                     </div>
                 </div>
@@ -57,6 +57,26 @@
                 <button class="btn btn-primary" name="submit" type="submit">Request</button>
             </div>
         </form>
+
+        <?php
+        if (isset($error)) {
+        ?>
+            <!-- Toast message to display error -->
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div id="liveToast" class="toast show fade" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header" style="color: crimson;">
+                        <i class="fas fa-times-circle" style="color: crimson;"></i>
+                        <strong class="me-auto">Leave request failed.</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <?= $error ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
 
         <script src="<?= WEBROOT ?>Public/JavaScript/requestLeaveValidate.js" />
 
