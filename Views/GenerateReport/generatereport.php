@@ -13,12 +13,14 @@
                 <div class="report_type">
                     <lable class="form-label mb-3">Select Report Type:&nbsp;&nbsp;</lable>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="employee" id="employee_select" value="employee" onchange="load('employee')">
-                        <label class="form-check-label" for="inlineRadio1"><i class="fas fa-user-tie"></i>Employees</label>
+                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="employee_select" value="no" onchange="load('employee')">
+                        <input type="hidden" id="employee" name="employee" value="no">
+                        <label class="form-check-label" for="employee_select"><i class="fas fa-user-tie"></i>Employees</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="leave" id="leave_select" value="leave" onchange="load('leave')">
-                        <label class="form-check-label" for="inlineRadio2"><i class="fas fa-calendar-check"></i>Leaves</label>
+                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="leave_select" value="no" onchange="load('leave')">
+                        <input type="hidden" id="leave" name="leave" value="no">
+                        <label class="form-check-label" for="leave_select"><i class="fas fa-calendar-check"></i>Leaves</label>
                     </div>
                 </div>
             </div>
@@ -26,6 +28,9 @@
             <div class="content" id="content" style="display: none">
                 <div class="employee" id="employee" style="display: none;">
                     <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px;border-radius: 20px;">Employee by Department</p>
+                    
+
+
                     <div class="form-control form-outline form-input">
                         <label class="form-label" for="group">By Group</label>
                         <select class="form-select" id="group" name="group" aria-label="Default select example">
@@ -37,8 +42,10 @@
                         <small>Error message</small>
                     </div>
                 </div>
+
                 <div class="leave" id="leave" style="display: none;">
                     <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px;border-radius: 20px;">Total Leaves in Given Period by Department</p>
+                    
                     <div class="col">
                         <div class="form-control form-outline form-input">
                             <label class="form-label" for="department">By Department</label>
@@ -53,6 +60,7 @@
                             <small>Error message</small>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-control form-outline form-input">
