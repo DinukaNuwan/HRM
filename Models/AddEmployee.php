@@ -5,7 +5,7 @@ class addEmployeeModel extends Model{
 
     function addNewEmployee(
         $fname, $lname, $email, $mobile, $address, $dob, $maritalStatus,
-        $jobTitle, $payGrade, $empStatus,
+        $jobTitle, $payGrade, $empStatus, $department,
         $emg_name, $emg_mobile, $emg_relationship
     ){
 
@@ -55,6 +55,13 @@ class addEmployeeModel extends Model{
             ':em' => $email
         ));
 
+        //get department ID
+        $sql = "SELECT dept_id FROM department WHERE dept_name=:dp";
+        $statement = $this->pdo->prepare($sql);
+
+        $statement->execute(array(':dp' => $department));
+        $dept_id = $statement->fetch(PDO::FETCH_ASSOC)['dept_id'];
+
         //add employment details
         $sql = "SELECT emp_id FROM employee ORDER BY emp_id DESC LIMIT 1";
         $statement = $this->pdo->prepare($sql);
@@ -62,8 +69,8 @@ class addEmployeeModel extends Model{
         $statement->execute();
         $emp_id = $statement->fetch(PDO::FETCH_ASSOC)['emp_id'];
 
-        $sql = "INSERT INTO employment (emp_id, job_title, pay_grade, employment_status)
-        VALUES (:id, :jt, :pg, :es)";
+        $sql = "INSERT INTO employment (emp_id, job_title, pay_grade, employment_status, department)
+        VALUES (:id, :jt, :pg, :es, :dp)";
 
         $statement = $this->pdo->prepare($sql);
 
@@ -71,7 +78,8 @@ class addEmployeeModel extends Model{
             ':id' => $emp_id,
             ':jt' => $job_title_id,
             ':pg' => $pay_grade_id,
-            ':es' => $emp_status_id
+            ':es' => $emp_status_id,
+            ':dp' => $dept_id
         ));
 
         //add mobile number
