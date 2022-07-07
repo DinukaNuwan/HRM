@@ -35,9 +35,9 @@
                         <label class="form-label" for="group">By Group</label>
                         <select class="form-select" id="group" name="group" aria-label="Default select example">
                             <option value="">select group...</option>
-                            <option value="departement">Department</option>
-                            <option value="job_title">Job Title</option>
-                            <option value="pay_grade">Pay Grade</option>
+                            <option value="Departement">Department</option>
+                            <option value="Job Title">Job Title</option>
+                            <option value="Pay Grade">Pay Grade</option>
                         </select>
                         <small>Error message</small>
                     </div>

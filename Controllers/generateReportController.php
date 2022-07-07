@@ -20,7 +20,8 @@ class generateReportController extends Controller {
                 header('Location: totalleaves');
             }
             else if (isset($_POST['employee']) && $_POST['employee'] == 'yes') {
-                $_SESSION['department'] = $_POST['department'];
+                $_SESSION['group_by'] = $_POST['group'];
+                header('Location: empbygroup');
             }
         }
         

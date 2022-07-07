@@ -24,10 +24,10 @@ class requestLeaveController extends Controller {
             $reason = $_POST['reason'];
             $msg = $model->makeRequest($emp_id, $leaveType, $from, $to, $reason);
             if ($msg == 1) {
-                header('Location: dashboard');
+                header('Location: myrequests');
             } else {
-                var_dump($msg);
-                echo 'Leave application failed';
+                // echo 'Leave application failed';
+                $this->set(array('error' => $msg));
             }
         }
         $this->render("RequestLeave");
