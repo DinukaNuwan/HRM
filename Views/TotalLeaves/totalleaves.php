@@ -41,15 +41,15 @@
                         }
                         if (isset($Maternity)) {
                             echo '<p class="info">Maternity - ' . $Maternity . '</p>';
-                            echo '<input type="text" id="Maternity" value="' . $AnMaternitynual . '" hidden>';
+                            echo '<input type="text" id="Maternity" value="' . $Maternity . '" hidden>';
                         } else {
                             echo '<input type="text" id="Maternity" value="0" hidden>';
                         }
-                        if (isset($NoPay)) {
-                            echo '<p class="info">No Pay - ' . $NoPay . '</p>';
-                            echo '<input type="text" id="NoPay" value="' . $NoPay . '" hidden>';
+                        if (isset($No_Pay)) {
+                            echo '<p class="info">No Pay - ' . $No_Pay . '</p>';
+                            echo '<input type="text" id="No_Pay" value="' . $No_Pay . '" hidden>';
                         } else {
-                            echo '<input type="text" id="NoPay" value="0" hidden>';
+                            echo '<input type="text" id="No_Pay" value="0" hidden>';
                         }
                         ?>
                     </div>
