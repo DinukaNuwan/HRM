@@ -21,22 +21,65 @@
                     </div>
                 </div>
             </div>
-            <div class="types">
-                <div class="row">
-                    <p class="info">Aannual - XX</p>
-                    <p class="info">Casual - XX</p>
-                    <p class="info">Maternoity - XX</p>
-                    <p class="info">No-Pay - XX</p>
+            <?php
+            if (!isset($empty)) {
+            ?>
+                <div class="types">
+                    <div class="row">
+                        <?php
+                        if (isset($Annual)) {
+                            echo '<p class="info">Annual - ' . $Annual . '</p>';
+                            echo '<input type="text" id="Annual" value="' . $Annual . '" hidden>';
+                        } else {
+                            echo '<input type="text" id="Annual" value="0" hidden>';
+                        }
+                        if (isset($Casual)) {
+                            echo '<p class="info">Casual - ' . $Casual . '</p>';
+                            echo '<input type="text" id="Casual" value="' . $Casual . '" hidden>';
+                        } else {
+                            echo '<input type="text" id="Casual" value="0" hidden>';
+                        }
+                        if (isset($Maternity)) {
+                            echo '<p class="info">Maternity - ' . $Maternity . '</p>';
+                            echo '<input type="text" id="Maternity" value="' . $AnMaternitynual . '" hidden>';
+                        } else {
+                            echo '<input type="text" id="Maternity" value="0" hidden>';
+                        }
+                        if (isset($NoPay)) {
+                            echo '<p class="info">No Pay - ' . $NoPay . '</p>';
+                            echo '<input type="text" id="NoPay" value="' . $NoPay . '" hidden>';
+                        } else {
+                            echo '<input type="text" id="NoPay" value="0" hidden>';
+                        }
+                        ?>
+                    </div>
+                    <div class="row tot">
+                        <?php
+                        if (isset($total)) {
+                            echo '<p class="info tot_info">Total Leaves in Given Period - ' . $total . '</p>';
+                        }
+                        ?>
+                    </div>
                 </div>
-                <div class="row tot">
-                    <p class="info tot_info">Total Leaves in Given Period - XX</p>
+                <div class="chart">
+                    <canvas class="canvas_chart" id="myChart"></canvas>
+                    <script src="<?= WEBROOT ?>Public/JavaScript/totLeavesPieChart.js"></script>
                 </div>
-            </div>
         </div>
 
         <div class="text-center pt-1 mb-5 pb-1">
             <form action="<?= WEBROOT ?>totalleaves" method="POST"><button class="btn btn-primary" type="submit" name="submit">Download</button></form>
         </div>
+    <?php
+            } else {
+    ?>
+        <div class="logo img">
+            <img src="<?= WEBROOT ?>/Resources/Images/noreq.png" alt="logo">
+        </div>
+        <p class="noreq text-center">No leaves have been given in this period.</p>
+    <?php
+            }
+    ?>
 
     </div>
 </div>
