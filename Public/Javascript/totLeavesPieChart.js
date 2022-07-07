@@ -1,5 +1,5 @@
 var xValues = ["Annual", "Casual", "Maternity", "No-Pay"];
-var yValues = [document.getElementById('Annual').value, document.getElementById('Casual').value, document.getElementById('Maternity').value, document.getElementById('NoPay').value];
+var yValues = [document.getElementById('Annual').value, document.getElementById('Casual').value, document.getElementById('Maternity').value, document.getElementById('No_Pay').value];
 var barColors = [
   "#b91d47",
   "#00aba9",
