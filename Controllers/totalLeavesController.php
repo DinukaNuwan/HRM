@@ -25,6 +25,19 @@ class totalLeavesController extends Controller
             $res = $model->getDeptName($deparment);
             $comp = $model->getCompanyDetails(1);
 
+            $leave_data = $model->getLeaves($deparment, $from_date, $to_date);
+            // var_dump($leave_data);
+            if (count($leave_data) == 0) {
+                $this->set(array('empty' => true));
+            } else {
+                $total = 0;
+                foreach ($leave_data as $data) {
+                    $this->set(array($data['leave_type'] => $data['count']));
+                    $total = $total + $data['count'];
+                }
+                $this->set(array('total' => $total));
+            }
+
             $this->set(array('deparment_name' => $res['dept_name']));
             $this->set(array('from_date' => $from_date));
             $this->set(array('to_date' => $to_date));
@@ -39,8 +52,7 @@ class totalLeavesController extends Controller
             }
 
             $this->render("TotalLeaves");
-        } 
-        else {
+        } else {
             header('Location: generatereport');
         }
     }
