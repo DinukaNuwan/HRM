@@ -22,29 +22,38 @@ class addUserController extends Controller
             require(ROOT . "Models/AddUser.php");
 
             $model = new addUserModel();
+
+            $employees = $model->loadEmployees();
+            $this->set(array('employees' => $employees));
+
             $data = $_POST;
             if (isset($data['submit'])) {
                 $msg = "";
                 $this->emp_id = $data['employee_id'];
                 $this->username = $data['username'];
                 $this->password = $data['password'];
-                //            $this->password = password_hash($data['password'], PASSWORD_DEFAULT);
                 $this->role = $data['role'];
-                $this->photo = $data['photo'];
+
+                // $this->photo = $data['image'];
+                if (!$_FILES['image']['tmp_name'] == "") {
+                    $image = $_FILES["image"];
+                    $blob = addslashes(file_get_contents($image["tmp_name"]));
+                    $this->photo = $blob;
+                }
+
                 $this->c_password = $data['c_password'];
 
                 if ($this->checkFieldLengths()) {
-                    $this->errors[] = "empty fields";
+                    $this->errors[] = "Empty fields";
                 }
                 if ($this->checkValidUsername()) {
-                    $this->errors[] = "enter a valid username";
-                    var_dump($this->errors);
+                    $this->errors[] = "Enter a valid username";
                 }
                 if ($this->checkValidPassword()) {
                     $this->errors[] = "Password must be at least 8 characters in length and must contain at least one number, one upper case letter, one lower case letter and one special character.";
                 }
                 if ($this->comparePasswords()) {
-                    $this->errors[] = "passwords doesn't match";
+                    $this->errors[] = "Passwords doesn't match";
                 }
                 $this->password = password_hash($data['password'], PASSWORD_DEFAULT);
 
