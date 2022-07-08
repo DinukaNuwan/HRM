@@ -58,6 +58,14 @@ class addUserModel extends Model{
 
         return $msg;
     }
+
+    function loadEmployees() {
+        $sql = "SELECT emp_id, firstname, lastname FROM employee";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
 }
 
 ?>
