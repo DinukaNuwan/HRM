@@ -412,3 +412,17 @@ CREATE TRIGGER `updateEmpLeaveCount` AFTER UPDATE ON `leave_application`
 END IF;
 
 --
+-- --------------------------------------------------------------
+-- VIEW
+
+CREATE VIEW reportingModule AS
+SELECT employment.emp_id, 
+department.dept_name as department, pay_grade.pay_grade, pay_grade.basic_salary, job_title.job_title, employment_status.status as employment_status, 
+employee.firstname, employee.lastname, employee.email 
+FROM employment 
+JOIN department ON employment.department = department.dept_id 
+JOIN pay_grade ON employment.pay_grade=pay_grade.pay_grade_id 
+JOIN job_title ON employment.job_title=job_title.job_title_id 
+JOIN employment_status ON employment.employment_status=employment_status.status_id
+JOIN employee USING(emp_id)  
+ORDER BY `employment`.`emp_id` ASC
