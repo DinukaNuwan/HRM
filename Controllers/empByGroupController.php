@@ -20,7 +20,12 @@ class empByGroupController extends Controller
         $this->set(array('comp_address' => $comp['address']));
 
         $group_by = $_SESSION['group_by'];
+        $group_by_value = $_SESSION['group_by_value'];
         $this->set(array('group_by' => $group_by));
+        $this->set(array('group_by_value' => $group_by_value));
+
+        $res = $model->getReport($group_by, $group_by_value);
+        var_dump($res);
 
         $this->render("EmpByGroup");
     }

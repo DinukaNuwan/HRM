@@ -28,12 +28,10 @@
             <div class="content" id="content" style="display: none">
                 <div class="employee" id="employee" style="display: none;">
                     <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px;border-radius: 20px;">Employee by Department</p>
-                    
-
 
                     <div class="form-control form-outline form-input">
                         <label class="form-label" for="group">By Group</label>
-                        <select class="form-select" id="group" name="group" aria-label="Default select example">
+                        <select class="form-select" id="group" name="group" aria-label="Default select example" onchange="displayGroup()">
                             <option value="">select group...</option>
                             <option value="Departement">Department</option>
                             <option value="Job Title">Job Title</option>
@@ -41,11 +39,66 @@
                         </select>
                         <small>Error message</small>
                     </div>
+
+                    <script>
+                        function displayGroup() {
+                            const group = document.getElementById('group');
+                            const dept = document.getElementById('sel_dept');
+                            const title = document.getElementById('sel_title');
+                            const grade = document.getElementById('sel_grade');
+
+                            if (group.value == 'Departement') {
+                                document.getElementById("sel_dept").style.display = "block";
+                                document.getElementById("sel_title").style.display = "none";
+                                document.getElementById("sel_grade").style.display = "none";
+                            } else if (group.value == 'Job Title') {
+                                document.getElementById("sel_dept").style.display = "none";
+                                document.getElementById("sel_title").style.display = "block";
+                                document.getElementById("sel_grade").style.display = "none";
+                            } else if (group.value == 'Pay Grade') {
+                                document.getElementById("sel_dept").style.display = "none";
+                                document.getElementById("sel_title").style.display = "none";
+                                document.getElementById("sel_grade").style.display = "block";
+                            }
+                        }
+                    </script>
+
+                    <div class="sel_dept" id="sel_dept" style="display: none">
+                        <label class="form-label" for="sel_dept">Select Department</label>
+                        <select class="form-select" name="group_dept" aria-label="Default select example">
+                            <option value="">select department...</option>
+                            <option value="HR">HR</option>
+                            <option value="IT">IT</option>
+                            <option value="Production">Production</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Finance">Finance</option>
+                        </select>
+                    </div>
+                    <div class="sel_title" id="sel_title" style="display: none">
+                        <label class="form-label" for="sel_title">Select Job Title</label>
+                        <select class="form-select" name="group_title" aria-label="Default select example">
+                            <option value="">select job title...</option>
+                            <option value="HR Manager">HR Manager</option>
+                            <option value="Accountant">Accountant</option>
+                            <option value="Software Engineer">Software Engineer</option>
+                            <option value="QA Engineer">QA Engineer</option>
+                        </select>
+                    </div>
+                    <div class="sel_grade" id="sel_grade" style="display: none">
+                        <label class="form-label" for="sel_grade">Select Pay Grade</label>
+                        <select class="form-select" name="group_grade" aria-label="Default select example">
+                            <option value="">select pay grade...</option>
+                            <option value="Level 1">Level 1</option>
+                            <option value="Level 2">Level 2</option>
+                            <option value="Level 3">Level 3</option>
+                        </select>
+                    </div>
+
                 </div>
 
                 <div class="leave" id="leave" style="display: none;">
                     <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px;border-radius: 20px;">Total Leaves in Given Period by Department</p>
-                    
+
                     <div class="col">
                         <div class="form-control form-outline form-input">
                             <label class="form-label" for="department">By Department</label>
@@ -60,7 +113,7 @@
                             <small>Error message</small>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-control form-outline form-input">

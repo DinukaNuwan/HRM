@@ -6,6 +6,7 @@
 
         <div class="text-center mt-2">
             <h4 class="mt-1 mb-2 pb-1">Employees by <?= $group_by ?></h4>
+            <h4 class="mt-1 mb-2 pb-1"><?= $group_by ?> - <?= $group_by_value ?></h4>
         </div>
 
         // Table Here
