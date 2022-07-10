@@ -11,6 +11,16 @@
             ?>
         </div>
 
+        <!-- <div class="row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4 searchbar">
+                <form action="<?= WEBROOT ?>allusers" method="POST" class="d-flex">
+                    <input class="searchinput form-control me-2" type="search" name="keyword" placeholder="Search by ID/Name" aria-label="Search">
+                    <button class="searchbtn" name="search" id="search" type="submit">Search</button>
+                </form>
+            </div>
+        </div> -->
+
         <?php
                 if ($users) {
         ?>
