@@ -17,28 +17,30 @@ class requestLeaveModel extends Model{
         //check for the leave availability
         $numOfDays = ((strtotime($to) - strtotime($from)) / (60 * 60 * 24));
 
-        $sql = "SELECT annual, casual, no_pay, maternity, mandatory_no_pay FROM employment JOIN pay_grade JOIN leave_count 
-            WHERE leave_count.pay_grade = pay_grade.pay_grade_id AND employment.pay_grade = pay_grade.pay_grade_id 
-            AND employment.emp_id = :id";
+        $sql = "SELECT (leave_count.annual - emp_leave_count.annual) as rem_annual, 
+        (leave_count.casual - emp_leave_count.casual) as rem_casual,
+        (leave_count.maternity - emp_leave_count.maternity) as rem_maternity,
+        (leave_count.no_pay - emp_leave_count.no_pay) as rem_no_pay,
+        leave_count.annual, leave_count.casual, leave_count.maternity, leave_count.no_pay
+        FROM employment 
+        RIGHT JOIN pay_grade ON employment.pay_grade = pay_grade.pay_grade_id
+        RIGHT JOIN leave_count ON leave_count.pay_grade = pay_grade.pay_grade_id
+        LEFT JOIN emp_leave_count USING(emp_id)
+        WHERE emp_id= :id";
+
         $statement = $this->pdo->prepare($sql);
         $statement->execute(array(':id' => $emp_id));
 
-        $all = $statement->fetch(PDO::FETCH_ASSOC)[$leaveType];
-
-        $sql = "SELECT annual, casual, no_pay, maternity FROM emp_leave_count WHERE emp_leave_count.emp_id = :id";
-
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute(array(
-            ':id' => $emp_id));
-
-        $taken = $statement->fetch(PDO::FETCH_ASSOC);
+        $data = $statement->fetch(PDO::FETCH_ASSOC);
+        $remainingLeaves = $data["rem_".$leaveType];
+        $allLeaves = $data[$leaveType];
         
-        if($taken == false && $all < $numOfDays){
+        if($remainingLeaves == false && $allLeaves < $numOfDays){
             //return
             $msg = "Number of remaining leaves exceed.";
             return $msg;
         }
-        elseif ($taken != false && ($all-$taken[$leaveType] < $numOfDays)){
+        elseif ($remainingLeaves != false && ($remainingLeaves < $numOfDays)){
             //return
             $msg = "Number of remaining leaves exceed.";
             return $msg;

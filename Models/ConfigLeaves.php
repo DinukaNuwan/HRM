@@ -6,8 +6,9 @@ class configLeavesModel extends Model{
 
 
         $sql = "SELECT annual, casual, no_pay, maternity, mandatory_no_pay 
-        FROM `leave_count` JOIN pay_grade 
-        WHERE leave_count.pay_grade = pay_grade.pay_grade_id AND pay_grade.pay_grade = :pg";
+        FROM `leave_count` 
+        JOIN pay_grade ON leave_count.pay_grade = pay_grade.pay_grade_id  
+        WHERE pay_grade.pay_grade = :pg";
 
         $statement = $this->pdo->prepare($sql);
 
@@ -21,8 +22,8 @@ class configLeavesModel extends Model{
 
     function editLeaves($payGrade, $annual, $casual, $no_pay, $maternity, $mandatory_no_pay){
 
-        $sql = "UPDATE `leave_count` SET 
-        `annual`=:ann,`casual`=:cas,`no_pay`=:np,`maternity`=:mat,`mandatory_no_pay`=:man_np 
+        $sql = "UPDATE `leave_count` 
+        SET `annual`=:ann,`casual`=:cas,`no_pay`=:np,`maternity`=:mat,`mandatory_no_pay`=:man_np 
         WHERE pay_grade = (SELECT pay_grade.pay_grade_id FROM pay_grade WHERE pay_grade.pay_grade=:pg)";
 
         $statement = $this->pdo->prepare($sql);
