@@ -25,8 +25,11 @@ class addSupervisorModel extends Model
     function loadEmployee($emp_id)
     {
 
-        $sql = "SELECT employee.emp_id, employee.firstname, employee.lastname, department.dept_name FROM employee JOIN employment JOIN department
-            WHERE employee.emp_id = employment.emp_id AND employment.department = department.dept_id AND employee.emp_id = :id";
+        $sql = "SELECT employee.emp_id, employee.firstname, employee.lastname, department.dept_name 
+        FROM employee 
+        JOIN employment USING (emp_id) 
+        JOIN department ON employment.department = department.dept_id
+        WHERE employee.emp_id = :id";
 
         $statement = $this->pdo->prepare($sql);
 
@@ -40,9 +43,11 @@ class addSupervisorModel extends Model
     function loadSupervisorsFromDept($dept_name, $emp_id)
     {
 
-        $sql = "SELECT employee.emp_id, employee.firstname, employee.lastname FROM employee JOIN employment JOIN department
-            WHERE employee.emp_id = employment.emp_id AND employment.department = department.dept_id 
-            AND dept_name = :dept AND employee.emp_id != :id";
+        $sql = "SELECT employee.emp_id, employee.firstname, employee.lastname 
+        FROM employee 
+        JOIN employment USING(emp_id)
+        JOIN department ON employment.department = department.dept_id
+        WHERE dept_name = :dept AND employee.emp_id != :id";
 
         $statement = $this->pdo->prepare($sql);
 
