@@ -33,7 +33,7 @@
                         <label class="form-label" for="group">By Group</label>
                         <select class="form-select" id="group" name="group" aria-label="Default select example" onchange="displayGroup()">
                             <option value="">select group...</option>
-                            <option value="Departement">Department</option>
+                            <option value="Department">Department</option>
                             <option value="Job Title">Job Title</option>
                             <option value="Pay Grade">Pay Grade</option>
                         </select>
@@ -47,7 +47,7 @@
                             const title = document.getElementById('sel_title');
                             const grade = document.getElementById('sel_grade');
 
-                            if (group.value == 'Departement') {
+                            if (group.value == 'Department') {
                                 document.getElementById("sel_dept").style.display = "block";
                                 document.getElementById("sel_title").style.display = "none";
                                 document.getElementById("sel_grade").style.display = "none";
