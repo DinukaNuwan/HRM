@@ -25,7 +25,7 @@ class requestsController extends Controller
             $id = $user->getEmpId();
             $res = $model->getRequests($id);
 
-            var_dump($res);
+            // var_dump($res);
             $pending_requests = [];
             $approved_requests = [];
             $rejected_requests = [];
