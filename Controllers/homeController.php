@@ -10,6 +10,11 @@ class homeController extends Controller {
         }
 
         require(ROOT . "Models/home.php");
+        $model = new homeModel();
+
+        $company = $model->loadCompanyDetails(1);
+        $this->set(array('company_name' => $company['name']));
+        $this->set(array('company_address' => $company['address']));
 
         $this->render("home");
     }
