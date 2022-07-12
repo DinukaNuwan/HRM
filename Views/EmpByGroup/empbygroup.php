@@ -9,8 +9,28 @@
             <h4 class="mt-1 mb-2 pb-1"><?= $group_by ?> - <?= $group_by_value ?></h4>
         </div>
 
-        // Table Here
-
+    <table class="table" style="overflow-x:auto;">
+        <tr>
+            <th>Employee Id</th>
+            <th>Employment Status</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        <?php
+        if (isset($res)){
+            foreach ($res as $r){
+                echo "<tr>";
+                echo "<td>" . $r['emp_id'] . "</td>";
+                echo "<td>" . $r['employment_status'] . "</td>";
+                echo "<td>" . $r['firstname'] . "</td>";
+                echo "<td>" . $r['lastname'] . "</td>";
+                echo "<td>" . $r['email'] . "</td>";
+                echo "</tr>";
+            }
+        }
+        ?>
+    </table>
         <div class="text-center pt-1 mb-5 pb-1">
             <form action="<?= WEBROOT ?>totalleaves" method="POST"><button class="btn btn-primary" type="submit" name="submit">Download</button></form>
         </div>
