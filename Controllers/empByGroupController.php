@@ -25,7 +25,7 @@ class empByGroupController extends Controller
         $this->set(array('group_by_value' => $group_by_value));
 
         $res = $model->getReport($group_by, $group_by_value);
-        var_dump($res);
+        $this->set(array('res' => $res));
 
         $this->render("EmpByGroup");
     }
