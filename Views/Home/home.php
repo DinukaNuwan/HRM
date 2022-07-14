@@ -7,7 +7,7 @@
                     <img class="home_image" src="<?= WEBROOT ?>Resources/Images/new_logo.png" alt="" />
                 </div>
             </div>
-            <div class="info_p col-lg-9">
+            <div class="info_p col-lg-9 mt-4">
                 <h1 class="Header1 mb-0px">Human Resource Management System</h1>
                 <h2 class="info mt-0"><?= $company_name ?></h2>
                 <h5 class="info address mt-0"><?= $company_address ?></h5>

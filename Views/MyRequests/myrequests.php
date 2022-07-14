@@ -33,9 +33,9 @@
                                         <div class="aspect-info">
                                             <span class="aspect-name">
                                                 <div class="second d-flex flex-row mt-2">
-                                                    <div class="image mr-3">
+                                                    <!-- <div class="image mr-3">
                                                         <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
-                                                    </div>
+                                                    </div> -->
                                                     <div class="name-block">
                                                         <div class="d-flex flex-row">
                                                             <span class="name">&nbsp;&nbsp;<?= $request['firstname'] . ' ' . $request['lastname'] ?></span>
@@ -107,9 +107,9 @@
                                         <div class="aspect-info">
                                             <span class="aspect-name">
                                                 <div class="second d-flex flex-row mt-2">
-                                                    <div class="image mr-3">
+                                                    <!-- <div class="image mr-3">
                                                         <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
-                                                    </div>
+                                                    </div> -->
                                                     <div class="name-block">
                                                         <div class="d-flex flex-row">
                                                             <span class="name">&nbsp;&nbsp;<?= $request['firstname'] . ' ' . $request['lastname'] ?></span>
@@ -180,9 +180,9 @@
                                         <div class="aspect-info">
                                             <span class="aspect-name">
                                                 <div class="second d-flex flex-row mt-2">
-                                                    <div class="image mr-3">
+                                                    <!-- <div class="image mr-3">
                                                         <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
-                                                    </div>
+                                                    </div> -->
                                                     <div class="name-block">
                                                         <div class="d-flex flex-row">
                                                             <span class="name">&nbsp;&nbsp;<?= $request['firstname'] . ' ' . $request['lastname'] ?></span>

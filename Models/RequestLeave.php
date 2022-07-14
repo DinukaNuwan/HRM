@@ -2,6 +2,15 @@
 
 class requestLeaveModel extends Model{
 
+    function hasSupervisor($emp_id) {
+        $sql = "SELECT supervisor_id FROM supervise WHERE subordinate_id = :id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(array(':id' => $emp_id));
+
+        $supervisor_id = $statement->fetch(PDO::FETCH_ASSOC);
+        return $supervisor_id;
+    }
+
     function makeRequest($emp_id, $leaveType, $from, $to, $reason){
 
         // echo $emp_id, $leaveType, $noOfDays, $from, $to, $reason;

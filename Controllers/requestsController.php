@@ -25,7 +25,11 @@ class requestsController extends Controller
             $id = $user->getEmpId();
             $res = $model->getRequests($id);
 
-            // var_dump($res);
+            if ($res == "You need to be a supervisor to access this") {
+                $res = $model->getAllRequests();
+                // var_dump($res);
+            }
+            
             $pending_requests = [];
             $approved_requests = [];
             $rejected_requests = [];
