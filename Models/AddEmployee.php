@@ -9,6 +9,8 @@ class addEmployeeModel extends Model{
         $emg_name, $emg_mobile, $emg_relationship
     ){
 
+        try{
+
         //get value of the marital Stts:
         $sql = "SELECT status_id FROM emp_marital_status WHERE status=:ms";
         $statement = $this->pdo->prepare($sql);
@@ -46,6 +48,9 @@ class addEmployeeModel extends Model{
         VALUES (:fname, :lname, :addr, :dob, :marital, :em)";
 
         $statement = $this->pdo->prepare($sql);
+
+        $this->pdo->beginTransaction();
+
          $statement->execute(array(
             ':fname' => $fname,
             ':lname' => $lname,
@@ -121,9 +126,18 @@ class addEmployeeModel extends Model{
             ':mob' => $emg_mobile
         ));
 
+        $this->pdo->commit();
+
         return $msg;
+    }
+
+        catch (\Exception $e) {
+            if ($this->pdo->inTransaction()) {
+                $this->pdo->rollback();
+                return "Error";
+            }
+            throw $e;
+        }
 
     }
 }
-
-?>
