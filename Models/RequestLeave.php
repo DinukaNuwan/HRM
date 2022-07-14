@@ -55,6 +55,9 @@ class requestLeaveModel extends Model{
             return $msg;
         }
         else{
+            try{
+        $this->pdo->beginTransaction();
+
             //run sql
             $sql = "INSERT INTO leave_application (`emp_id`, `leave_type`, `from`, `to`, `reason`, `status`) 
             VALUES (:id, :typ, :frm, :to , :reasn, :stt)";
@@ -68,11 +71,18 @@ class requestLeaveModel extends Model{
                 ':reasn' => $reason,
                 ':stt' => 1
             ));
+            $this->pdo->commit();
 
             return $msg;
+        }
+        catch (\Exception $e) {
+            if ($this->pdo->inTransaction()) {
+                $this->pdo->rollback();
+                return "Error";
+            }
+            throw $e;
+        }
         }
     }
 
 }
-
-?>
