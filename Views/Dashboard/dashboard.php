@@ -25,6 +25,9 @@
             <div class="text-center pt-1 mb-3 pb-1">
                 <a href="generatereport"><button class="btn btn-primary" name="submit" type="button">Reporting Module</button></a>
             </div>
+            <div class="text-center pt-1 mb-3 pb-1">
+                <a href="requests"><button class="btn btn-primary" name="submit" type="button">All Leave Requests</button></a>
+            </div>
         <?php
         }
         ?>
