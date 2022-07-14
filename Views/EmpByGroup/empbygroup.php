@@ -9,7 +9,7 @@
             <h4 class="mt-1 mb-2 pb-1"><?= $group_by ?> - <?= $group_by_value ?></h4>
         </div>
 
-    <table class="table" style="overflow-x:auto;">
+    <table class="table mt-2" style="overflow-x:auto;">
         <tr>
             <th>Employee Id</th>
             <th>Employment Status</th>

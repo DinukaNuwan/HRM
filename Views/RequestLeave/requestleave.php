@@ -15,7 +15,7 @@ $dayAfterTomorrow = date('Y-m-d', strtotime("+2 days"));
         <?php
         if (isset($no_sup)) {
         ?>
-            <p class="mb-3 text-center"><?= $no_sup ?></p>
+            <p class="mb-3 text-center no_sup"><?= $no_sup ?></p>
             <div class="nosup_img">
                 <img src="<?= WEBROOT ?>/Resources/Images/nosup.png" alt="logo" height="200">
             </div>

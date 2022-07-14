@@ -30,6 +30,12 @@ body {
     margin: auto;
 }
 
+.no_sup {
+	color: purple;
+	padding: 5px;
+	border: 1px dotted crimson;
+}
+
 .nosup_img {
     width: 280px;	
     margin: auto;
