@@ -36,7 +36,8 @@
                                 <div class="image mr-3">
                                     <?php
                                     if ($user['photo'])
-                                        echo '<img src="data:image;base64,' . base64_encode($user['photo']) . '" alt="User image" class="rounded-circle" width="50" >';
+                                        echo '<img src ="data:image/jpeg;base64,'.base64_encode($user['photo']).'" alt="User image" class="rounded-circle" width="50"/>';
+                                        // echo '<img src="data:image;base64,' . base64_encode($user['photo']) . '" alt="User image" class="rounded-circle" width="50" >';
                                     else
                                         echo '<img src="' . WEBROOT . '/Resources/images/nopic.jpg" class="rounded-circle" width="50" />';
                                     ?>
