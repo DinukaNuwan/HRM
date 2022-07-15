@@ -41,6 +41,11 @@ class generateReportController extends Controller
                         $_SESSION['group_by_value'] = $_POST['group_grade'];
                     }
                     header('Location: empbygroup');
+                } else if (isset($_POST['supervisor']) && $_POST['supervisor'] == 'yes') {
+                    $_SESSION['sup_department'] = $_POST['sup_department'];
+                    $_SESSION['sup_from_date'] = $_POST['sup_from_date'];
+                    $_SESSION['sup_to_date'] = $_POST['sup_to_date'];
+                    header('Location: supleaves');
                 }
             }
         }
