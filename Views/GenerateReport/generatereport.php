@@ -22,12 +22,17 @@
                         <input type="hidden" id="leave_hidden" name="leave" value="no">
                         <label class="form-check-label" for="leave_select"><i class="fas fa-calendar-check"></i>Leaves</label>
                     </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="supervisor_select" value="no" onchange="load('supervisor')">
+                        <input type="hidden" id="supervisor_hidden" name="supervisor" value="no">
+                        <label class="form-check-label" for="supervisor_select"><i class="fas fa-calendar-check"></i>supervisor</label>
+                    </div>
                 </div>
             </div>
 
             <div class="content" id="content" style="display: none">
                 <div class="employee" id="employee" style="display: none;">
-                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px;border-radius: 20px;">Employee by Department</p>
+                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px 10px;border-radius: 20px;">Employee by Department</p>
 
                     <div class="form-control form-outline form-input">
                         <label class="form-label" for="group">By Group</label>
@@ -97,7 +102,7 @@
                 </div>
 
                 <div class="leave" id="leave" style="display: none;">
-                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px;border-radius: 20px;">Total Leaves in Given Period by Department</p>
+                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px 10px;border-radius: 20px;">Total Leaves in Given Period by Department</p>
 
                     <div class="col">
                         <div class="form-control form-outline form-input">
@@ -128,6 +133,25 @@
                                 <input type="date" id="to_date" name="to_date" class="form-control" />
                                 <small>Error message</small>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supervisor" id="supervisor" style="display: none;">
+                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px 10px;border-radius: 20px;">Supervisor by Department</p>
+
+                    <div class="col">
+                        <div class="form-control form-outline form-input">
+                            <label class="form-label" for="sup_department">By Department</label>
+                            <select class="form-select" id="sup_department" name="sup_department" aria-label="Default select example">
+                                <option value="">select department...</option>
+                                <option value="1">HR</option>
+                                <option value="2">IT</option>
+                                <option value="3">Production</option>
+                                <option value="4">Marketing</option>
+                                <option value="5">Finance</option>
+                            </select>
+                            <small>Error message</small>
                         </div>
                     </div>
                 </div>
