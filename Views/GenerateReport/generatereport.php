@@ -13,17 +13,17 @@
                 <div class="report_type">
                     <lable class="form-label mb-3">Select Report Type:&nbsp;&nbsp;</lable>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="employee_select" value="no" onchange="load('employee')">
+                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="employee_select" onchange="load('employee')">
                         <input type="hidden" id="employee_hidden" name="employee" value="no">
                         <label class="form-check-label" for="employee_select"><i class="fas fa-user-tie"></i>Employees</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="leave_select" value="no" onchange="load('leave')">
+                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="leave_select" onchange="load('leave')">
                         <input type="hidden" id="leave_hidden" name="leave" value="no">
                         <label class="form-check-label" for="leave_select"><i class="fas fa-calendar-check"></i>Leaves</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="supervisor_select" value="no" onchange="load('supervisor')">
+                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="supervisor_select" onchange="load('supervisor')">
                         <input type="hidden" id="supervisor_hidden" name="supervisor" value="no">
                         <label class="form-check-label" for="supervisor_select"><i class="fas fa-calendar-check"></i>supervisor</label>
                     </div>
@@ -45,29 +45,6 @@
                         <small>Error message</small>
                     </div>
 
-                    <script>
-                        function displayGroup() {
-                            const group = document.getElementById('group');
-                            const dept = document.getElementById('sel_dept');
-                            const title = document.getElementById('sel_title');
-                            const grade = document.getElementById('sel_grade');
-
-                            if (group.value == 'Department') {
-                                document.getElementById("sel_dept").style.display = "block";
-                                document.getElementById("sel_title").style.display = "none";
-                                document.getElementById("sel_grade").style.display = "none";
-                            } else if (group.value == 'Job Title') {
-                                document.getElementById("sel_dept").style.display = "none";
-                                document.getElementById("sel_title").style.display = "block";
-                                document.getElementById("sel_grade").style.display = "none";
-                            } else if (group.value == 'Pay Grade') {
-                                document.getElementById("sel_dept").style.display = "none";
-                                document.getElementById("sel_title").style.display = "none";
-                                document.getElementById("sel_grade").style.display = "block";
-                            }
-                        }
-                    </script>
-
                     <div class="form-control form-outline form-input" id="sel_dept" style="display: none">
                         <label class="form-label" for="group_dept">Select Department</label>
                         <select class="form-select" id="group_dept" name="group_dept" aria-label="Default select example">
@@ -78,6 +55,7 @@
                             <option value="Marketing">Marketing</option>
                             <option value="Finance">Finance</option>
                         </select>
+                        <small>Error message</small>
                     </div>
                     <div class="form-control form-outline form-input" id="sel_title" style="display: none">
                         <label class="form-label" for="group_title">Select Job Title</label>
@@ -88,6 +66,7 @@
                             <option value="Software Engineer">Software Engineer</option>
                             <option value="QA Engineer">QA Engineer</option>
                         </select>
+                        <small>Error message</small>
                     </div>
                     <div class="form-control form-outline form-input" id="sel_grade" style="display: none">
                         <label class="form-label" for="group_grade">Select Pay Grade</label>
@@ -97,6 +76,7 @@
                             <option value="Level 2">Level 2</option>
                             <option value="Level 3">Level 3</option>
                         </select>
+                        <small>Error message</small>
                     </div>
 
                 </div>
