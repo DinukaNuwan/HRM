@@ -50,9 +50,6 @@ class generateReportController extends Controller
             }
         }
 
-<<<<<<< HEAD
-        $this->render("GenerateReport");
-=======
         //$model->getEmployeeRecords(array("job_title", "pay_grade"), array("A", "B"));
 
         //print_r($_POST);
@@ -68,6 +65,5 @@ class generateReportController extends Controller
         }
 
         $this->render("generatereport");
->>>>>>> Routing-and-MVC
     }
 }
