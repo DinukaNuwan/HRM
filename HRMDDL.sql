@@ -1,16 +1,4 @@
 -- TODO: 'check' constraints,ex: CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
-
---        create 'view's for reports (CREATE VIEW [Brazil Customers] AS
-                          -- SELECT CustomerName, ContactName
-                          -- FROM Customers
-                          -- WHERE Country = 'Brazil';)
-
---        time bound events (SO FAR NONE)
-
---        triggers for events
-            -- -> update leave count of employee when leave_application is approved (done)
-
--- TODO: merge tables (pay_grade and leave_count), edit models accordingly (decided not to)
 -- --------------------------------------------------------
 
 --
@@ -385,7 +373,8 @@ CREATE TABLE `user` (
   CONSTRAINT FK_UserRole FOREIGN KEY (`role`) REFERENCES `user_role`(`user_role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
+-- index for username 
+CREATE INDEX idx_uname ON user (username);
 -- --------------------------------------------------------
 
 --
