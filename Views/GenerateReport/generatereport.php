@@ -68,9 +68,9 @@
                         }
                     </script>
 
-                    <div class="sel_dept" id="sel_dept" style="display: none">
-                        <label class="form-label" for="sel_dept">Select Department</label>
-                        <select class="form-select" name="group_dept" aria-label="Default select example">
+                    <div class="form-control form-outline form-input" id="sel_dept" style="display: none">
+                        <label class="form-label" for="group_dept">Select Department</label>
+                        <select class="form-select" id="group_dept" name="group_dept" aria-label="Default select example">
                             <option value="">select department...</option>
                             <option value="HR">HR</option>
                             <option value="IT">IT</option>
@@ -79,9 +79,9 @@
                             <option value="Finance">Finance</option>
                         </select>
                     </div>
-                    <div class="sel_title" id="sel_title" style="display: none">
-                        <label class="form-label" for="sel_title">Select Job Title</label>
-                        <select class="form-select" name="group_title" aria-label="Default select example">
+                    <div class="form-control form-outline form-input" id="sel_title" style="display: none">
+                        <label class="form-label" for="group_title">Select Job Title</label>
+                        <select class="form-select" id="group_title" name="group_title" aria-label="Default select example">
                             <option value="">select job title...</option>
                             <option value="HR Manager">HR Manager</option>
                             <option value="Accountant">Accountant</option>
@@ -89,9 +89,9 @@
                             <option value="QA Engineer">QA Engineer</option>
                         </select>
                     </div>
-                    <div class="sel_grade" id="sel_grade" style="display: none">
-                        <label class="form-label" for="sel_grade">Select Pay Grade</label>
-                        <select class="form-select" name="group_grade" aria-label="Default select example">
+                    <div class="form-control form-outline form-input" id="sel_grade" style="display: none">
+                        <label class="form-label" for="group_grade">Select Pay Grade</label>
+                        <select class="form-select" id="group_grade" name="group_grade" aria-label="Default select example">
                             <option value="">select pay grade...</option>
                             <option value="Level 1">Level 1</option>
                             <option value="Level 2">Level 2</option>
@@ -152,6 +152,23 @@
                                 <option value="5">Finance</option>
                             </select>
                             <small>Error message</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input">
+                                <label class="form-label" for="sup_from_date">From</label>
+                                <input type="date" id="sup_from_date" name="sup_from_date" class="form-control" />
+                                <small>Error message</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input">
+                                <label class="form-label" for="sup_to_date">To</label>
+                                <input type="date" id="sup_to_date" name="sup_to_date" class="form-control" />
+                                <small>Error message</small>
+                            </div>
                         </div>
                     </div>
                 </div>
