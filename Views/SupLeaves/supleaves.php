@@ -17,7 +17,7 @@
                         <div class="col-md-6">
                             <p class="info">From <?= $from_date ?> to <?= $to_date ?></p>
                         </div>
-                        
+
                     </div>
                 </div>
                 <?php
@@ -87,4 +87,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <script src="<?= WEBROOT ?>Public/JavaScript/download.js"></script>
+</div>
+
+<div>
+    <div class="mt-2">
+        <h5 class="mt-1 mb-2 pb-1">Supervisor - name</h4>
+    </div>
+
+    <!-- froeach employees -->
+    <table class="table mt-2" style="overflow-x:auto;">
+        <tr>
+            <th>Employee Id</th>
+            <th>Name</th>
+            <th>Total Leaves</th>
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>akila</td>
+            <td>13</td>
+        </tr>
+    </table>
 </div>
