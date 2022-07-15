@@ -2,27 +2,27 @@
 
 class attributes extends Model {
     function addCustomAttribute($attrName) {
-        $sql = "ALTER TABLE employment ADD COLUMN $attrName VARCHAR(25) NOT NULL";
+        $sql = "ALTER TABLE custom_attributes ADD COLUMN $attrName VARCHAR(25) NOT NULL";
        
         $db = Database::getBdd();
 
         $statement = $db->prepare($sql);
 
-        $statement->execute();
+        print_r($statement->execute());
     }
 
     function deleteCustomAttribute($attrName) {
-        $sql = "ALTER TABLE employment DROP $attrName";
+        $sql = "ALTER TABLE custom_attributes DROP $attrName";
        
         $db = Database::getBdd();
 
         $statement = $db->prepare($sql);
 
-        $statement->execute();
+        print_r($statement->execute());
     }
 
     function getColumns() {
-        $sql = "SHOW COLUMNS FROM employment";
+        $sql = "SHOW COLUMNS FROM custom_attributes";
         $db = Database::getBdd();
         $statement = $db->prepare($sql);
         $statement->execute();
@@ -31,6 +31,9 @@ class attributes extends Model {
         $columns = [];
 
         foreach ($columnData as $column) {
+            if ($column["Field"] == "emp_id") {
+                continue;
+            }
             $columns = array_merge($columns, [$column["Field"]]);
         }
 
