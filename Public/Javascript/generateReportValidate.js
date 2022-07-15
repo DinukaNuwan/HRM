@@ -16,13 +16,6 @@ function checkInputs() {
     const employeeValue = employee.value;
     const leaveValue = leave.value;
 
-    // var today = new Date();
-    // var dd = String(today.getDate() + 1).padStart(2, '0');
-    // var mm = String(today.getMonth() + 1).padStart(2, '0');
-    // var yyyy = today.getFullYear();
-
-    // tomorow = yyyy + '-' + mm + '-' + dd;
-
     let isValid = true;
 
     if (employeeValue == 'yes' && leaveValue == 'no') {
