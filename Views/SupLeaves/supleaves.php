@@ -22,14 +22,21 @@
                 <div class="data">
                     <?php
                     $sup_name = '';
+                    $tbl = false;
                     foreach ($leave_data as $dat) {
                         $tname = $dat['sup_fname'] . ' ' . $dat['sup_lname'];
                         if ($tname !== $sup_name) {
                             $sup_name = $tname;
+                        if($tbl){
+                            echo "</table>" ;
+                            $tbl = false;
+                        }   
                     ?>
+
                             <div class="mt-2">
                                 <h5 class="mt-1 mb-2 pb-1 sup_name"><?= $tname ?></h4>
                             </div>
+
                             <table class="table mt-2" style="overflow-x:auto;">
                                 <tr>
                                     <th>Name</th>
@@ -39,13 +46,22 @@
                                     <td><?= $dat['firstname'] ?> <?= $dat['lastname'] ?></td>
                                     <td><?= $dat['count'] ?></td>
                                 </tr>
-                            </table>
                     <?php
-                        } else {
+                        $tbl = true;
+                    } else {
+
+                            ?>
+                            <tr>
+                                    <td><?= $dat['firstname'] ?> <?= $dat['lastname'] ?></td>
+                                    <td><?= $dat['count'] ?></td>
+                                </tr>
+                                <?php
                             continue;
                         }
+
                     }
                     ?>
+
                 </div>
             </div>
 
