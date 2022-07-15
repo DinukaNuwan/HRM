@@ -3,12 +3,12 @@
 class requestLeaveModel extends Model{
 
     function hasSupervisor($emp_id) {
-        $sql = "SELECT supervisor_id FROM supervise WHERE subordinate_id = :id";
+        $sql = "SELECT employee.firstname, employee.lastname FROM supervise LEFT JOIN employee ON supervise.supervisor_id = employee.emp_id  WHERE subordinate_id = :id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute(array(':id' => $emp_id));
 
-        $supervisor_id = $statement->fetch(PDO::FETCH_ASSOC);
-        return $supervisor_id;
+        $supervisor_name = $statement->fetch(PDO::FETCH_ASSOC);
+        return $supervisor_name;
     }
 
     function makeRequest($emp_id, $leaveType, $from, $to, $reason){

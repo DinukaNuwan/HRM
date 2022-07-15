@@ -41,6 +41,11 @@ body {
     margin: auto;
 }
 
+.sup_name {
+	color: purple;
+	font-weight: bold;
+}
+
 .logo img {
     width: 100%;
     height: 100px;

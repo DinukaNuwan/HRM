@@ -38,6 +38,10 @@ $dayAfterTomorrow = date('Y-m-d', strtotime("+2 days"));
                             <small>Error message</small>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="leave_type">Supervisor</label>
+                        <p class="sup_name"><?= $sup_name['firstname'] ?> <?= $sup_name['lastname'] ?></p>
+                    </div>
                 </div>
 
                 <div class="row">
