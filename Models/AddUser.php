@@ -73,7 +73,10 @@ class addUserModel extends Model{
     }
 
     function loadEmployees() {
-        $sql = "SELECT emp_id, firstname, lastname FROM employee";
+        // get employees who are not already users
+        $sql = "SELECT employee.emp_id, firstname, lastname FROM 
+        employee LEFT JOIN user ON employee.emp_id = user.emp_id 
+        WHERE user.emp_id IS NULL;";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         $res = $statement->fetchAll(PDO::FETCH_ASSOC);
