@@ -54,10 +54,6 @@ body {
 
 }
 
-.tot {
-    padding-top: 5px;
-    text-align: center;
-    margin: auto;
-    width: fit-content;
-    border-top: 1px solid grey;
+.sup_name {
+    color: purple;
 }

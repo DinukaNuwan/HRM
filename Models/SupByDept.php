@@ -11,6 +11,15 @@ class supByDeptModel extends Model
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
+    function getDeptName($department)
+    {
+        $sql = "SELECT dept_name FROM department WHERE dept_id=:id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(array(':id' => $department));
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
     function getLeavesBySupervisor($deparment_id, $from, $to)
     {   
         // var_dump($deparment_id, $from, $to);
