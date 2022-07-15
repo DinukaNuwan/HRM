@@ -44,13 +44,6 @@ class totalLeavesController extends Controller
             $this->set(array('comp_name' => $comp['name']));
             $this->set(array('comp_address' => $comp['address']));
 
-            if (isset($_POST['submit'])) {
-                require(ROOT . "Helpers/pdfConverter.php");
-                $pdfConverter = new pdfConverter();
-                // echo WEBROOT . 'Views/TotalLeaves/totalviews.php';
-                $pdfConverter->convert(WEBROOT . 'Views/TotalLeaves/totalleaves.php', 'dept_total_leaves');
-            }
-
             $this->render("TotalLeaves");
         } else {
             header('Location: generatereport');
