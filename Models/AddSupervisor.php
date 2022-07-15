@@ -8,8 +8,7 @@ class addSupervisorModel extends Model
     {
 
         try {
-            $this->pdo->beginTransaction();
-
+            
             $sql = "INSERT INTO supervise(subordinate_id, supervisor_id) 
         VALUES (:sub, :sup)";
 
@@ -19,7 +18,6 @@ class addSupervisorModel extends Model
                 ':sub' => $sub_id,
                 ':sup' => $sup_id
             )));
-            $this->pdo->commit();
         } catch (PDOException $e) {
             return false;
         }
@@ -47,13 +45,13 @@ class addSupervisorModel extends Model
     {
 
         try {
-            $this->pdo->beginTransaction();
-
+            
             $sql = "SELECT employee.emp_id, employee.firstname, employee.lastname 
         FROM employee 
         JOIN employment USING(emp_id)
         JOIN department ON employment.department = department.dept_id
         WHERE dept_name = :dept AND employee.emp_id != :id";
+            $this->pdo->beginTransaction();
 
             $statement = $this->pdo->prepare($sql);
 
