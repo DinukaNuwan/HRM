@@ -13,5 +13,6 @@ class Database
         }
         return self::$bdd;
     }
+
 }
 ?>

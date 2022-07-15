@@ -1,157 +1,222 @@
-<!doctype html>
-<html lang="en">
+<div class="container">
+    <div class="wrapper">
 
-<head>
-    <title>Requests</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
-
-    <style>
-        body {
-            background-image: url(../../Resources/Images/bg.jpg);
-            background-size: cover;
-        }
-
-        .wrapper {
-            max-width: 90%;
-            min-height: 100%;
-            margin: 50px auto;
-            padding: 40px 30px 30px 30px;
-            background-color: #ffffff;
-            border-radius: 15px;
-        }
-
-        .up-input {
-            border: 1px dashed #aaa;
-            width: 278px;
-            max-width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-
-        .logo {
-            width: 100px;
-            margin: auto;
-        }
-
-        .logo img {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-        }
-
-        .hr_logo img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .btn {
-            width: fit-content;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 20px;
-            border: 1px solid gray;
-        }
-
-        .btn:hover {
-            color: white;
-            background-image: url(../../Resources/Images/bg.jpg);
-            background-size: cover;
-        }
-
-        /* Navbar styles */
-
-        .sidenav {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #ffffff;
-            overflow-x: hidden;
-            padding-top: 20px;
-        }
-
-        .sidenav a {
-            /* padding: 6px 8px 6px 16px; */
-            text-decoration: none;
-            /* color: #818181; */
-            display: block;
-            text-align: center;
-            margin: 20px;
-            padding: 10px;
-            border-bottom: 1px solid gray;
-        }
-
-        .sidenav a:hover {
-            color: white;
-            background-image: url(../../Resources/Images/bg.jpg);
-            background-size: cover;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {
-                padding-top: 15px;
-            }
-
-            .sidenav a {
-                font-size: 18px;
-            }
-        }
-
-        .fas {
-            margin-right: 10px;
-        }
-    </style>
-
-</head>
-
-<body>
-    <div class="container">
-        <div class="wrapper">
-            <div row>
-                <form>
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="email">First Name</label>
-                        <input type="text" id="firstname" class="form-control" placeholder="First Name" />
-                    </div>
-                    <hr>
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="email">Last Name</label>
-                        <input type="text" id="lastname" class="form-control" placeholder="Last Name" />
-                    </div>
-
-
-                    <div class="text-center pt-1 mb-5 pb-1">
-                        <button class="btn btn-primary" type="button">Add User</button>
-                    </div>
-                </form>
+        <nav>
+            <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-pending-tab" data-bs-toggle="tab" data-bs-target="#nav-pending" type="button" role="tab" aria-controls="nav-pending" aria-selected="true">Pending</button>
+                <button class="nav-link" id="nav-accepted-tab" data-bs-toggle="tab" data-bs-target="#nav-accepted" type="button" role="tab" aria-controls="nav-accepted" aria-selected="false">Accepted</button>
+                <button class="nav-link" id="nav-rejected-tab" data-bs-toggle="tab" data-bs-target="#nav-rejected" type="button" role="tab" aria-controls="nav-rejected" aria-selected="false">Rejected</button>
             </div>
-            <form>
-
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="email">First Name</label>
-                    <input type="text" id="firstname" class="form-control" placeholder="First Name" />
-                </div>
-                <hr>
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="email">Last Name</label>
-                    <input type="text" id="lastname" class="form-control" placeholder="Last Name" />
-                </div>
+        </nav>
 
 
-                <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary" type="button">Add User</button>
+        <div class="tab-content" id="nav-tabContent">
+
+            <!-- Pending -->
+            <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+                <div id="aspect-content">
+                    <?php
+                    if (isset($pending_requests)) {
+                        foreach ($pending_requests as $request) {
+                    ?>
+                            <div class="aspect-tab ">
+                                <input id="<?= $request['application_id'] ?>" type="checkbox" class="aspect-input" name="aspect">
+                                <label for="<?= $request['application_id'] ?>" class="aspect-label"></label>
+                                <div class="aspect-content">
+                                    <div class="aspect-info">
+                                        <span class="aspect-name">
+                                            <div class="second d-flex flex-row mt-2">
+                                                <div class="image mr-3">
+                                                    <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
+                                                </div>
+                                                <div class="name-block">
+                                                    <div class="d-flex flex-row">
+                                                        <span class="name">&nbsp;&nbsp;<?= $request['firstname'] . ' ' . $request['lastname'] ?></span>
+                                                    </div>
+                                                    <div class="d-flex flex-row">
+                                                        <span class="info">&nbsp;&nbsp;&nbsp;Employee ID: <?= $request['emp_id'] ?>, Request ID: <?= $request['application_id'] ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="aspect-tab-content">
+                                    <div class="sentiment-wrapper">
+                                        <div class="row">
+                                            <form method="post" action="<?= WEBROOT ?>requests">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="data-title">Leave Type :
+                                                            <span class="data">&nbsp;<?= $request['leave_type'] ?></span>
+                                                        </p>
+                                                        <p class="data-title">Leave Date :
+                                                            <span class="data">&nbsp;<?= $request['from'] ?></span>
+                                                        </p>
+                                                        <p class="data-title">Return Date :
+                                                            <span class="data">&nbsp;<?= $request['to'] ?></span>
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <p class="data-title">Reason for the leave:
+                                                            <span class="data">&nbsp;<?= $request['reason'] ?></span>
+                                                        </p>
+                                                        <!-- <div class="form-outline mb-4">
+                                                            <label class="form-label" for="email">Reason</label>
+                                                            <textarea class="form-control" placeholder="Tytpe something here" id="reason"></textarea>
+                                                        </div> -->
+                                                        <div class="text-center pt-1 pb-1">
+                                                            <input type="text" name="application_id" value="<?= $request['application_id'] ?>" hidden>
+                                                            <input type="text" name="emp_id" value="<?= $request['emp_id'] ?>" hidden>
+                                                            <input type="text" name="type" value="<?= $request['leave_type'] ?>" hidden>
+                                                            <input type="text" name="from" value="<?= $request['from'] ?>" hidden>
+                                                            <input type="text" name="to" value="<?= $request['to'] ?>" hidden>
+                                                            <button class="btn btn-success" type="submit" name="accept">Accept</button>
+                                                            <button class="btn btn-danger" type="submit" name="reject">Reject</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
-            </form>
+            </div>
+
+            <!-- Accepted -->
+            <div class="tab-pane fade" id="nav-accepted" role="tabpanel" aria-labelledby="nav-accepted-tab">
+                <div id="aspect-content">
+                    <?php
+                    if (isset($approved_requests)) {
+                        foreach ($approved_requests as $request) {
+                    ?>
+                            <div class="aspect-tab ">
+                                <input id="<?= $request['application_id'] ?>" type="checkbox" class="aspect-input" name="aspect">
+                                <label for="<?= $request['application_id'] ?>" class="aspect-label"></label>
+                                <div class="aspect-content">
+                                    <div class="aspect-info">
+                                        <span class="aspect-name">
+                                            <div class="second d-flex flex-row mt-2">
+                                                <div class="image mr-3">
+                                                    <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
+                                                </div>
+                                                <div class="name-block">
+                                                    <div class="d-flex flex-row">
+                                                        <span class="name">&nbsp;&nbsp;<?= $request['firstname'] . ' ' . $request['lastname'] ?></span>
+                                                    </div>
+                                                    <div class="d-flex flex-row">
+                                                        <span class="info">&nbsp;&nbsp;&nbsp;Employee ID: <?= $request['emp_id'] ?>, Request ID: <?= $request['application_id'] ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="aspect-tab-content">
+                                    <div class="sentiment-wrapper">
+                                        <!-- content -->
+                                        <div class="row">
+                                            <form method="post" action="<?= WEBROOT ?>requests">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="data-title">Leave Type :
+                                                            <span class="data">&nbsp;<?= $request['leave_type'] ?></span>
+                                                        </p>
+                                                        <p class="data-title">Leave Date :
+                                                            <span class="data">&nbsp;<?= $request['from'] ?></span>
+                                                        </p>
+                                                        <p class="data-title">Return Date :
+                                                            <span class="data">&nbsp;<?= $request['to'] ?></span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="data-title">Reason for the leave:
+                                                            <span class="data">&nbsp;<?= $request['reason'] ?></span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <!-- Rejected -->
+            <div class="tab-pane fade" id="nav-rejected" role="tabpanel" aria-labelledby="nav-rejected-tab">
+                <div id="aspect-content">
+                    <?php
+                    if (isset($rejected_requests)) {
+                        foreach ($rejected_requests as $request) {
+                    ?>
+                            <div class="aspect-tab ">
+                                <input id="<?= $request['application_id'] ?>" type="checkbox" class="aspect-input" name="aspect">
+                                <label for="<?= $request['application_id'] ?>" class="aspect-label"></label>
+                                <div class="aspect-content">
+                                    <div class="aspect-info">
+                                        <span class="aspect-name">
+                                            <div class="second d-flex flex-row mt-2">
+                                                <div class="image mr-3">
+                                                    <img src="https://i.imgur.com/0LKZQYM.jpg" class="rounded-circle" width="50" />
+                                                </div>
+                                                <div class="name-block">
+                                                    <div class="d-flex flex-row">
+                                                        <span class="name">&nbsp;&nbsp;<?= $request['firstname'] . ' ' . $request['lastname'] ?></span>
+                                                    </div>
+                                                    <div class="d-flex flex-row">
+                                                        <span class="info">&nbsp;&nbsp;&nbsp;Employee ID: <?= $request['emp_id'] ?>, Request ID: <?= $request['application_id'] ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="aspect-tab-content">
+                                    <div class="sentiment-wrapper">
+                                        <!-- content -->
+                                        <div class="row">
+                                            <form method="post" action="<?= WEBROOT ?>requests">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="data-title">Leave Type :
+                                                            <span class="data">&nbsp;<?= $request['leave_type'] ?></span>
+                                                        </p>
+                                                        <p class="data-title">Leave Date :
+                                                            <span class="data">&nbsp;<?= $request['from'] ?></span>
+                                                        </p>
+                                                        <p class="data-title">Return Date :
+                                                            <span class="data">&nbsp;<?= $request['to'] ?></span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="data-title">Reason for the leave:
+                                                            <span class="data">&nbsp;<?= $request['reason'] ?></span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+
         </div>
     </div>
-</body>
+</div>

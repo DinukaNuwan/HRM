@@ -1,0 +1,9 @@
+body {
+    background-image: url(../../Resources/Images/bg.jpg);
+    background-size: cover;
+    text-align: center;
+}
+
+h1,p{
+    color: white;
+}
