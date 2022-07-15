@@ -8,17 +8,27 @@ class attributes extends Model {
 
         $statement = $db->prepare($sql);
 
-        print_r($statement->execute());
+        if ($statement->execute() == 1) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+        //print_r($statement->execute());
     }
 
     function deleteCustomAttribute($attrName) {
         $sql = "ALTER TABLE custom_attributes DROP $attrName";
        
         $db = Database::getBdd();
-
         $statement = $db->prepare($sql);
 
-        print_r($statement->execute());
+        if ($statement->execute() == 1) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+
+        //print_r($statement->execute());
     }
 
     function getColumns() {
