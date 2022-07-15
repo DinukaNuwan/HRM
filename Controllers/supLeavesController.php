@@ -25,7 +25,7 @@ class supLeavesController extends Controller
             $comp = $model->getCompanyDetails(1);
 
             $leave_data = $model->getLeavesBySupervisor($sup_deparment, $sup_from_date, $sup_to_date);
-            var_dump($leave_data);
+            // var_dump($leave_data);
             // if (count($leave_data) == 0) {
             //     $this->set(array('empty' => true));
             // } else {
