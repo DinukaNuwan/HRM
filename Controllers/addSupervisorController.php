@@ -31,7 +31,6 @@ class addSupervisorController extends Controller
             $this->set(array('supervisors' => $supervisors));
 
             if (isset($_POST['submit'])) {
-                // var_dump($_POST);
                 if ($this->checkEmptyFields($_POST['supervisor'])) {
                     $this->set(array("error" => "Some fields are empty"));
                 } else {

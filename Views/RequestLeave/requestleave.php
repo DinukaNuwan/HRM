@@ -39,8 +39,10 @@ $dayAfterTomorrow = date('Y-m-d', strtotime("+2 days"));
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label" for="leave_type">Supervisor</label>
-                        <p class="sup_name"><?= $sup_name['firstname'] ?> <?= $sup_name['lastname'] ?></p>
+                        <div class="form-control form-outline form-input">
+                            <label class="form-label" for="leave_type">Supervisor</label>
+                            <input type="text" name="sup_name" id="sup_name" class="form-control" value="<?= $sup_name['firstname'] ?> <?= $sup_name['lastname'] ?>" disabled />
+                        </div>
                     </div>
                 </div>
 
