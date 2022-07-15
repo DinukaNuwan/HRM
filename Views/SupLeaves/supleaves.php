@@ -15,96 +15,45 @@
                 <div class="period">
                     <div class="row">
                         <div class="col-md-6">
-                            <p class="info">From <?= $from_date ?> to <?= $to_date ?></p>
+                            <p class="info">From <?= $sup_from_date ?> to <?= $sup_to_date ?></p>
                         </div>
-
                     </div>
                 </div>
-                <?php
-                if (!isset($empty)) {
-                ?>
-                    <div class="types">
-                        <div class="row">
-                            <?php
-                            if (isset($Annual)) {
-                                echo '<p class="info">Annual - ' . $Annual . '</p>';
-                                echo '<input type="text" id="Annual" value="' . $Annual . '" hidden>';
-                            } else {
-                                // echo '<p class="info">Annual - 0</p>';
-                                echo '<input type="text" id="Annual" value="0" hidden>';
-                            }
-                            if (isset($Casual)) {
-                                echo '<p class="info">Casual - ' . $Casual . '</p>';
-                                echo '<input type="text" id="Casual" value="' . $Casual . '" hidden>';
-                            } else {
-                                // echo '<p class="info">Casual - 0</p>';
-                                echo '<input type="text" id="Casual" value="0" hidden>';
-                            }
-                            if (isset($Maternity)) {
-                                echo '<p class="info">Maternity - ' . $Maternity . '</p>';
-                                echo '<input type="text" id="Maternity" value="' . $Maternity . '" hidden>';
-                            } else {
-                                // echo '<p class="info">Maternity - 0</p>';
-                                echo '<input type="text" id="Maternity" value="0" hidden>';
-                            }
-                            if (isset($No_Pay)) {
-                                echo '<p class="info">No Pay - ' . $No_Pay . '</p>';
-                                echo '<input type="text" id="No_Pay" value="' . $No_Pay . '" hidden>';
-                            } else {
-                                // echo '<p class="info">No Pay - 0</p>';
-                                echo '<input type="text" id="No_Pay" value="0" hidden>';
-                            }
-                            ?>
-                        </div>
-                        <div class="row tot">
-                            <?php
-                            if (isset($total)) {
-                                echo '<p class="info tot_info">Total Leaves in Given Period - ' . $total . '</p>';
-                            }
-                            ?>
-                        </div>
-                    </div>
+                <div class="data">
+                    <?php
+                    $sup_name = '';
+                    foreach ($leave_data as $dat) {
+                        $tname = $dat['sup_fname'] . ' ' . $dat['sup_lname'];
+                        if ($tname !== $sup_name) {
+                            $sup_name = $tname;
+                    ?>
+                            <div class="mt-2">
+                                <h5 class="mt-1 mb-2 pb-1 sup_name"><?= $tname ?></h4>
+                            </div>
+                            <table class="table mt-2" style="overflow-x:auto;">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Total Leaves</th>
+                                </tr>
+                                <tr>
+                                    <td><?= $dat['firstname'] ?> <?= $dat['lastname'] ?></td>
+                                    <td><?= $dat['count'] ?></td>
+                                </tr>
+                            </table>
+                    <?php
+                        } else {
+                            continue;
+                        }
+                    }
+                    ?>
+                </div>
             </div>
+
         </div>
 
-        <div class="text-center pt-1 mb-5 pb-1">
-            <button class="btn" id="generatePDF">Download</button>
-        </div>
-    <?php
-                } else {
-    ?>
-        <div class="logo img">
-            <img src="<?= WEBROOT ?>/Resources/Images/noreq.png" alt="logo">
-        </div>
-        <p class="noreq text-center">No leaves have been given in this period.</p>
-    <?php
-                }
-    ?>
-
+        <!-- script to download pdf -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+        <script src="<?= WEBROOT ?>Public/JavaScript/download.js"></script>
     </div>
-
-    <!-- script to download pdf -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-    <script src="<?= WEBROOT ?>Public/JavaScript/download.js"></script>
-</div>
-
-<div>
-    <div class="mt-2">
-        <h5 class="mt-1 mb-2 pb-1">Supervisor - name</h4>
-    </div>
-
-    <!-- froeach employees -->
-    <table class="table mt-2" style="overflow-x:auto;">
-        <tr>
-            <th>Employee Id</th>
-            <th>Name</th>
-            <th>Total Leaves</th>
-        </tr>
-        <tr>
-            <td>01</td>
-            <td>akila</td>
-            <td>13</td>
-        </tr>
-    </table>
 </div>
