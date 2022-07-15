@@ -157,4 +157,50 @@ class profileModel extends Model
 
         return $msg;
     }
+
+    function getColumns() {
+        $sql = "SHOW COLUMNS FROM custom_attributes";
+        $db = Database::getBdd();
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        $columnData = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $columns = [];
+
+        foreach ($columnData as $column) {
+            if ($column["Field"] == "emp_id") {
+                continue;
+            }
+            $columns = array_merge($columns, [$column["Field"]]);
+        }
+
+        return $columns;
+    }
+
+    function getCustomAttr($emp_id) {
+        $sql = "SELECT * FROM custom_attributes WHERE emp_id=$emp_id";
+        $db = Database::getBdd();
+        $statement = $db->prepare($sql);
+        $statement->execute();
+
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data[0];
+    }
+
+    function setCustomAttr($values, $emp_id) {
+        $columns = $this->getColumns();
+
+        $arr = [];
+
+        foreach ($columns as $column) {
+            $arr = array_merge($arr, ["$column = ?"]);
+        }
+
+        $sql = "UPDATE custom_attributes SET " . join(",", $arr) . " WHERE emp_id = $emp_id";
+
+        $db = Database::getBdd();
+        $statement = $db->prepare($sql);
+        $statement->execute($values);
+    }
 }

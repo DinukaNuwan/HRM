@@ -10,7 +10,8 @@ $yesterday = date('Y-m-d', strtotime("-1 days"));
         </div>
 
         <?php
-        if (isset($profile_details)) {
+        //if (isset($profile_details)) {
+            if (isset($columns)) {
         ?>
 
             <div class="container">
@@ -208,6 +209,17 @@ $yesterday = date('Y-m-d', strtotime("-1 days"));
                             </div>
                         </div>
 
+                        <?php
+                            print_r($columns);
+                            print_r($customAttr);
+
+                            foreach ($columns as $column) {
+                                echo
+                                    '<label for="' . $column . '"> ' . $column . '</label>
+                                    <input type="text" name="' . $column . '" id="' . $column . '" value="' . $customAttr[$column] . '"> <br>';
+                            }
+
+                        ?>
 
                         <?php
                         if ($role != '4') { ?>

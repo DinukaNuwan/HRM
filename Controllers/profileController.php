@@ -8,6 +8,8 @@ class profileController extends Controller {
         require(ROOT . "Classes/User.php");
         session_start();
         require_once("../Helpers/checkLogin.php");
+        //session_destroy();
+        //$_SESSION["user"] = serialize(new User(2, 2, "ABC", "", ""));
         $user = unserialize($_SESSION['user']);
 
         $this->set(array('username' => $user->getUsername()));
@@ -21,6 +23,9 @@ class profileController extends Controller {
         else
             $id = $user->getEmpId();
         $this->set(array('id' => $id));
+
+        $columns = $model->getColumns();
+        $customAttr = $model->getCustomAttr($user->getEmpId());
 
         if (isset($_POST['submit'])) {
             $msg = '';
@@ -81,7 +86,18 @@ class profileController extends Controller {
                     $this->set(array("error" => $this->errors));
                 }
             }
+
+            $values = [];
+
+            foreach ($columns as $column) {
+                $values = array_merge($values, $_POST[$column]);
+            }
+
+            $model->setCustomAttr($values);
         }
+
+        //$val = ["b"];
+        //$model->setCustomAttr($val, $user->getEmpId());
 
         $profile_details = $model->getProfile($id); //(returns array of details of given emp_id)
         // $profile_details = 0; //(returns array of details of given emp_id)
@@ -90,6 +106,9 @@ class profileController extends Controller {
             $this->set(array('profile_details' => $profile_details));
             // var_dump($profile_details);
         }
+
+        $this->set(["columns" => $columns]);
+        $this->set(["customAttr" => $customAttr]);
 
         $this->render("Profile");
     }
