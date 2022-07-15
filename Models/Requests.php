@@ -48,7 +48,7 @@ class requestsModel extends Model
 
     function getAllRequests()
     {
-        
+
         //shows all requests
         $sql = "SELECT leave_application.emp_id, employee.firstname, employee.lastname,
             application_id, leave_application_type.leave_type, leave_application.from, leave_application.to,
@@ -70,32 +70,54 @@ class requestsModel extends Model
 
         $num_dates = (new DateTime($to))->diff(new DateTime($from))->format("%a");
 
-        //set application status
-        $sql = "UPDATE leave_application SET 
+        try {
+            $this->pdo->beginTransaction();
+
+            //set application status
+            $sql = "UPDATE leave_application SET 
         status = 2 
         WHERE application_id = :id";
 
-        $statement = $this->pdo->prepare($sql);
-        $msg = ($statement->execute(array(':id' => $req_id)));
+            $statement = $this->pdo->prepare($sql);
+            $msg = ($statement->execute(array(':id' => $req_id)));
+            $this->pdo->commit();
 
-        //update leave count is done by a trigger
-        //FOR DEV TEAM: add the trigger to the database from HRMDDL.sql
+            //update leave count is done by a trigger
+            //FOR DEV TEAM: add the trigger to the database from HRMDDL.sql
 
-        return $msg;
+            return $msg;
+        } catch (\Exception $e) {
+            if ($this->pdo->inTransaction()) {
+                $this->pdo->rollback();
+                return "Error";
+            }
+            throw $e;
+        }
     }
 
     function rejectLeave($req_id)
     {
 
-        $sql = "UPDATE leave_application SET 
+        try {
+            $this->pdo->beginTransaction();
+
+            $sql = "UPDATE leave_application SET 
         status = 3
         WHERE application_id = :id";
 
-        $statement = $this->pdo->prepare($sql);
-        $msg = ($statement->execute(array(
-            ':id' => $req_id
-        )));
+            $statement = $this->pdo->prepare($sql);
+            $msg = ($statement->execute(array(
+                ':id' => $req_id
+            )));
+            $this->pdo->commit();
 
-        return $msg;
+            return $msg;
+        } catch (\Exception $e) {
+            if ($this->pdo->inTransaction()) {
+                $this->pdo->rollback();
+                return "Error";
+            }
+            throw $e;
+        }
     }
 }
