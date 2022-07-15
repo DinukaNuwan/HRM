@@ -1,0 +1,63 @@
+body {
+    background-image: url(../../Resources/Images/bg.jpg);
+    background-size: cover;
+}
+
+.wrapper {
+    max-width: 800px;
+    min-height: 380px;
+    margin: 50px auto;
+    padding: 40px 30px 30px 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+
+.company {
+    text-align: right;
+    border-bottom: 1px solid gray;
+}
+
+.logo {
+    width: 300px;
+    margin: auto;
+}
+
+.logo img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.btn {
+    width: 50%;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+
+.btn:hover {
+    color: white;
+    background-image: url(../../Resources/Images/bg.jpg);
+    background-size: cover;
+}
+
+.noreq {
+    font-size: x-large;
+    color: grey;
+}
+
+.types {
+    text-align: center;
+    border: 1px solid purple;
+    margin-bottom: 10px;
+
+}
+
+.tot {
+    padding-top: 5px;
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+    border-top: 1px solid grey;
+}
