@@ -25,7 +25,7 @@ A Human Resource Management System which can be installed for a company/organiza
 
 ## Requirements
 
-PHP version 7.0 or above
+>PHP version 7.0 or above
 >A local web server (Ex: XAMPP, WAMP)
 
 ## Installation
@@ -40,4 +40,4 @@ If you have git on your local machine, run the following command in git bash or 
 
 If you don't have git on your computer, you can download the zip from here
 
-    
+![image](https://user-images.githubusercontent.com/91815484/179355451-c78877b6-9754-4bd8-8faa-54c889ad0772.png)
