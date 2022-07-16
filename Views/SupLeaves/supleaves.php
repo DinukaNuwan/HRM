@@ -27,10 +27,10 @@
                         $tname = $dat['sup_fname'] . ' ' . $dat['sup_lname'];
                         if ($tname !== $sup_name) {
                             $sup_name = $tname;
-                        if($tbl){
-                            echo "</table>" ;
-                            $tbl = false;
-                        }   
+                            if ($tbl) {
+                                echo "</table>";
+                                $tbl = false;
+                            }
                     ?>
 
                             <div class="mt-2">
@@ -46,30 +46,38 @@
                                     <td><?= $dat['firstname'] ?> <?= $dat['lastname'] ?></td>
                                     <td><?= $dat['count'] ?></td>
                                 </tr>
-                    <?php
-                        $tbl = true;
-                    } else {
+                            <?php
+                            $tbl = true;
+                        } else {
 
                             ?>
-                            <tr>
+                                <tr>
                                     <td><?= $dat['firstname'] ?> <?= $dat['lastname'] ?></td>
                                     <td><?= $dat['count'] ?></td>
                                 </tr>
-                                <?php
+                        <?php
                             continue;
                         }
-
                     }
-                    ?>
+                    if ($tbl) {
+                        echo "</table>";
+                        $tbl = false;
+                    }
+                        ?>
 
                 </div>
             </div>
 
         </div>
 
-        <!-- script to download pdf -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-        <script src="<?= WEBROOT ?>Public/JavaScript/download.js"></script>
+        <div class="text-center pt-1 mb-5 pb-1">
+            <button class="btn" id="generatePDF">Download</button>
+        </div>
+
     </div>
+
+    <!-- script to download pdf -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="<?= WEBROOT ?>Public/JavaScript/download.js"></script>
 </div>
