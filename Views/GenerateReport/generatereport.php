@@ -13,32 +13,77 @@
                 <div class="report_type">
                     <lable class="form-label mb-3">Select Report Type:&nbsp;&nbsp;</lable>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="employee" id="employee_select" value="employee" onchange="load('employee')">
-                        <label class="form-check-label" for="inlineRadio1"><i class="fas fa-user-tie"></i>Employees</label>
+                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="employee_select" onchange="load('employee')">
+                        <input type="hidden" id="employee_hidden" name="employee" value="no">
+                        <label class="form-check-label" for="employee_select"><i class="fas fa-user-tie"></i>Employees</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="leave" id="leave_select" value="leave" onchange="load('leave')">
-                        <label class="form-check-label" for="inlineRadio2"><i class="fas fa-calendar-check"></i>Leaves</label>
+                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="leave_select" onchange="load('leave')">
+                        <input type="hidden" id="leave_hidden" name="leave" value="no">
+                        <label class="form-check-label" for="leave_select"><i class="fas fa-calendar-check"></i>Leaves</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOption" id="supervisor_select" onchange="load('supervisor')">
+                        <input type="hidden" id="supervisor_hidden" name="supervisor" value="no">
+                        <label class="form-check-label" for="supervisor_select"><i class="fas fa-calendar-check"></i>supervisor</label>
                     </div>
                 </div>
             </div>
 
             <div class="content" id="content" style="display: none">
                 <div class="employee" id="employee" style="display: none;">
-                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px;border-radius: 20px;">Employee by Department</p>
+                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px 10px;border-radius: 20px;">Employee by Department</p>
+
                     <div class="form-control form-outline form-input">
                         <label class="form-label" for="group">By Group</label>
-                        <select class="form-select" id="group" name="group" aria-label="Default select example">
+                        <select class="form-select" id="group" name="group" aria-label="Default select example" onchange="displayGroup()">
                             <option value="">select group...</option>
-                            <option value="departement">Department</option>
-                            <option value="job_title">Job Title</option>
-                            <option value="pay_grade">Pay Grade</option>
+                            <option value="Department">Department</option>
+                            <option value="Job Title">Job Title</option>
+                            <option value="Pay Grade">Pay Grade</option>
                         </select>
                         <small>Error message</small>
                     </div>
+
+                    <div class="form-control form-outline form-input" id="sel_dept" style="display: none">
+                        <label class="form-label" for="group_dept">Select Department</label>
+                        <select class="form-select" id="group_dept" name="group_dept" aria-label="Default select example">
+                            <option value="">select department...</option>
+                            <option value="HR">HR</option>
+                            <option value="IT">IT</option>
+                            <option value="Production">Production</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Finance">Finance</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control form-outline form-input" id="sel_title" style="display: none">
+                        <label class="form-label" for="group_title">Select Job Title</label>
+                        <select class="form-select" id="group_title" name="group_title" aria-label="Default select example">
+                            <option value="">select job title...</option>
+                            <option value="HR Manager">HR Manager</option>
+                            <option value="Accountant">Accountant</option>
+                            <option value="Software Engineer">Software Engineer</option>
+                            <option value="QA Engineer">QA Engineer</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-control form-outline form-input" id="sel_grade" style="display: none">
+                        <label class="form-label" for="group_grade">Select Pay Grade</label>
+                        <select class="form-select" id="group_grade" name="group_grade" aria-label="Default select example">
+                            <option value="">select pay grade...</option>
+                            <option value="Level 1">Level 1</option>
+                            <option value="Level 2">Level 2</option>
+                            <option value="Level 3">Level 3</option>
+                        </select>
+                        <small>Error message</small>
+                    </div>
+
                 </div>
+
                 <div class="leave" id="leave" style="display: none;">
-                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px;border-radius: 20px;">Total Leaves in Given Period by Department</p>
+                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px 10px;border-radius: 20px;">Total Leaves in Given Period by Department</p>
+
                     <div class="col">
                         <div class="form-control form-outline form-input">
                             <label class="form-label" for="department">By Department</label>
@@ -53,6 +98,7 @@
                             <small>Error message</small>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-control form-outline form-input">
@@ -65,6 +111,42 @@
                             <div class="form-control form-outline form-input">
                                 <label class="form-label" for="to_date">To</label>
                                 <input type="date" id="to_date" name="to_date" class="form-control" />
+                                <small>Error message</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="supervisor" id="supervisor" style="display: none;">
+                    <p class="form-label m-auto mb-3 mt-3" style="text-align:center;background-color: #c1def6;width: fit-content;padding: 5px 10px;border-radius: 20px;">Supervisor by Department</p>
+
+                    <div class="col">
+                        <div class="form-control form-outline form-input">
+                            <label class="form-label" for="sup_department">By Department</label>
+                            <select class="form-select" id="sup_department" name="sup_department" aria-label="Default select example">
+                                <option value="">select department...</option>
+                                <option value="1">HR</option>
+                                <option value="2">IT</option>
+                                <option value="3">Production</option>
+                                <option value="4">Marketing</option>
+                                <option value="5">Finance</option>
+                            </select>
+                            <small>Error message</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input">
+                                <label class="form-label" for="sup_from_date">From</label>
+                                <input type="date" id="sup_from_date" name="sup_from_date" class="form-control" />
+                                <small>Error message</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-control form-outline form-input">
+                                <label class="form-label" for="sup_to_date">To</label>
+                                <input type="date" id="sup_to_date" name="sup_to_date" class="form-control" />
                                 <small>Error message</small>
                             </div>
                         </div>

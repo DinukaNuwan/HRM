@@ -15,6 +15,13 @@ class requestLeaveController extends Controller {
         require(ROOT . "Models/RequestLeave.php");
         
         $model = new requestLeaveModel();
+
+        $supervisor_name = $model->hasSupervisor($user->getEmpId());
+        if (!$supervisor_name) {
+            $this->set(array('no_sup' => "You cannot make a leave request as a supervisor has not been aassigned yet. Please contact the management for more information."));
+        } else {
+            $this->set(array('sup_name' => $supervisor_name));
+        }
         
         if (isset($_POST['submit'])) {
             $emp_id = $user->getEmpId();
@@ -24,10 +31,10 @@ class requestLeaveController extends Controller {
             $reason = $_POST['reason'];
             $msg = $model->makeRequest($emp_id, $leaveType, $from, $to, $reason);
             if ($msg == 1) {
-                header('Location: dashboard');
+                header('Location: myrequests');
             } else {
-                var_dump($msg);
-                echo 'Leave application failed';
+                // echo 'Leave application failed';
+                $this->set(array('error' => $msg));
             }
         }
         $this->render("RequestLeave");

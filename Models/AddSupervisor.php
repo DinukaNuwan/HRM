@@ -8,6 +8,7 @@ class addSupervisorModel extends Model
     {
 
         try {
+            
             $sql = "INSERT INTO supervise(subordinate_id, supervisor_id) 
         VALUES (:sub, :sup)";
 
@@ -25,8 +26,11 @@ class addSupervisorModel extends Model
     function loadEmployee($emp_id)
     {
 
-        $sql = "SELECT employee.emp_id, employee.firstname, employee.lastname, department.dept_name FROM employee JOIN employment JOIN department
-            WHERE employee.emp_id = employment.emp_id AND employment.department = department.dept_id AND employee.emp_id = :id";
+        $sql = "SELECT employee.emp_id, employee.firstname, employee.lastname, department.dept_name 
+        FROM employee 
+        JOIN employment USING (emp_id) 
+        JOIN department ON employment.department = department.dept_id
+        WHERE employee.emp_id = :id";
 
         $statement = $this->pdo->prepare($sql);
 
@@ -40,16 +44,29 @@ class addSupervisorModel extends Model
     function loadSupervisorsFromDept($dept_name, $emp_id)
     {
 
-        $sql = "SELECT employee.emp_id, employee.firstname, employee.lastname FROM employee JOIN employment JOIN department
-            WHERE employee.emp_id = employment.emp_id AND employment.department = department.dept_id 
-            AND dept_name = :dept AND employee.emp_id != :id";
+        try {
+            
+            $sql = "SELECT employee.emp_id, employee.firstname, employee.lastname 
+        FROM employee 
+        JOIN employment USING(emp_id)
+        JOIN department ON employment.department = department.dept_id
+        WHERE dept_name = :dept AND employee.emp_id != :id";
+            $this->pdo->beginTransaction();
 
-        $statement = $this->pdo->prepare($sql);
+            $statement = $this->pdo->prepare($sql);
 
-        $statement->execute(array(':dept' => $dept_name, ':id' => $emp_id));
+            $statement->execute(array(':dept' => $dept_name, ':id' => $emp_id));
+            $this->pdo->commit();
 
-        $res = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $res = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        return $res;
+            return $res;
+        } catch (\Exception $e) {
+            if ($this->pdo->inTransaction()) {
+                $this->pdo->rollback();
+                return "Error";
+            }
+            throw $e;
+        }
     }
 }

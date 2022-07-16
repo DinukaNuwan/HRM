@@ -1,16 +1,4 @@
 -- TODO: 'check' constraints,ex: CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
-
---        create 'view's for reports (CREATE VIEW [Brazil Customers] AS
-                          -- SELECT CustomerName, ContactName
-                          -- FROM Customers
-                          -- WHERE Country = 'Brazil';)
-
---        time bound events (SO FAR NONE)
-
---        triggers for events
-            -- -> update leave count of employee when leave_application is approved (done)
-
--- TODO: merge tables (pay_grade and leave_count), edit models accordingly (decided not to)
 -- --------------------------------------------------------
 
 --
@@ -43,7 +31,7 @@ CREATE TABLE `pay_grade` (
 INSERT INTO `pay_grade` (`pay_grade_id`, `pay_grade`, `basic_salary`) VALUES
 (1, 'Level 1', 30000),
 (2, 'Level 2', 40000),
-(3, 'Level3', 60000);
+(3, 'Level 3', 60000);
 
 -- --------------------------------------------------------
 
@@ -271,7 +259,7 @@ INSERT INTO `leave_application_type` (`leave_type_id`, `leave_type`) VALUES
 (1, 'Annual'),
 (2, 'Casual'),
 (3, 'Maternity'),
-(4, 'No Pay');
+(4, 'No_Pay');
 
 -- --------------------------------------------------------
 
@@ -385,7 +373,8 @@ CREATE TABLE `user` (
   CONSTRAINT FK_UserRole FOREIGN KEY (`role`) REFERENCES `user_role`(`user_role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
+-- index for username 
+CREATE INDEX idx_uname ON user (username);
 -- --------------------------------------------------------
 
 --
@@ -412,3 +401,17 @@ CREATE TRIGGER `updateEmpLeaveCount` AFTER UPDATE ON `leave_application`
 END IF;
 
 --
+-- --------------------------------------------------------------
+-- VIEW
+
+CREATE VIEW reportingModule AS
+SELECT employment.emp_id, 
+department.dept_name as department, pay_grade.pay_grade, pay_grade.basic_salary, job_title.job_title, employment_status.status as employment_status, 
+employee.firstname, employee.lastname, employee.email 
+FROM employment 
+JOIN department ON employment.department = department.dept_id 
+JOIN pay_grade ON employment.pay_grade=pay_grade.pay_grade_id 
+JOIN job_title ON employment.job_title=job_title.job_title_id 
+JOIN employment_status ON employment.employment_status=employment_status.status_id
+JOIN employee USING(emp_id)  
+ORDER BY `employment`.`emp_id` ASC

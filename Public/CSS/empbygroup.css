@@ -4,7 +4,7 @@ body {
 }
 
 .wrapper {
-    max-width: 800px;
+    max-width: 80%;
     min-height: 380px;
     margin: 50px auto;
     padding: 40px 30px 30px 30px;
@@ -28,6 +28,18 @@ body {
     object-fit: cover;
 }
 
+tr:nth-child(even) {
+	background-color: #e3caf0
+}
+
+th, td {
+    text-align: center;
+}
+
+th {
+    color: purple;
+}
+
 .btn {
     width: 50%;
     border: none;
@@ -40,35 +52,4 @@ body {
     color: white;
     background-image: url(../../Resources/Images/bg.jpg);
     background-size: cover;
-}
-
-.noreq {
-    font-size: x-large;
-    color: grey;
-}
-
-.types {
-    text-align: center;
-    border: 1px solid purple;
-    margin-bottom: 10px;
-
-}
-
-.tot {
-    padding-top: 5px;
-    text-align: center;
-    margin: auto;
-    width: fit-content;
-    border-top: 1px solid grey;
-}
-
-.canvas_chart {
-    align-items: center;
-    height: 60%;
-    margin-bottom: 10px;
-}
-
-.chart {
-    border: 1px solid purple;
-    margin-bottom: 10px;
 }

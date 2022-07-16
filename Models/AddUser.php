@@ -5,6 +5,9 @@ class addUserModel extends Model{
 
     function addNewUser($emp_id, $username, $password, $role, $photo){
 
+        try{
+            $this->pdo->beginTransaction();
+
         //get value of the role:
         $sql = "SELECT user_role_id FROM user_role WHERE user_role=:r";
         $statement = $this->pdo->prepare($sql);
@@ -55,9 +58,28 @@ class addUserModel extends Model{
             ':pw' => $password,
             ':photo' => $photo
         )));
+        $this->pdo->commit();
+
 
         return $msg;
     }
-}
+    catch (\Exception $e) {
+        if ($this->pdo->inTransaction()) {
+            $this->pdo->rollback();
+            return "Error";
+        }
+        throw $e;
+    }
+    }
 
-?>
+    function loadEmployees() {
+        // get employees who are not already users
+        $sql = "SELECT employee.emp_id, firstname, lastname FROM 
+        employee LEFT JOIN user ON employee.emp_id = user.emp_id 
+        WHERE user.emp_id IS NULL;";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        $res = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+}

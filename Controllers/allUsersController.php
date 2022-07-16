@@ -40,6 +40,10 @@ class allUsersController extends Controller
             // var_dump($supervisor_data);
             $this->set(array('supervisor_data' => $supervisor_data));
 
+            // if (isset($_POST['search'])) {
+            //     var_dump($_POST);
+            // }
+
             $this->render("AllUsers");
         }
     }

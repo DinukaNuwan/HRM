@@ -15,7 +15,7 @@ class requestsController extends Controller
         $this->set(array('is_supervisor' => $user->getIsSupervisor()));
 
         // Authorization based on supervisor or not
-        if (!$user->getIsSupervisor()) {
+        if (!$user->getIsSupervisor() && !$user->getRole() == '1') {
             header('Location: unauthorized');
         } else {
 
@@ -25,7 +25,11 @@ class requestsController extends Controller
             $id = $user->getEmpId();
             $res = $model->getRequests($id);
 
-            // var_dump($res);
+            if ($res == "You need to be a supervisor to access this") {
+                $res = $model->getAllRequests();
+                // var_dump($res);
+            }
+            
             $pending_requests = [];
             $approved_requests = [];
             $rejected_requests = [];
