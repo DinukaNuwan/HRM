@@ -25,8 +25,8 @@ A Human Resource Management System which can be installed for a company/organiza
 
 ## Requirements
 
->PHP version 7.0 or above
->A local web server (Ex: XAMPP, WAMP)
+PHP version 7.0 or above
+A local web server (Ex: XAMPP, WAMP)
 
 ## Installation
 
