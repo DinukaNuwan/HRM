@@ -23,13 +23,13 @@ class totalLeavesModel extends Model
     function getLeaves($deparment_id, $from, $to)
     {   
         // var_dump($deparment_id, $from, $to);
-        $sql = "SELECT COUNT(leave_application_type.leave_type) as 'count', leave_application_type.leave_type_id as 'leave_id', leave_application_type.leave_type, department 
-        FROM leave_application 
-        JOIN employment USING(emp_id)
-        JOIN leave_application_type  ON leave_application.leave_type = leave_application_type.leave_type_id
-        WHERE department = :department_id AND status = 2 
-        AND leave_application.from >= :from_date AND leave_application.to <= :to_date 
-        GROUP BY leave_type ORDER BY leave_application_type.leave_type_id";
+
+       //get data from the view
+
+       $sql = "SELECT * FROM totalLeavesReport
+        WHERE department = :department_id
+        AND totalLeavesReport.from >= :from_date AND totalLeavesReport.to <= :to_date 
+        GROUP BY leave_type ORDER BY totalLeavesReport.leave_id";
 
         $statement = $this->pdo->prepare($sql);
         $statement->execute(array(

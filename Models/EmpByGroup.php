@@ -19,13 +19,13 @@ class empByGroupModel extends Model
         // get the view created on your DB using the code on the HRDDL.sql (bottom)
         switch ($type) {
             case "Department":
-                $sql = "SELECT * FROM reportingModule WHERE department=:val";
+                $sql = "SELECT * FROM empByGroupReport WHERE department=:val";
                 break;
             case "Pay Grade":
-                $sql = "SELECT * FROM reportingModule WHERE pay_grade=:val";
+                $sql = "SELECT * FROM empByGroupReport WHERE pay_grade=:val";
                 break;
             case "Job Title":
-                $sql = "SELECT * FROM reportingModule WHERE job_title=:val";
+                $sql = "SELECT * FROM empByGroupReport WHERE job_title=:val";
                 break;
         }
         $statement = $this->pdo->prepare($sql);
