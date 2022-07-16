@@ -404,7 +404,7 @@ END IF;
 -- --------------------------------------------------------------
 -- VIEW
 
-CREATE VIEW reportingModule AS
+CREATE VIEW  	empByGroupReport AS
 SELECT employment.emp_id, 
 department.dept_name as department, pay_grade.pay_grade, pay_grade.basic_salary, job_title.job_title, employment_status.status as employment_status, 
 employee.firstname, employee.lastname, employee.email 
@@ -415,3 +415,24 @@ JOIN job_title ON employment.job_title=job_title.job_title_id
 JOIN employment_status ON employment.employment_status=employment_status.status_id
 JOIN employee USING(emp_id)  
 ORDER BY `employment`.`emp_id` ASC
+
+-- -----------------------------------------------------------------
+CREATE VIEW `totalleavesreport` AS 
+SELECT count(`leave_application_type`.`leave_type`) AS `count`, `leave_application_type`.`leave_type_id` AS `leave_id`, 
+`leave_application_type`.`leave_type` AS `leave_type`, `employment`.`department` AS `department`, 
+`leave_application`.`from` AS `from`, `leave_application`.`to` AS `to` 
+FROM ((`leave_application` join `employment` on(`leave_application`.`emp_id` = `employment`.`emp_id`)) 
+join `leave_application_type` on(`leave_application`.`leave_type` = `leave_application_type`.`leave_type_id`)) 
+WHERE `leave_application`.`status` = 2 GROUP BY leave_type;
+
+-- ------------------------------------------------------------------
+CREATE VIEW supervisorEmpByDept AS
+SELECT COUNT(leave_application.emp_id) AS 'count', employee.firstname, employee.lastname , supervise.supervisor_id ,
+                sup.firstname AS 'sup_fname', sup.lastname AS 'sup_lname', employment.department,
+                leave_application.from, leave_application.to
+                FROM leave_application 
+                JOIN employment USING(emp_id)
+                JOIN employee USING (emp_id)
+                JOIN supervise ON employment.emp_id = supervise.subordinate_id
+                JOIN employee sup ON sup.emp_id = supervise.supervisor_id
+                WHERE status = 2 GROUP BY employee.emp_id;

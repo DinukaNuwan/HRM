@@ -23,16 +23,10 @@ class supByDeptModel extends Model
     function getLeavesBySupervisor($deparment_id, $from, $to)
     {   
         // var_dump($deparment_id, $from, $to);
-        $sql = "SELECT COUNT(leave_application.emp_id) AS 'count', employee.firstname, employee.lastname ,
-                sup.firstname AS 'sup_fname', sup.lastname AS 'sup_lname'
-                FROM leave_application 
-                JOIN employment USING(emp_id)
-                JOIN employee USING (emp_id)
-                JOIN supervise ON employment.emp_id = supervise.subordinate_id
-                JOIN employee sup ON sup.emp_id = supervise.supervisor_id
-                WHERE department = :department_id AND status = 2 
-                AND leave_application.from >= :from_date AND leave_application.to <= :to_date 
-                GROUP BY employee.emp_id ORDER BY supervise.supervisor_id;";
+        $sql = "SELECT * FROM supervisorEmpByDept 
+                WHERE department = :department_id
+                AND supervisorEmpByDept .from >= :from_date AND supervisorEmpByDept .to <= :to_date 
+                ORDER BY supervisorEmpByDept.supervisor_id;";
 
         $statement = $this->pdo->prepare($sql);
         $statement->execute(array(
